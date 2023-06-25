@@ -7,13 +7,22 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController {
+protocol OnboardingViewProtocol: AnyObject {
+    
+}
+
+final class OnboardingViewController: UIViewController {
+    
+    var presenter: OnboardingPresenterInputs!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .orange
+        
     }
+    
+}
+
+extension OnboardingViewController: OnboardingViewProtocol {
     
 }
