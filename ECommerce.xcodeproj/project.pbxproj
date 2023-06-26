@@ -18,6 +18,7 @@
 		B174C41E2A49BF190082ADDC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B174C41D2A49BF190082ADDC /* FirebaseAuth */; };
 		B174C4202A49BF190082ADDC /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B174C41F2A49BF190082ADDC /* FirebaseDatabase */; };
 		B17D35232A49D07B00591517 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B17D35222A49D07B00591517 /* IQKeyboardManagerSwift */; };
+		B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D35262A49D1DD00591517 /* AuthManager.swift */; };
 		B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E252A48B6F20085160E /* AppDelegate.swift */; };
 		B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E272A48B6F20085160E /* SceneDelegate.swift */; };
 		B19C8E2F2A48B6F30085160E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B19C8E2E2A48B6F30085160E /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		B174C4162A49AB930082ADDC /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		B174C4182A49AB9A0082ADDC /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		B174C41A2A49BA470082ADDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B17D35262A49D1DD00591517 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B19C8E222A48B6F20085160E /* ECommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19C8E252A48B6F20085160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B19C8E272A48B6F20085160E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B17D35242A49D1C800591517 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B17D35252A49D1D200591517 /* AuthManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B17D35252A49D1D200591517 /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				B17D35262A49D1DD00591517 /* AuthManager.swift */,
+			);
+			path = AuthManager;
+			sourceTree = "<group>";
+		};
 		B19C8E192A48B6F20085160E = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +180,7 @@
 				B19C8E392A48B7940085160E /* Core */,
 				B19C8E3C2A48B8010085160E /* Config */,
 				B19C8E3B2A48B7D60085160E /* Resources */,
+				B17D35242A49D1C800591517 /* Managers */,
 				B19C8E3A2A48B7C20085160E /* Modules */,
 			);
 			path = ECommerce;
@@ -312,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */,
+				B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */,
 				B1CB66C92A48D035008FF752 /* OnboardCell.swift in Sources */,
 				B1D18BA42A48BD85003F0E4C /* OnboardingRouter.swift in Sources */,
 				B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */,

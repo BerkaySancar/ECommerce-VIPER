@@ -8,7 +8,8 @@
 import Foundation
 
 protocol LoginPresenterInputs {
-    
+    func viewDidLoad()
+    func loginButtonTapped(email: String, password: String)
 }
 
 final class LoginPresenter {
@@ -25,7 +26,13 @@ final class LoginPresenter {
 }
 
 extension LoginPresenter: LoginPresenterInputs {
+    func viewDidLoad() {
+        
+    }
     
+    func loginButtonTapped(email: String, password: String) {
+        
+    }
 }
 
 extension LoginPresenter: LoginInteractorOutputs {
