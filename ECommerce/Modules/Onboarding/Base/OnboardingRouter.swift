@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol OnboardingRouterProtocol {
-    func toHome()
+    func toLogin()
 }
 
 final class OnboardingRouter {
@@ -36,7 +36,7 @@ final class OnboardingRouter {
 
 extension OnboardingRouter: OnboardingRouterProtocol {
     
-    func toHome() {
+    func toLogin() {
         
     }
 }
