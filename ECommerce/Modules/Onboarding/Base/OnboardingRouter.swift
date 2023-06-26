@@ -31,13 +31,12 @@ final class OnboardingRouter {
         
         return view
     }
-    
 }
 
 extension OnboardingRouter: OnboardingRouterProtocol {
     
     func toLogin() {
-        let nib = LoginViewController(nibName: "LoginView", bundle: nil)
-        view?.navigationController?.pushViewController(nib, animated: true)
+        let loginModule = LoginRouter.startLogin()
+        view?.navigationController?.setViewControllers([loginModule], animated: true)
     }
 }

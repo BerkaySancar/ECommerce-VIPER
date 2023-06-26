@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+protocol LoginInteractorInputs {
+    
+}
+
+protocol LoginInteractorOutputs: AnyObject {
+    
+}
+
+final class LoginInteractor {
+    weak var presenter: LoginInteractorOutputs?
+    
+}
+
+extension LoginInteractor: LoginInteractorInputs {
+    
+}
