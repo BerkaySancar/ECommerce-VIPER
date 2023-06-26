@@ -1,0 +1,42 @@
+//
+//  OnboardingRouter.swift
+//  ECommerce
+//
+//  Created by Berkay Sancar on 25.06.2023.
+//
+
+import Foundation
+import UIKit
+
+protocol OnboardingRouterProtocol {
+    func toLogin()
+}
+
+final class OnboardingRouter {
+    
+    private weak var view: UIViewController?
+    
+    init(view: UIViewController) {
+        self.view = view
+    }
+    
+    static func startOnboarding() -> UIViewController {
+        let view = OnboardingViewController()
+        let router = OnboardingRouter(view: view)
+        let interactor = OnboardingInteractor()
+        let presenter = OnboardingPresenter(view: view, interactor: interactor, router: router)
+        
+        view.presenter = presenter
+        interactor.presenter = presenter
+        
+        return view
+    }
+    
+}
+
+extension OnboardingRouter: OnboardingRouterProtocol {
+    
+    func toLogin() {
+        
+    }
+}
