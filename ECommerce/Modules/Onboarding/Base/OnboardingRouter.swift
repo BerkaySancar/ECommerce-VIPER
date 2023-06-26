@@ -37,6 +37,7 @@ final class OnboardingRouter {
 extension OnboardingRouter: OnboardingRouterProtocol {
     
     func toLogin() {
-        
+        let nib = LoginViewController(nibName: "LoginView", bundle: nil)
+        view?.navigationController?.pushViewController(nib, animated: true)
     }
 }
