@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewProtocol: AnyObject {
-    
+    func alert(title: String, message: String)
 }
 
 final class LoginViewController: UIViewController {
@@ -26,20 +26,18 @@ final class LoginViewController: UIViewController {
     }
     
     
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        guard let email = emailTextField.text,
-              let password = passwordTextField.text,
-              !email.isEmpty,
-              !password.isEmpty
-        else {
-            print("else")
-            return
-        }
-        
-        presenter.loginButtonTapped(email: email, password: password)
+    @IBAction private func loginButtonTapped(_ sender: UIButton) {
+        presenter.loginButtonTapped(email: emailTextField.text, password: passwordTextField.text)
     }
+    
+    @IBAction private func signUpButtonTapped(_ sender: UIButton) {
+        presenter.signUpButtonTapped()
+    }
+    
 }
 
 extension LoginViewController: LoginViewProtocol {
-    
+    func alert(title: String, message: String) {
+        showAlert(title: title, message: message)
+    }
 }

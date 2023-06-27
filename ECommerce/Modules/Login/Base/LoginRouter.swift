@@ -9,7 +9,8 @@ import Foundation
 import UIKit.UIViewController
 
 protocol LoginRouterProtocol {
-    
+    func toSignUp()
+    func toHome()
 }
 
 final class LoginRouter {
@@ -22,7 +23,7 @@ final class LoginRouter {
     static func startLogin() -> UIViewController {
         let view = LoginViewController(nibName: "LoginView", bundle: nil)
         let router = LoginRouter(view: view)
-        let interactor = LoginInteractor()
+        let interactor = LoginInteractor(authManager: AuthManager.shared)
         let presenter = LoginPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter
@@ -33,5 +34,13 @@ final class LoginRouter {
 }
 
 extension LoginRouter: LoginRouterProtocol {
+    func toSignUp() {
+        let signUpModule = SignUpRouter.startSignUp()
+        view?.navigationController?.pushViewController(signUpModule, animated: true)
+    }
     
+    func toHome() {
+        let homeVC = HomeViewController()
+        view?.navigationController?.pushViewController(homeVC, animated: true)
+    }
 }

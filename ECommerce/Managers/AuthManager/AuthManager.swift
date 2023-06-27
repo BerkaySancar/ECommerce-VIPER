@@ -9,9 +9,9 @@ import Foundation
 import FirebaseAuth
 
 protocol AuthManagerProtocol {
-    func login(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void)
-    func signUp(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void)
-    func signOut(completion: (Result<Void, Error>) -> Void)
+    func login(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
+    func signUp(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
+    func signOut(completion: (Result<Void, FirebaseError>) -> Void)
 }
 
 final class AuthManager {
@@ -25,32 +25,45 @@ final class AuthManager {
 
 extension AuthManager: AuthManagerProtocol {
     
-    func login(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        auth.signIn(withEmail: email, password: password) { (_, error)  in
+    func login(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void) {
+        auth.signIn(withEmail: email, password: password) { (result, error)  in
             if let error {
-                completion(.failure(error))
+                debugPrint(error)
+                completion(.failure(.loginError))
             } else {
-                completion(.success(()))
+                if let user = result?.user, user.isEmailVerified {
+                    completion(.success(()))
+                } else {
+                    completion(.failure(.emailNotVerified))
+                }
             }
         }
     }
     
-    func signUp(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        auth.createUser(withEmail: email, password: password) { (_, error) in
+    func signUp(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void) {
+        auth.createUser(withEmail: email, password: password) { (result, error) in
             if let error {
-                completion(.failure(error))
+                debugPrint(error)
+                completion(.failure(.signUpError))
             } else {
-                completion(.success(()))
+                result?.user.sendEmailVerification { error in
+                    if let error {
+                        debugPrint(error)
+                        completion(.failure(.sendEmailError))
+                    } else {
+                        completion(.success(()))
+                    }
+                }
             }
         }
     }
     
-    func signOut(completion: (Result<Void, Error>) -> Void) {
+    func signOut(completion: (Result<Void, FirebaseError>) -> Void) {
         do {
             try auth.signOut()
             completion(.success(()))
         } catch {
-            completion(.failure(error))
+            completion(.failure(.signOutError))
         }
     }
 }
