@@ -12,6 +12,7 @@ protocol LoginPresenterInputs {
     func loginButtonTapped(email: String?, password: String?)
     func signUpButtonTapped()
     func forgotPasswordTapped(email: String)
+    func googleSignInTapped()
 }
 
 final class LoginPresenter {
@@ -52,6 +53,10 @@ extension LoginPresenter: LoginPresenterInputs {
     
     func forgotPasswordTapped(email: String) {
         interactor?.forgotPassword(email: email)
+    }
+    
+    func googleSignInTapped() {
+        interactor?.googleSignIn()
     }
 }
 

@@ -40,6 +40,11 @@ final class LoginViewController: UIViewController {
             self.presenter.forgotPasswordTapped(email: email)
         }
     }
+    
+    @IBAction func googleSignInTapped(_ sender: UIButton) {
+        presenter.googleSignInTapped()
+    }
+    
 }
 
 extension LoginViewController: LoginViewProtocol {

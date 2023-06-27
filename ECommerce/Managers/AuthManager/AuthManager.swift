@@ -7,12 +7,15 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 
 protocol AuthManagerProtocol {
     func login(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
     func signUp(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
     func resetPassword(with email: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
     func signOut(completion: (Result<Void, FirebaseError>) -> Void)
+    func signInWithGoogle(completion: @escaping (Result<Void, FirebaseError>) -> Void)
 }
 
 final class AuthManager {
@@ -66,6 +69,43 @@ extension AuthManager: AuthManagerProtocol {
                 completion(.failure(.passwordResetError))
             } else {
                 completion(.success(()))
+            }
+        }
+    }
+    
+    func signInWithGoogle(completion: @escaping (Result<Void, FirebaseError>) -> Void) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first,
+              let rootViewController = window.rootViewController else {
+                  return
+              }
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [weak self] result, error in
+            guard let self else { return }
+            if let error {
+                debugPrint(error)
+            } else {
+                guard let user = result?.user,
+                      let idToken = user.idToken?.tokenString
+                else {
+                    return
+                }
+
+                let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                               accessToken: user.accessToken.tokenString)
+                
+                self.auth.signIn(with: credential) { _, error in
+                    if let error {
+                        debugPrint(error)
+                        completion(.failure(.googleSignInFailed))
+                    } else {
+                        completion(.success(()))
+                    }
+                }
             }
         }
     }

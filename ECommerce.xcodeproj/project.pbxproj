@@ -19,6 +19,8 @@
 		B174C4202A49BF190082ADDC /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B174C41F2A49BF190082ADDC /* FirebaseDatabase */; };
 		B17D35232A49D07B00591517 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B17D35222A49D07B00591517 /* IQKeyboardManagerSwift */; };
 		B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D35262A49D1DD00591517 /* AuthManager.swift */; };
+		B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17DC85C2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift */; };
+		B19BD1172A4AFE02002FBA48 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B19BD1162A4AFE02002FBA48 /* GoogleSignIn */; };
 		B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E252A48B6F20085160E /* AppDelegate.swift */; };
 		B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E272A48B6F20085160E /* SceneDelegate.swift */; };
 		B19C8E2F2A48B6F30085160E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B19C8E2E2A48B6F30085160E /* Assets.xcassets */; };
@@ -51,6 +53,7 @@
 		B174C4182A49AB9A0082ADDC /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		B174C41A2A49BA470082ADDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B17D35262A49D1DD00591517 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B17DC85C2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInWithGoogleButton.swift; sourceTree = "<group>"; };
 		B19C8E222A48B6F20085160E /* ECommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19C8E252A48B6F20085160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B19C8E272A48B6F20085160E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 				B17D35232A49D07B00591517 /* IQKeyboardManagerSwift in Frameworks */,
 				B1D18BAB2A48CDA1003F0E4C /* SnapKit in Frameworks */,
 				B174C41E2A49BF190082ADDC /* FirebaseAuth in Frameworks */,
+				B19BD1172A4AFE02002FBA48 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +182,14 @@
 			path = AuthManager;
 			sourceTree = "<group>";
 		};
+		B17DC85B2A4B158A00572CF1 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				B17DC85C2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		B19C8E192A48B6F20085160E = {
 			isa = PBXGroup;
 			children = (
@@ -197,10 +209,11 @@
 		B19C8E242A48B6F20085160E /* ECommerce */ = {
 			isa = PBXGroup;
 			children = (
-				B174C4042A497BB10082ADDC /* Utilities */,
 				B19C8E392A48B7940085160E /* Core */,
 				B19C8E3C2A48B8010085160E /* Config */,
 				B19C8E3B2A48B7D60085160E /* Resources */,
+				B17DC85B2A4B158A00572CF1 /* CustomViews */,
+				B174C4042A497BB10082ADDC /* Utilities */,
 				B1AD60602A4A2B8500BD5094 /* Entities */,
 				B17D35242A49D1C800591517 /* Managers */,
 				B19C8E3A2A48B7C20085160E /* Modules */,
@@ -346,6 +359,7 @@
 				B174C41F2A49BF190082ADDC /* FirebaseDatabase */,
 				B17D35222A49D07B00591517 /* IQKeyboardManagerSwift */,
 				B1E714442A4ABFB800552A8E /* SPAlert */,
+				B19BD1162A4AFE02002FBA48 /* GoogleSignIn */,
 			);
 			productName = ECommerce;
 			productReference = B19C8E222A48B6F20085160E /* ECommerce.app */;
@@ -380,6 +394,7 @@
 				B174C41C2A49BF190082ADDC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B17D35212A49D07B00591517 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				B1E714432A4ABFB800552A8E /* XCRemoteSwiftPackageReference "SPAlert" */,
+				B19BD1152A4AFE02002FBA48 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = B19C8E232A48B6F20085160E /* Products */;
 			projectDirPath = "";
@@ -411,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */,
+				B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */,
 				B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */,
 				B1CB66C92A48D035008FF752 /* OnboardCell.swift in Sources */,
 				B1D18BA42A48BD85003F0E4C /* OnboardingRouter.swift in Sources */,
@@ -663,6 +679,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		B19BD1152A4AFE02002FBA48 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		B1D18BA92A48CDA1003F0E4C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -696,6 +720,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B17D35212A49D07B00591517 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		B19BD1162A4AFE02002FBA48 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19BD1152A4AFE02002FBA48 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
 		};
 		B1D18BAA2A48CDA1003F0E4C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

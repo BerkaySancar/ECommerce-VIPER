@@ -10,6 +10,7 @@ import Foundation
 protocol LoginInteractorInputs {
     func login(email: String, password: String)
     func forgotPassword(email: String)
+    func googleSignIn()
 }
 
 protocol LoginInteractorOutputs: AnyObject {
@@ -52,6 +53,19 @@ extension LoginInteractor: LoginInteractorInputs {
                 presenter?.forgotPasswordSucceed()
             case .failure(let error):
                 presenter?.forgotPasswordFailed(error: error)
+            }
+        }
+    }
+    
+    func googleSignIn() {
+        authManager?.signInWithGoogle { [weak self] results in
+            guard let self else { return }
+            
+            switch results {
+            case .success(_):
+                presenter?.loginSucceed()
+            case .failure(let error):
+                presenter?.loginFailed(error: error)
             }
         }
     }
