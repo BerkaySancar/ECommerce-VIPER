@@ -13,6 +13,7 @@ enum FirebaseError: Error {
     case sendEmailError
     case signOutError
     case emailNotVerified
+    case passwordResetError
     
     var localizedDescription: String {
         switch self {
@@ -26,6 +27,8 @@ enum FirebaseError: Error {
             return NSLocalizedString("Sign out failed. Try again.", comment: "")
         case .emailNotVerified:
             return NSLocalizedString("Email not verified. Please check your email and verify your account.", comment: "")
+        case .passwordResetError:
+            return NSLocalizedString("Email not found.", comment: "")
         }
     }
 }

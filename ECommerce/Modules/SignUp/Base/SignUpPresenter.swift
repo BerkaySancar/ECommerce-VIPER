@@ -41,7 +41,7 @@ extension SignUpPresenter: SignUpPresenterInputs {
               !email.isEmpty,
               !password.isEmpty
         else {
-            view?.alert(title: "", message: GeneralError.emailPasswordEmpty.localizedDescription)
+            view?.presentAlert(title: "", message: GeneralError.emailPasswordEmpty.localizedDescription)
             return
         }
         
@@ -51,11 +51,11 @@ extension SignUpPresenter: SignUpPresenterInputs {
 
 extension SignUpPresenter: SignUpInteractorOutputs {
     func signUpSucceed() {
-        view?.alert(title: "Verification email sent", message: "After verification, you can login.")
+        view?.presentAlert(title: "Verification email sent", message: "After verification, you can login.")
         router?.toLogin()
     }
     
     func signUpFailed(error: FirebaseError) {
-        view?.alert(title: "", message: error.localizedDescription)
+        view?.presentAlert(title: "", message: error.localizedDescription)
     }
 }

@@ -8,12 +8,15 @@
 import Foundation
 
 protocol LoginInteractorInputs {
-    func loginTapped(email: String, password: String)
+    func login(email: String, password: String)
+    func forgotPassword(email: String)
 }
 
 protocol LoginInteractorOutputs: AnyObject {
     func loginFailed(error: FirebaseError)
     func loginSucceed()
+    func forgotPasswordSucceed()
+    func forgotPasswordFailed(error: FirebaseError)
 }
 
 final class LoginInteractor {
@@ -27,7 +30,7 @@ final class LoginInteractor {
 
 extension LoginInteractor: LoginInteractorInputs {
     
-    func loginTapped(email: String, password: String) {
+    func login(email: String, password: String) {
         authManager?.login(email: email, password: password) { [weak self] results in
             guard let self else { return }
             
@@ -36,6 +39,19 @@ extension LoginInteractor: LoginInteractorInputs {
                 presenter?.loginSucceed()
             case .failure(let error):
                 presenter?.loginFailed(error: error)
+            }
+        }
+    }
+    
+    func forgotPassword(email: String) {
+        authManager?.resetPassword(with: email) { [weak self] results in
+            guard let self else { return }
+            
+            switch results {
+            case .success(_):
+                presenter?.forgotPasswordSucceed()
+            case .failure(let error):
+                presenter?.forgotPasswordFailed(error: error)
             }
         }
     }

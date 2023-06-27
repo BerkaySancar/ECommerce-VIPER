@@ -11,6 +11,7 @@ protocol LoginPresenterInputs {
     func viewDidLoad()
     func loginButtonTapped(email: String?, password: String?)
     func signUpButtonTapped()
+    func forgotPasswordTapped(email: String)
 }
 
 final class LoginPresenter {
@@ -26,6 +27,7 @@ final class LoginPresenter {
     
 }
 
+// MARK: - Login Presenter Inputs
 extension LoginPresenter: LoginPresenterInputs {
     func viewDidLoad() {
         
@@ -37,24 +39,38 @@ extension LoginPresenter: LoginPresenterInputs {
               !email.isEmpty,
               !password.isEmpty
         else {
-            view?.alert(title: "", message: GeneralError.emailPasswordEmpty.localizedDescription)
+            view?.presentAlert(title: "", message: GeneralError.emailPasswordEmpty.localizedDescription)
             return
         }
         
-        interactor?.loginTapped(email: email, password: password)
+        interactor?.login(email: email, password: password)
     }
     
     func signUpButtonTapped() {
         router?.toSignUp()
     }
+    
+    func forgotPasswordTapped(email: String) {
+        interactor?.forgotPassword(email: email)
+    }
 }
+
+// MARK: - Login Interactor to Presenter
 
 extension LoginPresenter: LoginInteractorOutputs {
     func loginFailed(error: FirebaseError) {
-        view?.alert(title: "", message: error.localizedDescription)
+        view?.presentAlert(title: "", message: error.localizedDescription)
     }
     
     func loginSucceed() {
         router?.toHome()
+    }
+    
+    func forgotPasswordSucceed() {
+        view?.presentAlert(title: "Success", message: "Reset email send.")
+    }
+    
+    func forgotPasswordFailed(error: FirebaseError) {
+        view?.presentAlert(title: "", message: error.localizedDescription)
     }
 }

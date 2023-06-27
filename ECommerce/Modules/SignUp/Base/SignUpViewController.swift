@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SignUpViewProtocol: AnyObject {
-    func alert(title: String, message: String)
+    func presentAlert(title: String, message: String)
 }
 
 final class SignUpViewController: UIViewController {
@@ -33,7 +33,7 @@ final class SignUpViewController: UIViewController {
 
 extension SignUpViewController: SignUpViewProtocol {
     
-    func alert(title: String, message: String) {
+    func presentAlert(title: String, message: String) {
         showAlert(title: title, message: message) //from extension
     }
 }

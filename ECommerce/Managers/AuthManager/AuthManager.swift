@@ -11,6 +11,7 @@ import FirebaseAuth
 protocol AuthManagerProtocol {
     func login(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
     func signUp(email: String, password: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
+    func resetPassword(with email: String, completion: @escaping (Result<Void, FirebaseError>) -> Void)
     func signOut(completion: (Result<Void, FirebaseError>) -> Void)
 }
 
@@ -54,6 +55,17 @@ extension AuthManager: AuthManagerProtocol {
                         completion(.success(()))
                     }
                 }
+            }
+        }
+    }
+    
+    func resetPassword(with email: String, completion: @escaping (Result<Void, FirebaseError>) -> Void) {
+        auth.sendPasswordReset(withEmail: email) { error in
+            if let error {
+                debugPrint(error)
+                completion(.failure(.passwordResetError))
+            } else {
+                completion(.success(()))
             }
         }
     }
