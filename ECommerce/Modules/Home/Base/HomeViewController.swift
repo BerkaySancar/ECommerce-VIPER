@@ -12,6 +12,11 @@ protocol HomeViewProtocol: AnyObject {
     func prepareNavBarView()
     func prepareSearchBar()
     func prepareHomeCollectionView()
+    func prepareActivtyIndicatorView()
+    func startLoading()
+    func endLoading()
+    func dataRefreshed()
+    func onError(message: String)
 }
 
 final class HomeViewController: UIViewController {
@@ -36,6 +41,12 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .large)
+        aiv.hidesWhenStopped = true
+        return aiv
+    }()
+    
     internal var presenter: HomePresenterInputs!
     
 // MARK: Lifecycle
@@ -48,7 +59,7 @@ final class HomeViewController: UIViewController {
 
 // MARK: - HomeView protocols
 extension HomeViewController: HomeViewProtocol {
-    
+
     func setViewBackgroundColor(color: UIColor) {
         view.backgroundColor = color
     }
@@ -74,6 +85,29 @@ extension HomeViewController: HomeViewProtocol {
             make.left.right.bottom.equalToSuperview()
         }
     }
+    
+    func prepareActivtyIndicatorView() {
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
+    }
+    
+    func startLoading() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    func endLoading() {
+        activityIndicatorView.stopAnimating()
+    }
+    
+    func dataRefreshed() {
+        homeCollectionView.reloadData()
+    }
+    
+    func onError(message: String) {
+        showAlert(title: "", message: message)
+    }
 }
 
 // MARK: - Collection View Delegates
@@ -90,11 +124,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: CategoryTitleCell.identifier, for: indexPath) as? CategoryTitleCell else { return UICollectionViewCell() }
-            cell.setTitle(title: "")
+            cell.setTitle(title: presenter.showCategories()?[indexPath.item])
             return cell
         } else {
             let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
-            cell.showModel(title: "112121")
+            cell.showModel(model: presenter.showProducts()?[indexPath.item])
             return cell
         }
     }

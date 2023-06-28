@@ -11,8 +11,10 @@ protocol HomePresenterInputs {
     func viewDidLoad()
     func numberOfSection() -> Int
     func numberOfItemsInSection(section: Int) -> Int
-    func cellForItemAt(indexPath: IndexPath) -> String
+    func cellForItemAt(indexPath: IndexPath) -> ProductModel?
     func sizeForItemAt(indexPath: IndexPath) -> CGSize
+    func showProducts() -> [ProductModel]?
+    func showCategories() -> Categories?
 }
 
 final class HomePresenter {
@@ -33,6 +35,8 @@ extension HomePresenter: HomePresenterInputs {
         view?.prepareSearchBar()
         view?.prepareNavBarView()
         view?.prepareHomeCollectionView()
+        view?.prepareActivtyIndicatorView()
+        interactor?.getData()
     }
     
     func numberOfSection() -> Int {
@@ -41,28 +45,53 @@ extension HomePresenter: HomePresenterInputs {
     
     func numberOfItemsInSection(section: Int) -> Int {
         if section == 0 {
-            return 4
+            return interactor?.showCategories().count ?? 0
         } else {
-            return 10
+            return interactor?.showProducts().count ?? 0
         }
     }
     
-    func cellForItemAt(indexPath: IndexPath) -> String {
-        return "berkay"
+    func cellForItemAt(indexPath: IndexPath) -> ProductModel? {
+        return interactor?.showProducts()[indexPath.row]
     }
     
     func sizeForItemAt(indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            let arr = ["Electronics", "Jewelery", "Men's clothing", "Women's clothing"]
-            let title = arr[indexPath.item]
-            let width = title.width(withConstrainedHeight: 50, font: .systemFont(ofSize: 22))
-            return CGSize(width: width, height: 50)
+            let title = interactor?.showCategories()[indexPath.item]
+            let width = title?.width(withConstrainedHeight: 50, font: .systemFont(ofSize: 22))
+            return CGSize(width: width!, height: 50)
         } else {
             return .init(width: UIScreenBounds.width / 2.3, height: 300)
         }
     }
+    
+    func showProducts() -> [ProductModel]? {
+        return interactor?.showProducts()
+    }
+    
+    func showCategories() -> Categories? {
+        return interactor?.showCategories()
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputs {
+    func startLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.startLoading()
+        }
+    }
     
+    func endLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.endLoading()
+        }
+    }
+    
+    func dataRefreshed() {
+        view?.dataRefreshed()
+    }
+    
+    func onError(error: NetworkError) {
+        view?.onError(message: error.localizedDescription)
+    }
 }

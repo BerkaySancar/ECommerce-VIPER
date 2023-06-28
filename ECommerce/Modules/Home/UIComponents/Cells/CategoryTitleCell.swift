@@ -43,7 +43,7 @@ final class CategoryTitleCell: UICollectionViewCell {
         }
     }
     
-    func setTitle(title: String) {
+    func setTitle(title: String?) {
         titleButton.setTitle(title, for: .normal)
     }
     
