@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeViewProtocol: AnyObject {
-    
+    func prepareHomeCollectionView()
 }
 
 final class HomeViewController: UIViewController {
@@ -18,6 +18,7 @@ final class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return collectionView
     }()
 
@@ -27,13 +28,21 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        presenter.viewDidLoad()
     }
 }
 
 // MARK: - HomeView protocols
 extension HomeViewController: HomeViewProtocol {
-    
+    func prepareHomeCollectionView() {
+        view.addSubview(homeCollectionView)
+        
+        homeCollectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        homeCollectionView.backgroundColor = .gray
+    }
 }
 
 // MARK: - Collection View Delegates
@@ -43,7 +52,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        return cell
     }
 }
 

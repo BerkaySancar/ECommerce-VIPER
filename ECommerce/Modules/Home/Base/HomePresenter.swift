@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomePresenterInputs {
-    
+    func viewDidLoad()
 }
 
 final class HomePresenter {
@@ -24,7 +24,9 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterInputs {
-    
+    func viewDidLoad() {
+        view?.prepareHomeCollectionView()
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputs {
