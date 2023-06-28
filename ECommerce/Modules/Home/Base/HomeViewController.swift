@@ -31,7 +31,7 @@ final class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CategoryTitleCell.self, forCellWithReuseIdentifier: CategoryTitleCell.identifier)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
         collectionView.keyboardDismissMode = .onDrag
         return collectionView
     }()
@@ -93,8 +93,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.setTitle(title: "")
             return cell
         } else {
-            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-            cell.backgroundColor = .systemBackground
+            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
+            cell.showModel(title: "112121")
             return cell
         }
     }

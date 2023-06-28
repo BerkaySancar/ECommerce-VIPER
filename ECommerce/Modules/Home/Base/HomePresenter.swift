@@ -58,7 +58,7 @@ extension HomePresenter: HomePresenterInputs {
             let width = title.width(withConstrainedHeight: 50, font: .systemFont(ofSize: 22))
             return CGSize(width: width, height: 50)
         } else {
-            return .init(width: UIScreenBounds.width, height: 200)
+            return .init(width: UIScreenBounds.width / 2.3, height: 300)
         }
     }
 }

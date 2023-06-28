@@ -32,6 +32,8 @@
 		B1A6D6162A4C26BA005D45F3 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D6152A4C26BA005D45F3 /* CustomNavBarView.swift */; };
 		B1A6D61B2A4C3C8E005D45F3 /* CategoryTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D61A2A4C3C8E005D45F3 /* CategoryTitleCell.swift */; };
 		B1A6D61D2A4C6C60005D45F3 /* UIScreenBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D61C2A4C6C60005D45F3 /* UIScreenBounds.swift */; };
+		B1A6D61F2A4C7269005D45F3 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D61E2A4C7269005D45F3 /* ProductCell.swift */; };
+		B1A6D6212A4C740F005D45F3 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D6202A4C740F005D45F3 /* VerticalStackView.swift */; };
 		B1A9D31F2A4A16520033C3D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9D31D2A4A16520033C3D2 /* SignUpViewController.swift */; };
 		B1A9D3202A4A16520033C3D2 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A9D31E2A4A16520033C3D2 /* SignUpView.xib */; };
 		B1A9D3242A4A167B0033C3D2 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9D3232A4A167B0033C3D2 /* SignUpPresenter.swift */; };
@@ -73,6 +75,8 @@
 		B1A6D6152A4C26BA005D45F3 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
 		B1A6D61A2A4C3C8E005D45F3 /* CategoryTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTitleCell.swift; sourceTree = "<group>"; };
 		B1A6D61C2A4C6C60005D45F3 /* UIScreenBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenBounds.swift; sourceTree = "<group>"; };
+		B1A6D61E2A4C7269005D45F3 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		B1A6D6202A4C740F005D45F3 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		B1A9D31D2A4A16520033C3D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B1A9D31E2A4A16520033C3D2 /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		B1A9D3232A4A167B0033C3D2 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				B174C4072A497BCF0082ADDC /* SnappingLayout.swift */,
 				B1A6D61C2A4C6C60005D45F3 /* UIScreenBounds.swift */,
+				B1A6D6202A4C740F005D45F3 /* VerticalStackView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				B1A6D61A2A4C3C8E005D45F3 /* CategoryTitleCell.swift */,
+				B1A6D61E2A4C7269005D45F3 /* ProductCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 				B1A6D60E2A4C2111005D45F3 /* HomeInteractor.swift in Sources */,
 				B1CB66C92A48D035008FF752 /* OnboardCell.swift in Sources */,
 				B1A6D6162A4C26BA005D45F3 /* CustomNavBarView.swift in Sources */,
+				B1A6D6212A4C740F005D45F3 /* VerticalStackView.swift in Sources */,
 				B1D18BA42A48BD85003F0E4C /* OnboardingRouter.swift in Sources */,
 				B1AD60642A4A2C1E00BD5094 /* FirebaseError.swift in Sources */,
 				B1E714492A4AC70E00552A8E /* GeneralError.swift in Sources */,
@@ -510,6 +517,7 @@
 				B174C4152A49AB8C0082ADDC /* LoginRouter.swift in Sources */,
 				B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */,
 				B1A9D3242A4A167B0033C3D2 /* SignUpPresenter.swift in Sources */,
+				B1A6D61F2A4C7269005D45F3 /* ProductCell.swift in Sources */,
 				B1A9D3282A4A168B0033C3D2 /* SignUpInteractor.swift in Sources */,
 				B1D18BA82A48BD9F003F0E4C /* OnboardingInteractor.swift in Sources */,
 			);
