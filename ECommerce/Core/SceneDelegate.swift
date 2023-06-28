@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        if let currentUser = Auth.auth().currentUser {
-            window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        if Auth.auth().currentUser != nil {
+            window?.rootViewController = UINavigationController(rootViewController: HomeRouter.startHomeModule())
         } else {
             /// We can make the onboarding page visible only once, but it is not important for this project.
             window?.rootViewController = UINavigationController(rootViewController: OnboardingRouter.startOnboarding())
