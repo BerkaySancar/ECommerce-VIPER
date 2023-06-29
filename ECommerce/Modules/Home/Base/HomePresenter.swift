@@ -15,6 +15,7 @@ protocol HomePresenterInputs {
     func sizeForItemAt(indexPath: IndexPath) -> CGSize
     func showProducts() -> [ProductModel]?
     func showCategories() -> Categories?
+    func searchTextDidChange(text: String?)
 }
 
 final class HomePresenter {
@@ -29,6 +30,7 @@ final class HomePresenter {
     }
 }
 
+// MARK: - Home Presenter Inputs
 extension HomePresenter: HomePresenterInputs {
     func viewDidLoad() {
         view?.setViewBackgroundColor(color: .systemBackground)
@@ -37,6 +39,7 @@ extension HomePresenter: HomePresenterInputs {
         view?.prepareHomeCollectionView()
         view?.prepareActivtyIndicatorView()
         interactor?.getData()
+        interactor?.getUserProfilePictureAndEmail()
     }
     
     func numberOfSection() -> Int {
@@ -57,9 +60,9 @@ extension HomePresenter: HomePresenterInputs {
     
     func sizeForItemAt(indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            let title = interactor?.showCategories()[indexPath.item]
+            let title = interactor?.showCategories()[indexPath.item].capitalized
             let width = title?.width(withConstrainedHeight: 50, font: .systemFont(ofSize: 22))
-            return CGSize(width: width!, height: 50)
+            return CGSize(width: width!, height: 40)
         } else {
             return .init(width: UIScreenBounds.width / 2.3, height: 300)
         }
@@ -70,11 +73,19 @@ extension HomePresenter: HomePresenterInputs {
     }
     
     func showCategories() -> Categories? {
-        return interactor?.showCategories()
+        return interactor?.showCategories().map { $0.capitalized }
+    }
+    
+    func searchTextDidChange(text: String?) {
+        if let text {
+            interactor?.searchTextDidChange(text: text)
+        }
     }
 }
 
+// MARK: - Home Interactor to Presenter
 extension HomePresenter: HomeInteractorOutputs {
+    
     func startLoading() {
         DispatchQueue.main.async { [weak self] in
             self?.view?.startLoading()
@@ -93,5 +104,9 @@ extension HomePresenter: HomeInteractorOutputs {
     
     func onError(error: NetworkError) {
         view?.onError(message: error.localizedDescription)
+    }
+    
+    func showProfileImage(imageURLString: String?, email: String?) {
+        view?.setProfileImage(urlString: imageURLString, email: email)
     }
 }

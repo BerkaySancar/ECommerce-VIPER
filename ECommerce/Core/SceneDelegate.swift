@@ -31,6 +31,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        AuthManager.shared.signOut { result in
+            switch result {
+            case .success(_):
+                window?.rootViewController = OnboardingRouter.startOnboarding()
+            case .failure(_):
+                print("err")
+            }
+        }
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

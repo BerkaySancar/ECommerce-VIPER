@@ -23,7 +23,7 @@ final class HomeRouter {
     static func startHomeModule() -> UIViewController {
         let view = HomeViewController()
         let router = HomeRouter(view: view)
-        let interactor = HomeInteractor(service: ProductsService.shared)
+        let interactor = HomeInteractor(service: ProductsService.shared, manager: UserInfoManager.shared)
         let presenter = HomePresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

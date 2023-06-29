@@ -17,6 +17,7 @@ protocol HomeViewProtocol: AnyObject {
     func endLoading()
     func dataRefreshed()
     func onError(message: String)
+    func setProfileImage(urlString: String?, email: String?)
 }
 
 final class HomeViewController: UIViewController {
@@ -26,7 +27,8 @@ final class HomeViewController: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search anything"
-        searchBar.searchBarStyle = .prominent
+        searchBar.searchBarStyle = .minimal
+        searchBar.delegate = self
         return searchBar
     }()
     
@@ -49,17 +51,17 @@ final class HomeViewController: UIViewController {
     
     internal var presenter: HomePresenterInputs!
     
-// MARK: Lifecycle
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         presenter.viewDidLoad()
     }
 }
 
-// MARK: - HomeView protocols
+// MARK: - HomeView Protocols
 extension HomeViewController: HomeViewProtocol {
-
+    
     func setViewBackgroundColor(color: UIColor) {
         view.backgroundColor = color
     }
@@ -73,10 +75,10 @@ extension HomeViewController: HomeViewProtocol {
         
         searchBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(8)
         }
     }
-   
+    
     func prepareHomeCollectionView() {
         view.addSubview(homeCollectionView)
         
@@ -107,6 +109,17 @@ extension HomeViewController: HomeViewProtocol {
     
     func onError(message: String) {
         showAlert(title: "", message: message)
+    }
+    
+    func setProfileImage(urlString: String?, email: String?) {
+        navBarView.showModel(model: .init(profileImageURLString: urlString, userEmail: email))
+    }
+}
+
+// MARK: - Search bar delegate
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter.searchTextDidChange(text: searchText)
     }
 }
 
@@ -141,12 +154,3 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         .init(top: 8, left: 16, bottom: 0, right: 16)
     }
 }
-
-extension String {
-    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return ceil(boundingBox.width)
-    }
-}
-

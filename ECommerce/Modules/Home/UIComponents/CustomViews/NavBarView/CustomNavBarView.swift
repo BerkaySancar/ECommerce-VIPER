@@ -6,17 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class CustomNavBarView: UIView {
     
-    static let identifier = "HomeHeader"
-    
     private lazy var profilePhotoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.lightGray.cgColor
         imageView.layer.cornerRadius = 27
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -43,11 +43,8 @@ final class CustomNavBarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         addSubview(stackView)
-        
-        profilePhotoImageView.backgroundColor = .red
-        userNameLabel.text = "berkay"
         
         profilePhotoImageView.snp.makeConstraints { make in
             make.width.height.equalTo(54)
@@ -57,5 +54,10 @@ final class CustomNavBarView: UIView {
             make.left.equalToSuperview().offset(16)
             make.top.equalToSuperview().offset(16)
         }
+    }
+    
+    func showModel(model: NavBarViewModel) {
+        profilePhotoImageView.sd_setImage(with: URL(string: model.profileImageURLString ?? "https://picsum.photos/seed/picsum/500/500"))
+        userNameLabel.text = model.userEmail
     }
 }
