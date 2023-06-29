@@ -6,19 +6,23 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+       
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: OnboardingRouter.startOnboarding())
+        if Auth.auth().currentUser != nil {
+            window?.rootViewController = UINavigationController(rootViewController: HomeRouter.startHomeModule())
+        } else {
+            /// We can make the onboarding page visible only once, but it is not important for this project.
+            window?.rootViewController = UINavigationController(rootViewController: OnboardingRouter.startOnboarding())
+        }
         window?.makeKeyAndVisible()
     }
 
@@ -27,6 +31,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        AuthManager.shared.signOut { result in
+            switch result {
+            case .success(_):
+                window?.rootViewController = OnboardingRouter.startOnboarding()
+            case .failure(_):
+                print("err")
+            }
+        }
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

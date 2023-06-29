@@ -40,7 +40,7 @@ extension LoginRouter: LoginRouterProtocol {
     }
     
     func toHome() {
-        let homeVC = HomeViewController()
-        view?.navigationController?.pushViewController(homeVC, animated: true)
+        let homeModule = HomeRouter.startHomeModule()
+        view?.navigationController?.setViewControllers([homeModule], animated: true)
     }
 }
