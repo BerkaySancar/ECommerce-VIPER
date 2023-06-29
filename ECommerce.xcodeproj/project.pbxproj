@@ -29,6 +29,12 @@
 		B1A4B24C2A4D80A6002F2E31 /* NavBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B24B2A4D80A6002F2E31 /* NavBarViewModel.swift */; };
 		B1A4B24F2A4D82D0002F2E31 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B24E2A4D82D0002F2E31 /* UserInfoManager.swift */; };
 		B1A4B2512A4D9C29002F2E31 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B2502A4D9C29002F2E31 /* String+Extension.swift */; };
+		B1A4B2542A4DD252002F2E31 /* ProductDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B2532A4DD252002F2E31 /* ProductDetailRouter.swift */; };
+		B1A4B2562A4DD25A002F2E31 /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B2552A4DD25A002F2E31 /* ProductDetailInteractor.swift */; };
+		B1A4B2582A4DD266002F2E31 /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B2572A4DD266002F2E31 /* ProductDetailPresenter.swift */; };
+		B1A4B25A2A4DD3D4002F2E31 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B2592A4DD3D4002F2E31 /* ProductDetailViewController.swift */; };
+		B1A4B25F2A4DD736002F2E31 /* ProductDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B25E2A4DD736002F2E31 /* ProductDetailCell.swift */; };
+		B1A4B2642A4DF390002F2E31 /* AddBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4B2632A4DF390002F2E31 /* AddBasketView.swift */; };
 		B1A6D60E2A4C2111005D45F3 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D60D2A4C2111005D45F3 /* HomeInteractor.swift */; };
 		B1A6D6102A4C21B1005D45F3 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D60F2A4C21B1005D45F3 /* HomePresenter.swift */; };
 		B1A6D6122A4C21E3005D45F3 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6D6112A4C21E3005D45F3 /* HomeRouter.swift */; };
@@ -84,6 +90,12 @@
 		B1A4B24B2A4D80A6002F2E31 /* NavBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarViewModel.swift; sourceTree = "<group>"; };
 		B1A4B24E2A4D82D0002F2E31 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		B1A4B2502A4D9C29002F2E31 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B1A4B2532A4DD252002F2E31 /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
+		B1A4B2552A4DD25A002F2E31 /* ProductDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInteractor.swift; sourceTree = "<group>"; };
+		B1A4B2572A4DD266002F2E31 /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
+		B1A4B2592A4DD3D4002F2E31 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		B1A4B25E2A4DD736002F2E31 /* ProductDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCell.swift; sourceTree = "<group>"; };
+		B1A4B2632A4DF390002F2E31 /* AddBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBasketView.swift; sourceTree = "<group>"; };
 		B1A6D60D2A4C2111005D45F3 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		B1A6D60F2A4C21B1005D45F3 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		B1A6D6112A4C21E3005D45F3 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -279,6 +291,7 @@
 		B19C8E3A2A48B7C20085160E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B1A4B2522A4DD237002F2E31 /* ProductDetail */,
 				B1A9D31C2A4A16390033C3D2 /* SignUp */,
 				B174C40D2A49AA0A0082ADDC /* Login */,
 				B19C8E3E2A48B8200085160E /* Home */,
@@ -338,6 +351,51 @@
 				B1A4B24E2A4D82D0002F2E31 /* UserInfoManager.swift */,
 			);
 			path = UserInfoManager;
+			sourceTree = "<group>";
+		};
+		B1A4B2522A4DD237002F2E31 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B1A4B25C2A4DD6E6002F2E31 /* UIComponents */,
+				B1A4B25B2A4DD3DC002F2E31 /* Base */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		B1A4B25B2A4DD3DC002F2E31 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B1A4B2592A4DD3D4002F2E31 /* ProductDetailViewController.swift */,
+				B1A4B2572A4DD266002F2E31 /* ProductDetailPresenter.swift */,
+				B1A4B2552A4DD25A002F2E31 /* ProductDetailInteractor.swift */,
+				B1A4B2532A4DD252002F2E31 /* ProductDetailRouter.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B1A4B25C2A4DD6E6002F2E31 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B1A4B2622A4DF35F002F2E31 /* CustomViews */,
+				B1A4B25D2A4DD6EF002F2E31 /* Cells */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		B1A4B25D2A4DD6EF002F2E31 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B1A4B25E2A4DD736002F2E31 /* ProductDetailCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B1A4B2622A4DF35F002F2E31 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				B1A4B2632A4DF390002F2E31 /* AddBasketView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		B1A6D6132A4C2663005D45F3 /* Base */ = {
@@ -596,12 +654,17 @@
 				B1A6D60E2A4C2111005D45F3 /* HomeInteractor.swift in Sources */,
 				B1CB66C92A48D035008FF752 /* OnboardCell.swift in Sources */,
 				B1A6D6162A4C26BA005D45F3 /* CustomNavBarView.swift in Sources */,
+				B1A4B2542A4DD252002F2E31 /* ProductDetailRouter.swift in Sources */,
+				B1A4B2562A4DD25A002F2E31 /* ProductDetailInteractor.swift in Sources */,
 				B1A6D6212A4C740F005D45F3 /* VerticalStackView.swift in Sources */,
 				B1D18BA42A48BD85003F0E4C /* OnboardingRouter.swift in Sources */,
+				B1A4B2582A4DD266002F2E31 /* ProductDetailPresenter.swift in Sources */,
 				B1AD60642A4A2C1E00BD5094 /* FirebaseError.swift in Sources */,
+				B1A4B2642A4DF390002F2E31 /* AddBasketView.swift in Sources */,
 				B1A6D6372A4CAC6A005D45F3 /* ProductModel.swift in Sources */,
 				B1A6D6262A4C9EA6005D45F3 /* NetworkError.swift in Sources */,
 				B1E714492A4AC70E00552A8E /* GeneralError.swift in Sources */,
+				B1A4B25A2A4DD3D4002F2E31 /* ProductDetailViewController.swift in Sources */,
 				B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */,
 				B1B2A6682A4CC3B500979E18 /* Categories.swift in Sources */,
 				B1A6D61D2A4C6C60005D45F3 /* UIScreenBounds.swift in Sources */,
@@ -623,6 +686,7 @@
 				B174C4192A49AB9A0082ADDC /* LoginPresenter.swift in Sources */,
 				B1A6D6122A4C21E3005D45F3 /* HomeRouter.swift in Sources */,
 				B174C4172A49AB930082ADDC /* LoginInteractor.swift in Sources */,
+				B1A4B25F2A4DD736002F2E31 /* ProductDetailCell.swift in Sources */,
 				B1A6D62B2A4C9F0E005D45F3 /* EndpointProtocol.swift in Sources */,
 				B174C4152A49AB8C0082ADDC /* LoginRouter.swift in Sources */,
 				B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */,
