@@ -10,6 +10,7 @@ import Foundation
 enum NetworkError: Error {
     case invalidURL
     case invalidResponse
+    case invalidURLRequest
     case requestFailed
     
     var localizedDescription: String {
@@ -20,6 +21,8 @@ enum NetworkError: Error {
             return NSLocalizedString("Invalid response.", comment: "")
         case .requestFailed:
             return NSLocalizedString("Request failed.", comment: "")
+        case .invalidURLRequest:
+            return NSLocalizedString("Invalid URL Request.", comment: "")
         }
     }
 }

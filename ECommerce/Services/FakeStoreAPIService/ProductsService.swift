@@ -32,7 +32,7 @@ extension ProductsService: ProductsServiceProtocol {
         group.enter()
         do {
             let endpoint = ProductsEndpoint.allProducts
-            let decodedProducts: [ProductModel] = try await networkManager.apiRequest(endpoint: endpoint)
+            let decodedProducts: [ProductModel] = try await networkManager.request(endpoint: endpoint)
             products = decodedProducts
             group.leave()
         } catch let error as NetworkError {
@@ -44,7 +44,7 @@ extension ProductsService: ProductsServiceProtocol {
         group.enter()
         do {
             let endpoint = ProductsEndpoint.categories
-            let decodedCategories: Categories = try await networkManager.apiRequest(endpoint: endpoint)
+            let decodedCategories: Categories = try await networkManager.request(endpoint: endpoint)
             categories = decodedCategories
             group.leave()
         } catch let error as NetworkError {
