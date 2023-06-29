@@ -22,7 +22,7 @@ final class ProductDetailPresenter {
     
     private var productModel: ProductModel? {
         didSet {
-            view?.setBasketViewPriceLabel(price: String(productModel?.price ?? 0))
+            view?.setBasketViewPriceLabel(price: "$" + String(productModel?.price ?? 0))
             dataRefreshed()
         }
     }
@@ -36,7 +36,7 @@ final class ProductDetailPresenter {
 
 extension ProductDetailPresenter: ProductDetailPresenterInputs {
     func viewDidLoad() {
-        view?.setNavigationTitle(title: "Detail")
+        view?.setNavBar()
         view?.setBackgroundColor(color: .systemBackground)
         view?.prepareAddBasketView()
         view?.prepareCollectionView()

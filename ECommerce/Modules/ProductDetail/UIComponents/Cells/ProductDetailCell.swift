@@ -8,6 +8,11 @@
 import UIKit
 import SDWebImage
 
+protocol ProductDetailCellButtonsDelegate: AnyObject {
+    func backTapped()
+    func favButtonTapped()
+}
+
 final class ProductDetailCell: UICollectionViewCell {
     
     static let identifier = "ProductDetailCell"
@@ -30,6 +35,15 @@ final class ProductDetailCell: UICollectionViewCell {
                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 44)),
                         for: UIControl.State.selected)
         button.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(.init(systemName: "arrowshape.backward.fill",
+                              withConfiguration: UIImage.SymbolConfiguration(pointSize: 44)), for: UIControl.State.normal)
+        button.tintColor = .label
+        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
         return button
     }()
     
@@ -78,6 +92,8 @@ final class ProductDetailCell: UICollectionViewCell {
                                                                        customSpacerView],
                                                     spacing: 16)
     
+    weak var delegate: ProductDetailCellButtonsDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpConstraints()
@@ -92,6 +108,7 @@ final class ProductDetailCell: UICollectionViewCell {
     private func setUpConstraints() {
         addSubview(vStackView)
         contentView.addSubview(productFavButton)
+        contentView.addSubview(backButton)
             
         productImageView.snp.makeConstraints { make in
             make.width.equalTo(snp.width)
@@ -99,8 +116,13 @@ final class ProductDetailCell: UICollectionViewCell {
         }
         
         productFavButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
+            make.top.equalToSuperview().offset(20)
             make.right.equalToSuperview()
+        }
+        
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(productFavButton)
+            make.left.equalToSuperview()
         }
         
         vStackView.snp.makeConstraints { make in
@@ -117,6 +139,11 @@ final class ProductDetailCell: UICollectionViewCell {
     
     @objc private func favButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
-        print("tapped")
+        delegate?.favButtonTapped()
+        
+    }
+    
+    @objc private func backTapped(_ sender: UIButton) {
+        delegate?.backTapped()
     }
 }

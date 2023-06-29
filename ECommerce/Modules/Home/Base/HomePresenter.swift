@@ -9,10 +9,12 @@ import Foundation
 
 protocol HomePresenterInputs {
     func viewDidLoad()
+    func viewWillAppear()
     func numberOfSection() -> Int
     func numberOfItemsInSection(section: Int) -> Int
     func cellForItemAt(indexPath: IndexPath) -> ProductModel?
     func sizeForItemAt(indexPath: IndexPath) -> CGSize
+    func didSelectItemAt(indexPath: IndexPath)
     func showProducts() -> [ProductModel]?
     func showCategories() -> Categories?
     func searchTextDidChange(text: String?)
@@ -43,6 +45,10 @@ extension HomePresenter: HomePresenterInputs {
         interactor?.getUserProfilePictureAndEmail()
     }
     
+    func viewWillAppear() {
+        view?.setNavBarUnhidden()
+    }
+    
     func numberOfSection() -> Int {
         return 2
     }
@@ -66,6 +72,14 @@ extension HomePresenter: HomePresenterInputs {
             return CGSize(width: width!, height: 40)
         } else {
             return .init(width: UIScreenBounds.width / 2.3, height: 300)
+        }
+    }
+    
+    func didSelectItemAt(indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if let id = interactor?.showProducts()[indexPath.item].id {
+                router?.toDetail(id: id)
+            }
         }
     }
     

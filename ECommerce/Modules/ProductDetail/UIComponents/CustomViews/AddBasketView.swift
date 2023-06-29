@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddBasketButtonDelegate: AnyObject {
+    func addBasketTapped()
+}
+
 final class AddBasketView: UIView {
     
     lazy var priceLabel: UILabel = {
@@ -36,6 +40,8 @@ final class AddBasketView: UIView {
         stackView.alignment = .center
         return stackView
     }()
+    
+    weak var delegate: AddBasketButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,6 +73,6 @@ final class AddBasketView: UIView {
     }
     
     @objc private func addButtonTapped() {
-        print("tapped")
+        delegate?.addBasketTapped()
     }
 }

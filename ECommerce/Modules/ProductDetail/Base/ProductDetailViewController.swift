@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProductDetailViewProtocol: AnyObject {
-    func setNavigationTitle(title: String)
+    func setNavBar()
     func setBackgroundColor(color: UIColor)
     func prepareCollectionView()
     func prepareActivtyIndicatorView()
@@ -61,13 +61,15 @@ extension ProductDetailViewController: ProductDetailViewProtocol {
         view.backgroundColor = color
     }
     
-    func setNavigationTitle(title: String) {
-        self.title = title
+    func setNavBar() {
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationItem.hidesBackButton = true
     }
     
     func prepareAddBasketView() {
         view.addSubview(customAddBasketView)
         customAddBasketView.layer.shadowOpacity = 1
+        customAddBasketView.delegate = self
         
         customAddBasketView.snp.makeConstraints { make in
             make.height.equalTo(100)
@@ -114,6 +116,22 @@ extension ProductDetailViewController: ProductDetailViewProtocol {
     }
 }
 
+extension ProductDetailViewController: ProductDetailCellButtonsDelegate {
+    func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func favButtonTapped() {
+        print("fav")
+    }
+}
+
+extension ProductDetailViewController: AddBasketButtonDelegate {
+    func addBasketTapped() {
+        
+    }
+}
+
 // MARK: - Detail Collection View Delegates & DataSource
 extension ProductDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -124,6 +142,7 @@ extension ProductDetailViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = detailCollectionView.dequeueReusableCell(withReuseIdentifier: ProductDetailCell.identifier, for: indexPath) as? ProductDetailCell else { return UICollectionViewCell()}
         cell.showModel(model: presenter.showModel())
+        cell.delegate = self
         return cell
     }
     
