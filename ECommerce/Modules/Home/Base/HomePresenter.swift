@@ -16,6 +16,7 @@ protocol HomePresenterInputs {
     func showProducts() -> [ProductModel]?
     func showCategories() -> Categories?
     func searchTextDidChange(text: String?)
+    func categorySelected(category: String)
 }
 
 final class HomePresenter {
@@ -81,6 +82,10 @@ extension HomePresenter: HomePresenterInputs {
             interactor?.searchTextDidChange(text: text)
         }
     }
+    
+    func categorySelected(category: String) {
+        interactor?.getCategoryProducts(category: category)
+    }
 }
 
 // MARK: - Home Interactor to Presenter
@@ -106,7 +111,7 @@ extension HomePresenter: HomeInteractorOutputs {
         view?.onError(message: error.localizedDescription)
     }
     
-    func showProfileImage(imageURLString: String?, email: String?) {
-        view?.setProfileImage(urlString: imageURLString, email: email)
+    func showProfileImageAndEmail(model: NavBarViewModel) {
+        view?.setProfileImageAndUserEmail(model: model)
     }
 }

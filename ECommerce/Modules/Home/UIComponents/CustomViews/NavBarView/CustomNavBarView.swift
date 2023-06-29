@@ -23,12 +23,22 @@ final class CustomNavBarView: UIView {
     private lazy var userNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
+        label.font = .boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
+    private lazy var welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
     private lazy var stackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [profilePhotoImageView, userNameLabel])
+        let stackView = UIStackView(arrangedSubviews: [profilePhotoImageView,
+                                                       VerticalStackView(arrangedSubviews: [welcomeLabel,
+                                                                                            userNameLabel],
+                                                                         spacing: 8)])
         stackView.spacing = 8
         stackView.alignment = .center
         return stackView
@@ -57,6 +67,7 @@ final class CustomNavBarView: UIView {
     }
     
     func showModel(model: NavBarViewModel) {
+        welcomeLabel.text = "Welcome,"
         profilePhotoImageView.sd_setImage(with: URL(string: model.profileImageURLString ?? "https://picsum.photos/seed/picsum/500/500"))
         userNameLabel.text = model.userEmail
     }

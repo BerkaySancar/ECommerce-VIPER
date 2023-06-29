@@ -37,7 +37,7 @@ final class ProductCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .label
         label.font = .systemFont(ofSize: 20)
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
     
@@ -67,7 +67,7 @@ final class ProductCell: UICollectionViewCell {
         
         productImageView.snp.makeConstraints { make in
             make.width.equalTo(snp.width)
-            make.height.equalTo(snp.height).inset(26)
+            make.height.equalTo(snp.height).inset(36)
         }
         
         productFavButton.snp.makeConstraints { make in

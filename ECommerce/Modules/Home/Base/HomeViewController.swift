@@ -17,7 +17,7 @@ protocol HomeViewProtocol: AnyObject {
     func endLoading()
     func dataRefreshed()
     func onError(message: String)
-    func setProfileImage(urlString: String?, email: String?)
+    func setProfileImageAndUserEmail(model: NavBarViewModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -90,6 +90,7 @@ extension HomeViewController: HomeViewProtocol {
     
     func prepareActivtyIndicatorView() {
         view.addSubview(activityIndicatorView)
+        
         activityIndicatorView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
@@ -111,8 +112,8 @@ extension HomeViewController: HomeViewProtocol {
         showAlert(title: "", message: message)
     }
     
-    func setProfileImage(urlString: String?, email: String?) {
-        navBarView.showModel(model: .init(profileImageURLString: urlString, userEmail: email))
+    func setProfileImageAndUserEmail(model: NavBarViewModel) {
+        navBarView.showModel(model: model)
     }
 }
 
@@ -120,6 +121,13 @@ extension HomeViewController: HomeViewProtocol {
 extension HomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.searchTextDidChange(text: searchText)
+    }
+}
+
+// MARK: - Category button delegate
+extension HomeViewController: CategoryTitleCellButtonDelegete {
+    func titleTapped(selectedTitle: String) {
+        presenter.categorySelected(category: selectedTitle)
     }
 }
 
@@ -138,6 +146,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.section == 0 {
             guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: CategoryTitleCell.identifier, for: indexPath) as? CategoryTitleCell else { return UICollectionViewCell() }
             cell.setTitle(title: presenter.showCategories()?[indexPath.item])
+            cell.delegate = self
             return cell
         } else {
             let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
@@ -152,5 +161,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         .init(top: 8, left: 16, bottom: 0, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }

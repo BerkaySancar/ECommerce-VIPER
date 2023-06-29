@@ -11,6 +11,7 @@ enum ProductsEndpoint: EndpointProtocol {
     
     case allProducts
     case categories
+    case category(String)
     
     var baseURL: URL {
         guard let url = URL(string: "https://fakestoreapi.com") else {
@@ -24,7 +25,9 @@ enum ProductsEndpoint: EndpointProtocol {
         case .allProducts:
             return "/products"
         case .categories:
-            return "/products/categories"
+            return "\(ProductsEndpoint.allProducts.path)/categories"
+        case .category(let category):
+            return "\(ProductsEndpoint.allProducts.path)/category/\(category)"
         }
     }
     
@@ -33,6 +36,8 @@ enum ProductsEndpoint: EndpointProtocol {
         case .allProducts:
             return .get
         case .categories:
+            return .get
+        case .category:
             return .get
         }
     }
@@ -46,6 +51,8 @@ enum ProductsEndpoint: EndpointProtocol {
         case .allProducts:
             return nil
         case .categories:
+            return nil
+        case .category:
             return nil
         }
     }

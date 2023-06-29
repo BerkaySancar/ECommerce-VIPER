@@ -7,10 +7,12 @@
 
 import Foundation
 
-typealias CompletionHandler = (Result<(products: [ProductModel], categories: Categories), NetworkError>) -> Void
+typealias ProductsAndCategoriesHandler = (Result<(products: [ProductModel], categories: Categories), NetworkError>) -> Void
+typealias CategoryProductsHandler = (Result<[ProductModel], NetworkError>) -> Void
 
 protocol ProductsServiceProtocol {
-    func fetchProductsAndCategories(completion: @escaping CompletionHandler) async throws 
+    func fetchProductsAndCategories(completion: @escaping ProductsAndCategoriesHandler) async throws
+    func fetchCategoryProducts(category: String, completion: @escaping CategoryProductsHandler) async throws
 }
 
 final class ProductsService {
@@ -23,8 +25,8 @@ final class ProductsService {
 }
 
 extension ProductsService: ProductsServiceProtocol {
-    
-    func fetchProductsAndCategories(completion: @escaping CompletionHandler) async throws {
+  
+    func fetchProductsAndCategories(completion: @escaping ProductsAndCategoriesHandler) async throws {
         let group = DispatchGroup()
         var products: [ProductModel] = []
         var categories: Categories = []
@@ -55,6 +57,17 @@ extension ProductsService: ProductsServiceProtocol {
         
         group.notify(queue: .main) { 
             completion(.success((products, categories)))
+        }
+    }
+    
+    func fetchCategoryProducts(category: String, completion: @escaping CategoryProductsHandler) async throws {
+        do {
+            let endpoint = ProductsEndpoint.category(category)
+            let products: [ProductModel] = try await networkManager.request(endpoint: endpoint)
+            completion(.success(products))
+        } catch let error as NetworkError {
+            print(error.localizedDescription)
+            throw error
         }
     }
 }

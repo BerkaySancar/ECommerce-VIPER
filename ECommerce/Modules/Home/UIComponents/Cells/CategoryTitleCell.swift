@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol CategoryTitleCellButtonDelegete: AnyObject {
+    func titleTapped(selectedTitle: String)
+}
+
 final class CategoryTitleCell: UICollectionViewCell {
     
     static let identifier = "CategoryTitleCell"
@@ -21,6 +25,8 @@ final class CategoryTitleCell: UICollectionViewCell {
         button.addTarget(self, action: #selector(titleTapped), for: .touchUpInside)
         return button
     }()
+    
+    weak var delegate: CategoryTitleCellButtonDelegete?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +53,7 @@ final class CategoryTitleCell: UICollectionViewCell {
         titleButton.setTitle(title, for: .normal)
     }
     
-    @objc private func titleTapped() {
-        print("tapped")
+    @objc private func titleTapped(_ sender: UIButton) {
+        delegate?.titleTapped(selectedTitle: sender.titleLabel!.text!)
     }
 }

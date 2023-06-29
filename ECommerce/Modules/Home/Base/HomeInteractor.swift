@@ -13,6 +13,7 @@ protocol HomeInteractorInputs {
     func showCategories() -> Categories
     func getUserProfilePictureAndEmail()
     func searchTextDidChange(text: String)
+    func getCategoryProducts(category: String)
 }
 
 protocol HomeInteractorOutputs: AnyObject {
@@ -20,7 +21,7 @@ protocol HomeInteractorOutputs: AnyObject {
     func endLoading()
     func dataRefreshed()
     func onError(error: NetworkError)
-    func showProfileImage(imageURLString: String?, email: String?)
+    func showProfileImageAndEmail(model: NavBarViewModel)
 }
 
 final class HomeInteractor {
@@ -61,7 +62,8 @@ extension HomeInteractor: HomeInteractorInputs {
                 case .success(let data):
                     DispatchQueue.main.async {
                         self.products = data.products
-                        self.categories = data.categories
+                        self.categories.append("All Products")
+                        self.categories.append(contentsOf: data.categories)
                     }
                 case .failure(let error):
                     presenter?.onError(error: error)
@@ -81,15 +83,41 @@ extension HomeInteractor: HomeInteractorInputs {
     func getUserProfilePictureAndEmail() {
         manager?.getUserProfilePictureAndEmail { [weak self] imageURLString, email in
             guard let self else { return }
-            self.presenter?.showProfileImage(imageURLString: imageURLString, email: email)
+            self.presenter?.showProfileImageAndEmail(model: .init(profileImageURLString: imageURLString, userEmail: email))
         }
     }
     
     func searchTextDidChange(text: String) {
         if text.count == 0 {
-           getData()
+            self.categories = []
+            getData()
         } else if text.count > 1 {
             self.products = products.filter { $0.title.lowercased().contains(text.lowercased()) }
+        }
+    }
+    
+    func getCategoryProducts(category: String) {
+        if category.contains("All Products") {
+            self.categories = []
+            getData()
+        } else {
+            Task {
+                presenter?.startLoading()
+                
+                try await service?.fetchCategoryProducts(category: category.lowercased()) { [weak self] result in
+                    guard let self else { return }
+                    self.presenter?.endLoading()
+                    
+                    switch result {
+                    case .success(let products):
+                        DispatchQueue.main.async {
+                            self.products = products
+                        }
+                    case .failure(let error):
+                        self.presenter?.onError(error: error)
+                    }
+                }
+            }
         }
     }
 }
