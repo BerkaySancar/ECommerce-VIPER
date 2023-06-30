@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProductDetailViewProtocol: AnyObject {
-    func setNavBar()
+    func setNavBarAndTabBarVisibility()
     func setBackgroundColor(color: UIColor)
     func prepareCollectionView()
     func prepareActivtyIndicatorView()
@@ -61,9 +61,10 @@ extension ProductDetailViewController: ProductDetailViewProtocol {
         view.backgroundColor = color
     }
     
-    func setNavBar() {
+    func setNavBarAndTabBarVisibility() {
         self.navigationController?.navigationBar.isHidden = true
         self.navigationItem.hidesBackButton = true
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func prepareAddBasketView() {
