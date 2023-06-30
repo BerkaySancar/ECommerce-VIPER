@@ -9,7 +9,7 @@ import Foundation
 import UIKit.UIViewController
 
 protocol HomeRouterProtocol {
-    
+    func toDetail(id: Int)
 }
 
 final class HomeRouter {
@@ -31,9 +31,11 @@ final class HomeRouter {
         
         return view
     }
-    
 }
 
 extension HomeRouter: HomeRouterProtocol {
     
+    func toDetail(id: Int) {
+        self.view?.navigationController?.pushViewController(ProductDetailRouter.startModule(productID: id), animated: true)
+    }
 }

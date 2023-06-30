@@ -9,10 +9,12 @@ import Foundation
 
 typealias ProductsAndCategoriesHandler = (Result<(products: [ProductModel], categories: Categories), NetworkError>) -> Void
 typealias CategoryProductsHandler = (Result<[ProductModel], NetworkError>) -> Void
+typealias SingleProductHandler = (Result<ProductModel, NetworkError>) -> Void
 
 protocol ProductsServiceProtocol {
     func fetchProductsAndCategories(completion: @escaping ProductsAndCategoriesHandler) async throws
     func fetchCategoryProducts(category: String, completion: @escaping CategoryProductsHandler) async throws
+    func fetchProduct(id: Int, completion: @escaping SingleProductHandler) async throws
 }
 
 final class ProductsService {
@@ -25,7 +27,7 @@ final class ProductsService {
 }
 
 extension ProductsService: ProductsServiceProtocol {
-  
+
     func fetchProductsAndCategories(completion: @escaping ProductsAndCategoriesHandler) async throws {
         let group = DispatchGroup()
         var products: [ProductModel] = []
@@ -39,7 +41,7 @@ extension ProductsService: ProductsServiceProtocol {
             group.leave()
         } catch let error as NetworkError {
             group.leave()
-            print(error.localizedDescription) // for debug
+            print("Fetch all products error: \(error.localizedDescription)")
             throw error
         }
         
@@ -51,7 +53,7 @@ extension ProductsService: ProductsServiceProtocol {
             group.leave()
         } catch let error as NetworkError {
             group.leave()
-            print(error.localizedDescription) // for debug
+            print("Fetch categories error: \(error.localizedDescription)")
             throw error
         }
         
@@ -66,7 +68,18 @@ extension ProductsService: ProductsServiceProtocol {
             let products: [ProductModel] = try await networkManager.request(endpoint: endpoint)
             completion(.success(products))
         } catch let error as NetworkError {
-            print(error.localizedDescription)
+            print("Fetch category products error: \(error.localizedDescription)")
+            throw error
+        }
+    }
+    
+    func fetchProduct(id: Int, completion: @escaping SingleProductHandler) async throws {
+        do {
+            let endpoint = ProductsEndpoint.getProduct(id)
+            let product: ProductModel = try await networkManager.request(endpoint: endpoint)
+            completion(.success(product))
+        } catch let error as NetworkError {
+            print("Fetch product error: \(error.localizedDescription)")
             throw error
         }
     }

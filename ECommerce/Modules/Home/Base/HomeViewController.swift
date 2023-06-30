@@ -10,6 +10,7 @@ import UIKit
 protocol HomeViewProtocol: AnyObject {
     func setViewBackgroundColor(color: UIColor)
     func prepareNavBarView()
+    func setNavBarUnhidden()
     func prepareSearchBar()
     func prepareHomeCollectionView()
     func prepareActivtyIndicatorView()
@@ -57,6 +58,10 @@ final class HomeViewController: UIViewController {
         
         presenter.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.viewWillAppear()
+    }
 }
 
 // MARK: - HomeView Protocols
@@ -67,7 +72,11 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func prepareNavBarView() {
-        navigationController?.navigationBar.addSubview(navBarView)
+        self.navigationController?.navigationBar.addSubview(navBarView)
+    }
+    
+    func setNavBarUnhidden() {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func prepareSearchBar() {
@@ -164,6 +173,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        collectionView.deselectItem(at: indexPath, animated: true)
+        presenter.didSelectItemAt(indexPath: indexPath)
     }
 }
