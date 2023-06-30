@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F682A4EFD8600C9FD77 /* RealmError.swift */; };
+		B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */; };
+		B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */; };
 		B14B081B2A4EF5320062DCF6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */; };
 		B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */; };
 		B14B081F2A4EF5460062DCF6 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */; };
@@ -84,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		B10B5F682A4EFD8600C9FD77 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
+		B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductModel.swift; sourceTree = "<group>"; };
+		B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
@@ -171,13 +175,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B14B08192A4EF4F80062DCF6 /* Favorites */ = {
+		B10B5F6A2A4EFF5C00C9FD77 /* StorageModels */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */,
+			);
+			path = StorageModels;
+			sourceTree = "<group>";
+		};
+		B10B5F6D2A4F04F600C9FD77 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */,
+				B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */,
 				B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */,
 				B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */,
-				B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B10B5F6E2A4F050300C9FD77 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F6F2A4F050B00C9FD77 /* Cells */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		B10B5F6F2A4F050B00C9FD77 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B14B08192A4EF4F80062DCF6 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F6E2A4F050300C9FD77 /* UIComponents */,
+				B10B5F6D2A4F04F600C9FD77 /* Base */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -595,6 +632,7 @@
 		B1AD60612A4A2BB600BD5094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B10B5F6A2A4EFF5C00C9FD77 /* StorageModels */,
 				B1A6D6352A4CAC4B005D45F3 /* ResponseModels */,
 			);
 			path = Models;
@@ -712,6 +750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */,
 				B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */,
 				B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */,
 				B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */,
@@ -756,6 +795,7 @@
 				B1A6D6242A4C9E3E005D45F3 /* NetworkManager.swift in Sources */,
 				B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */,
 				B1A9D31F2A4A16520033C3D2 /* SignUpViewController.swift in Sources */,
+				B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */,
 				B174C4192A49AB9A0082ADDC /* LoginPresenter.swift in Sources */,
 				B1A6D6122A4C21E3005D45F3 /* HomeRouter.swift in Sources */,
 				B174C4172A49AB930082ADDC /* LoginInteractor.swift in Sources */,

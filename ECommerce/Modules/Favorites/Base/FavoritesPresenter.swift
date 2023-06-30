@@ -8,7 +8,9 @@
 import Foundation
 
 protocol FavoritesPresenterInputs {
-    
+    func viewDidLoad()
+    func numberOfRowsInSection() -> Int
+    func heightForRowAt() -> CGFloat
 }
 
 final class FavoritesPresenter {
@@ -25,6 +27,19 @@ final class FavoritesPresenter {
 
 extension FavoritesPresenter: FavoritesPresenterInputs {
     
+    func viewDidLoad() {
+        view?.setNavTitle(title: "Favorites")
+        view?.prepareTrashBarButton()
+        view?.prepareTableView()
+    }
+    
+    func numberOfRowsInSection() -> Int {
+        return 1
+    }
+    
+    func heightForRowAt() -> CGFloat {
+        return 150
+    }
 }
 
 extension FavoritesPresenter: FavoritesInteractorOutputs {
