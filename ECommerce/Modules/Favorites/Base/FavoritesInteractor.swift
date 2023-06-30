@@ -22,6 +22,7 @@ protocol FavoritesInteractorOutputs: AnyObject {
 final class FavoritesInteractor {
     weak var presenter: FavoritesInteractorOutputs?
     private let storageManager: RealmManagerProtocol?
+    private let userInfoManager: UserInfoManagerProtocol?
     
     private var favorites: [FavoriteProductModel] = [] {
         didSet {
@@ -29,15 +30,16 @@ final class FavoritesInteractor {
         }
     }
     
-    init(storageManager: RealmManagerProtocol) {
+    init(storageManager: RealmManagerProtocol, userInfeManager: UserInfoManagerProtocol) {
         self.storageManager = storageManager
+        self.userInfoManager = userInfeManager
     }
 }
 
 extension FavoritesInteractor: FavoritesInteractorInputs {
     
     func getFavorites() {
-        self.favorites = storageManager?.getAll(FavoriteProductModel.self) ?? []
+        self.favorites = storageManager?.getAll(FavoriteProductModel.self).filter { $0.userId == userInfoManager?.getUserUid() } ?? []
     }
     
     func showFavorites() -> [FavoriteProductModel] {

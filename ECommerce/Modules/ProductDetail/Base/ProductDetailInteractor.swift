@@ -60,7 +60,8 @@ extension ProductDetailInteractor: ProductDetailInteractorInputs {
     }
     
     func isFav(model: ProductModel?) -> Bool {
-        return storageManager?.getAll(FavoriteProductModel.self).filter { $0.productTitle == model?.title }.isEmpty == true ? false : true
+        let favs = storageManager?.getAll(FavoriteProductModel.self).filter { $0.userId == userInfoManager?.getUserUid() }
+        return favs?.filter { $0.productTitle == model?.title }.isEmpty == true ? false : true
     }
     
     func favButtonTapped(model: ProductModel?) {
