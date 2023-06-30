@@ -44,6 +44,8 @@ final class ProductDetailCell: UICollectionViewCell {
                               withConfiguration: UIImage.SymbolConfiguration(pointSize: 44)), for: UIControl.State.normal)
         button.tintColor = .label
         button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        button.layer.shadowOpacity = 1
+        button.layer.shadowColor = UIColor.gray.cgColor
         return button
     }()
     
