@@ -11,6 +11,7 @@ import FirebaseAuth
 
 protocol UserInfoManagerProtocol {
     func getUserProfilePictureAndEmail(completion: @escaping (_ photo: String?, _ email: String?) -> Void)
+    func getUserUid() -> String?
 }
 
 final class UserInfoManager {
@@ -28,5 +29,9 @@ extension UserInfoManager: UserInfoManagerProtocol {
         } else {
             completion(nil, nil)
         }
+    }
+    
+    func getUserUid() -> String? {
+        return Auth.auth().currentUser?.uid
     }
 }

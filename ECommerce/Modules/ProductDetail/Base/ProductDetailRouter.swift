@@ -23,7 +23,10 @@ final class ProductDetailRouter {
     static func startModule(productID: Int) -> UIViewController {
         let view = ProductDetailViewController()
         let router = ProductDetailRouter(view: view)
-        let interactor = ProductDetailInteractor(productID: productID, service: ProductsService.shared, storageManager: RealmManager.shared)
+        let interactor = ProductDetailInteractor(productID: productID,
+                                                 service: ProductsService.shared,
+                                                 storageManager: RealmManager.shared,
+                                                 userInfoManager: UserInfoManager.shared)
         let presenter = ProductDetailPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

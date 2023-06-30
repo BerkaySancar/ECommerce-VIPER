@@ -133,7 +133,7 @@ extension HomeInteractor: HomeInteractorInputs {
     }
     
     func getFavorites() {
-        self.favs = storageManager?.getAll(FavoriteProductModel.self)
+        self.favs = storageManager?.getAll(FavoriteProductModel.self).filter { $0.userId == userInfoManager?.getUserUid() }
     }
     
     func isFav(model: ProductModel?) -> Bool {
@@ -142,7 +142,10 @@ extension HomeInteractor: HomeInteractorInputs {
     
     func favAction(model: ProductModel?) {
         guard let model else { return }
-        let favModel = FavoriteProductModel(productId: model.id, productImage: model.image, productTitle: model.title)
+        let favModel = FavoriteProductModel(userId: userInfoManager?.getUserUid(),
+                                            productId: model.id,
+                                            productImage: model.image,
+                                            productTitle: model.title)
         
         if !isFav(model: model) {
             storageManager?.create(favModel) { [weak self] error in
