@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B14B081B2A4EF5320062DCF6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */; };
+		B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */; };
+		B14B081F2A4EF5460062DCF6 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */; };
+		B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */; };
 		B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */; };
 		B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4072A497BCF0082ADDC /* SnappingLayout.swift */; };
 		B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */; };
@@ -76,6 +80,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCellViewModel.swift; sourceTree = "<group>"; };
 		B174C4072A497BCF0082ADDC /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
 		B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +165,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B14B08192A4EF4F80062DCF6 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */,
+				B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */,
+				B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */,
+				B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		B174C4032A495FF80082ADDC /* OnboardCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +335,7 @@
 		B19C8E3A2A48B7C20085160E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B14B08192A4EF4F80062DCF6 /* Favorites */,
 				B189117A2A4ED6A500913F83 /* MainTabBar */,
 				B1A4B2522A4DD237002F2E31 /* ProductDetail */,
 				B1A9D31C2A4A16390033C3D2 /* SignUp */,
@@ -686,6 +706,7 @@
 				B1A6D6212A4C740F005D45F3 /* VerticalStackView.swift in Sources */,
 				B1D18BA42A48BD85003F0E4C /* OnboardingRouter.swift in Sources */,
 				B18911802A4ED6D200913F83 /* MainTabBarRouter.swift in Sources */,
+				B14B081F2A4EF5460062DCF6 /* FavoritesInteractor.swift in Sources */,
 				B1A4B2582A4DD266002F2E31 /* ProductDetailPresenter.swift in Sources */,
 				B1AD60642A4A2C1E00BD5094 /* FirebaseError.swift in Sources */,
 				B1A4B2642A4DF390002F2E31 /* AddBasketView.swift in Sources */,
@@ -693,6 +714,7 @@
 				B1A6D6262A4C9EA6005D45F3 /* NetworkError.swift in Sources */,
 				B1E714492A4AC70E00552A8E /* GeneralError.swift in Sources */,
 				B189117E2A4ED6CA00913F83 /* MainTabBarPresenter.swift in Sources */,
+				B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */,
 				B1A4B25A2A4DD3D4002F2E31 /* ProductDetailViewController.swift in Sources */,
 				B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */,
 				B1B2A6682A4CC3B500979E18 /* Categories.swift in Sources */,
@@ -702,6 +724,7 @@
 				B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */,
 				B1A9D3262A4A16810033C3D2 /* SignUpRouter.swift in Sources */,
 				B1E714472A4ABFD700552A8E /* UIViewController+Extension.swift in Sources */,
+				B14B081B2A4EF5320062DCF6 /* FavoritesViewController.swift in Sources */,
 				B18911822A4ED6DC00913F83 /* MainTabBarInteractor.swift in Sources */,
 				B1A6D6342A4CAAA2005D45F3 /* ProductsService.swift in Sources */,
 				B1A6D61B2A4C3C8E005D45F3 /* CategoryTitleCell.swift in Sources */,
@@ -709,6 +732,7 @@
 				B1A6D6102A4C21B1005D45F3 /* HomePresenter.swift in Sources */,
 				B1A4B24F2A4D82D0002F2E31 /* UserInfoManager.swift in Sources */,
 				B19C8E402A48B83D0085160E /* OnboardingViewController.swift in Sources */,
+				B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */,
 				B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */,
 				B1A6D6242A4C9E3E005D45F3 /* NetworkManager.swift in Sources */,
 				B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */,

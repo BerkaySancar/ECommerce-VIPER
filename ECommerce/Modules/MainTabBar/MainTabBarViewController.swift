@@ -15,6 +15,7 @@ protocol MainTabBarViewProtocol: AnyObject {
 final class MainTabBarViewController: UITabBarController {
     
     private let homeModule = HomeRouter.startHomeModule()
+    private let favoritesModule = FavoritesRouter.startFavoritesModule()
     
     internal var presenter: MainTabBarPresenterInputs!
 
@@ -42,7 +43,7 @@ extension MainTabBarViewController: MainTabBarViewProtocol {
                               imageName: "house",
                               selectedImageName: "house.fill"),
                 
-                setController(viewController: UIViewController(),
+                setController(viewController: favoritesModule,
                               title: "Favorites",
                               imageName: "heart",
                               selectedImageName: "heart.fill"),
