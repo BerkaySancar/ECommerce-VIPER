@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F682A4EFD8600C9FD77 /* RealmError.swift */; };
+		B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */; };
+		B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */; };
+		B14B081B2A4EF5320062DCF6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */; };
+		B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */; };
+		B14B081F2A4EF5460062DCF6 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */; };
+		B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */; };
+		B14B08242A4EFA930062DCF6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B08232A4EFA930062DCF6 /* RealmManager.swift */; };
+		B14B08272A4EFC8F0062DCF6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B14B08262A4EFC8F0062DCF6 /* RealmSwift */; };
 		B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */; };
 		B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4072A497BCF0082ADDC /* SnappingLayout.swift */; };
 		B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */; };
@@ -76,6 +85,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B10B5F682A4EFD8600C9FD77 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
+		B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductModel.swift; sourceTree = "<group>"; };
+		B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		B14B08232A4EFA930062DCF6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCellViewModel.swift; sourceTree = "<group>"; };
 		B174C4072A497BCF0082ADDC /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
 		B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14B08272A4EFC8F0062DCF6 /* RealmSwift in Frameworks */,
 				B174C4202A49BF190082ADDC /* FirebaseDatabase in Frameworks */,
 				B1E714452A4ABFB800552A8E /* SPAlert in Frameworks */,
 				B17D35232A49D07B00591517 /* IQKeyboardManagerSwift in Frameworks */,
@@ -157,6 +175,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B10B5F6A2A4EFF5C00C9FD77 /* StorageModels */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */,
+			);
+			path = StorageModels;
+			sourceTree = "<group>";
+		};
+		B10B5F6D2A4F04F600C9FD77 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */,
+				B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */,
+				B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */,
+				B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B10B5F6E2A4F050300C9FD77 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F6F2A4F050B00C9FD77 /* Cells */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		B10B5F6F2A4F050B00C9FD77 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B14B08192A4EF4F80062DCF6 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B10B5F6E2A4F050300C9FD77 /* UIComponents */,
+				B10B5F6D2A4F04F600C9FD77 /* Base */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		B14B08222A4EFA800062DCF6 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				B14B08232A4EFA930062DCF6 /* RealmManager.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
 		B174C4032A495FF80082ADDC /* OnboardCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +309,7 @@
 		B17D35242A49D1C800591517 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B14B08222A4EFA800062DCF6 /* StorageManager */,
 				B1A4B24D2A4D82A7002F2E31 /* UserInfoManager */,
 				B1A6D6222A4C9E32005D45F3 /* NetworkManager */,
 				B17D35252A49D1D200591517 /* AuthManager */,
@@ -316,6 +387,7 @@
 		B19C8E3A2A48B7C20085160E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B14B08192A4EF4F80062DCF6 /* Favorites */,
 				B189117A2A4ED6A500913F83 /* MainTabBar */,
 				B1A4B2522A4DD237002F2E31 /* ProductDetail */,
 				B1A9D31C2A4A16390033C3D2 /* SignUp */,
@@ -391,10 +463,10 @@
 		B1A4B25B2A4DD3DC002F2E31 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B1A4B2592A4DD3D4002F2E31 /* ProductDetailViewController.swift */,
-				B1A4B2572A4DD266002F2E31 /* ProductDetailPresenter.swift */,
-				B1A4B2552A4DD25A002F2E31 /* ProductDetailInteractor.swift */,
 				B1A4B2532A4DD252002F2E31 /* ProductDetailRouter.swift */,
+				B1A4B2552A4DD25A002F2E31 /* ProductDetailInteractor.swift */,
+				B1A4B2572A4DD266002F2E31 /* ProductDetailPresenter.swift */,
+				B1A4B2592A4DD3D4002F2E31 /* ProductDetailViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -455,8 +527,8 @@
 		B1A6D6182A4C2E6D005D45F3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B1A6D61A2A4C3C8E005D45F3 /* CategoryTitleCell.swift */,
 				B1A6D61E2A4C7269005D45F3 /* ProductCell.swift */,
+				B1A6D61A2A4C3C8E005D45F3 /* CategoryTitleCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -560,6 +632,7 @@
 		B1AD60612A4A2BB600BD5094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B10B5F6A2A4EFF5C00C9FD77 /* StorageModels */,
 				B1A6D6352A4CAC4B005D45F3 /* ResponseModels */,
 			);
 			path = Models;
@@ -572,6 +645,7 @@
 				B1E714482A4AC70E00552A8E /* GeneralError.swift */,
 				B1A6D6252A4C9EA6005D45F3 /* NetworkError.swift */,
 				B1A6D6272A4C9EC7005D45F3 /* HTTPMethods.swift */,
+				B10B5F682A4EFD8600C9FD77 /* RealmError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -608,6 +682,7 @@
 				B1E714442A4ABFB800552A8E /* SPAlert */,
 				B19BD1162A4AFE02002FBA48 /* GoogleSignIn */,
 				B1A6D6392A4CBAA8005D45F3 /* SDWebImage */,
+				B14B08262A4EFC8F0062DCF6 /* RealmSwift */,
 			);
 			productName = ECommerce;
 			productReference = B19C8E222A48B6F20085160E /* ECommerce.app */;
@@ -644,6 +719,7 @@
 				B1E714432A4ABFB800552A8E /* XCRemoteSwiftPackageReference "SPAlert" */,
 				B19BD1152A4AFE02002FBA48 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B1A6D6382A4CBAA8005D45F3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B14B08252A4EFC8F0062DCF6 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = B19C8E232A48B6F20085160E /* Products */;
 			projectDirPath = "";
@@ -674,6 +750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */,
 				B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */,
 				B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */,
 				B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */,
@@ -686,6 +763,7 @@
 				B1A6D6212A4C740F005D45F3 /* VerticalStackView.swift in Sources */,
 				B1D18BA42A48BD85003F0E4C /* OnboardingRouter.swift in Sources */,
 				B18911802A4ED6D200913F83 /* MainTabBarRouter.swift in Sources */,
+				B14B081F2A4EF5460062DCF6 /* FavoritesInteractor.swift in Sources */,
 				B1A4B2582A4DD266002F2E31 /* ProductDetailPresenter.swift in Sources */,
 				B1AD60642A4A2C1E00BD5094 /* FirebaseError.swift in Sources */,
 				B1A4B2642A4DF390002F2E31 /* AddBasketView.swift in Sources */,
@@ -693,7 +771,9 @@
 				B1A6D6262A4C9EA6005D45F3 /* NetworkError.swift in Sources */,
 				B1E714492A4AC70E00552A8E /* GeneralError.swift in Sources */,
 				B189117E2A4ED6CA00913F83 /* MainTabBarPresenter.swift in Sources */,
+				B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */,
 				B1A4B25A2A4DD3D4002F2E31 /* ProductDetailViewController.swift in Sources */,
+				B14B08242A4EFA930062DCF6 /* RealmManager.swift in Sources */,
 				B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */,
 				B1B2A6682A4CC3B500979E18 /* Categories.swift in Sources */,
 				B1A6D61D2A4C6C60005D45F3 /* UIScreenBounds.swift in Sources */,
@@ -702,6 +782,7 @@
 				B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */,
 				B1A9D3262A4A16810033C3D2 /* SignUpRouter.swift in Sources */,
 				B1E714472A4ABFD700552A8E /* UIViewController+Extension.swift in Sources */,
+				B14B081B2A4EF5320062DCF6 /* FavoritesViewController.swift in Sources */,
 				B18911822A4ED6DC00913F83 /* MainTabBarInteractor.swift in Sources */,
 				B1A6D6342A4CAAA2005D45F3 /* ProductsService.swift in Sources */,
 				B1A6D61B2A4C3C8E005D45F3 /* CategoryTitleCell.swift in Sources */,
@@ -709,16 +790,19 @@
 				B1A6D6102A4C21B1005D45F3 /* HomePresenter.swift in Sources */,
 				B1A4B24F2A4D82D0002F2E31 /* UserInfoManager.swift in Sources */,
 				B19C8E402A48B83D0085160E /* OnboardingViewController.swift in Sources */,
+				B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */,
 				B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */,
 				B1A6D6242A4C9E3E005D45F3 /* NetworkManager.swift in Sources */,
 				B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */,
 				B1A9D31F2A4A16520033C3D2 /* SignUpViewController.swift in Sources */,
+				B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */,
 				B174C4192A49AB9A0082ADDC /* LoginPresenter.swift in Sources */,
 				B1A6D6122A4C21E3005D45F3 /* HomeRouter.swift in Sources */,
 				B174C4172A49AB930082ADDC /* LoginInteractor.swift in Sources */,
 				B1A4B25F2A4DD736002F2E31 /* ProductDetailCell.swift in Sources */,
 				B1A6D62B2A4C9F0E005D45F3 /* EndpointProtocol.swift in Sources */,
 				B174C4152A49AB8C0082ADDC /* LoginRouter.swift in Sources */,
+				B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */,
 				B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */,
 				B1A9D3242A4A167B0033C3D2 /* SignUpPresenter.swift in Sources */,
 				B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */,
@@ -943,6 +1027,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B14B08252A4EFC8F0062DCF6 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.41.0;
+			};
+		};
 		B174C41C2A49BF190082ADDC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -994,6 +1086,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B14B08262A4EFC8F0062DCF6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B08252A4EFC8F0062DCF6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		B174C41D2A49BF190082ADDC /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B174C41C2A49BF190082ADDC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

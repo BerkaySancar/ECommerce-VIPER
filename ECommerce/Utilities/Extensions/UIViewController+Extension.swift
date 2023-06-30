@@ -37,4 +37,19 @@ extension UIViewController {
         
         navigationController?.present(alertController, animated: true)
     }
+    
+    func deleteAllSheetAlert(completion: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "Delete All", message: "Are you sure you want to delete them all?", preferredStyle: .actionSheet)
+        alertController.view.tintColor = .label
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAllAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            completion()
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAllAction)
+        
+        navigationController?.present(alertController, animated: true)
+    }
 }

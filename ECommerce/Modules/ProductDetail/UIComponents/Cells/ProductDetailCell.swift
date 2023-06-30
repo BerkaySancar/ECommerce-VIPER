@@ -135,11 +135,12 @@ final class ProductDetailCell: UICollectionViewCell {
         }
     }
     
-    internal func showModel(model: ProductModel?) {
+    internal func showModel(model: ProductModel?, isFav: Bool?) {
         productImageView.sd_setImage(with: URL(string: model?.image ?? ""))
         productTitleLabel.text = model?.title ?? ""
         productRatingAndCountLabel.text = "⭐️" + String(model?.rating.rate ?? 0.0) + "⭐️" + "\tCount: \(String(model?.rating.count ?? 0))"
         productDescriptionLabel.text = model?.description ?? ""
+        productFavButton.isSelected = isFav!
     }
     
     @objc private func favButtonTapped(_ sender: UIButton) {

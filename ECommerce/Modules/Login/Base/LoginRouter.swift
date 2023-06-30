@@ -40,7 +40,7 @@ extension LoginRouter: LoginRouterProtocol {
     }
     
     func toHome() {
-        let homeModule = HomeRouter.startHomeModule()
+        let homeModule = MainTabBarRouter.startTabBarModule()
         view?.navigationController?.setViewControllers([homeModule], animated: true)
     }
 }
