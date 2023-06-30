@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F682A4EFD8600C9FD77 /* RealmError.swift */; };
 		B14B081B2A4EF5320062DCF6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */; };
 		B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */; };
 		B14B081F2A4EF5460062DCF6 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */; };
 		B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */; };
+		B14B08242A4EFA930062DCF6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B08232A4EFA930062DCF6 /* RealmManager.swift */; };
+		B14B08272A4EFC8F0062DCF6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B14B08262A4EFC8F0062DCF6 /* RealmSwift */; };
 		B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */; };
 		B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4072A497BCF0082ADDC /* SnappingLayout.swift */; };
 		B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */; };
@@ -80,10 +83,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B10B5F682A4EFD8600C9FD77 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		B14B08232A4EFA930062DCF6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCellViewModel.swift; sourceTree = "<group>"; };
 		B174C4072A497BCF0082ADDC /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
 		B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14B08272A4EFC8F0062DCF6 /* RealmSwift in Frameworks */,
 				B174C4202A49BF190082ADDC /* FirebaseDatabase in Frameworks */,
 				B1E714452A4ABFB800552A8E /* SPAlert in Frameworks */,
 				B17D35232A49D07B00591517 /* IQKeyboardManagerSwift in Frameworks */,
@@ -174,6 +180,14 @@
 				B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		B14B08222A4EFA800062DCF6 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				B14B08232A4EFA930062DCF6 /* RealmManager.swift */,
+			);
+			path = StorageManager;
 			sourceTree = "<group>";
 		};
 		B174C4032A495FF80082ADDC /* OnboardCell */ = {
@@ -258,6 +272,7 @@
 		B17D35242A49D1C800591517 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B14B08222A4EFA800062DCF6 /* StorageManager */,
 				B1A4B24D2A4D82A7002F2E31 /* UserInfoManager */,
 				B1A6D6222A4C9E32005D45F3 /* NetworkManager */,
 				B17D35252A49D1D200591517 /* AuthManager */,
@@ -592,6 +607,7 @@
 				B1E714482A4AC70E00552A8E /* GeneralError.swift */,
 				B1A6D6252A4C9EA6005D45F3 /* NetworkError.swift */,
 				B1A6D6272A4C9EC7005D45F3 /* HTTPMethods.swift */,
+				B10B5F682A4EFD8600C9FD77 /* RealmError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -628,6 +644,7 @@
 				B1E714442A4ABFB800552A8E /* SPAlert */,
 				B19BD1162A4AFE02002FBA48 /* GoogleSignIn */,
 				B1A6D6392A4CBAA8005D45F3 /* SDWebImage */,
+				B14B08262A4EFC8F0062DCF6 /* RealmSwift */,
 			);
 			productName = ECommerce;
 			productReference = B19C8E222A48B6F20085160E /* ECommerce.app */;
@@ -664,6 +681,7 @@
 				B1E714432A4ABFB800552A8E /* XCRemoteSwiftPackageReference "SPAlert" */,
 				B19BD1152A4AFE02002FBA48 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B1A6D6382A4CBAA8005D45F3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B14B08252A4EFC8F0062DCF6 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = B19C8E232A48B6F20085160E /* Products */;
 			projectDirPath = "";
@@ -716,6 +734,7 @@
 				B189117E2A4ED6CA00913F83 /* MainTabBarPresenter.swift in Sources */,
 				B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */,
 				B1A4B25A2A4DD3D4002F2E31 /* ProductDetailViewController.swift in Sources */,
+				B14B08242A4EFA930062DCF6 /* RealmManager.swift in Sources */,
 				B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */,
 				B1B2A6682A4CC3B500979E18 /* Categories.swift in Sources */,
 				B1A6D61D2A4C6C60005D45F3 /* UIScreenBounds.swift in Sources */,
@@ -743,6 +762,7 @@
 				B1A4B25F2A4DD736002F2E31 /* ProductDetailCell.swift in Sources */,
 				B1A6D62B2A4C9F0E005D45F3 /* EndpointProtocol.swift in Sources */,
 				B174C4152A49AB8C0082ADDC /* LoginRouter.swift in Sources */,
+				B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */,
 				B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */,
 				B1A9D3242A4A167B0033C3D2 /* SignUpPresenter.swift in Sources */,
 				B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */,
@@ -967,6 +987,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B14B08252A4EFC8F0062DCF6 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.41.0;
+			};
+		};
 		B174C41C2A49BF190082ADDC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1018,6 +1046,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B14B08262A4EFC8F0062DCF6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B08252A4EFC8F0062DCF6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		B174C41D2A49BF190082ADDC /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B174C41C2A49BF190082ADDC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
