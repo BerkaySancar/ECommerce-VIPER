@@ -57,10 +57,13 @@ final class ProductDetailCell: UICollectionViewCell {
     }()
  
     private lazy var productDescriptionLabel: UILabel = {
-        let label = UILabel()
+        let label = PaddingLabel(withInsets: 4, 4, 8, 8)
         label.textColor = .label
         label.font = .systemFont(ofSize: 20)
         label.numberOfLines = 0
+        label.backgroundColor = .systemGray6
+        label.layer.cornerRadius = 8
+        label.clipsToBounds = true
         return label
     }()
     

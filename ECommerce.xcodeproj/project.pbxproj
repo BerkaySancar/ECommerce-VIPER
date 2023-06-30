@@ -20,6 +20,7 @@
 		B17D35232A49D07B00591517 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B17D35222A49D07B00591517 /* IQKeyboardManagerSwift */; };
 		B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D35262A49D1DD00591517 /* AuthManager.swift */; };
 		B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17DC85C2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift */; };
+		B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18911782A4EC9AE00913F83 /* PaddingLabel.swift */; };
 		B19BD1172A4AFE02002FBA48 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B19BD1162A4AFE02002FBA48 /* GoogleSignIn */; };
 		B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E252A48B6F20085160E /* AppDelegate.swift */; };
 		B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E272A48B6F20085160E /* SceneDelegate.swift */; };
@@ -80,6 +81,7 @@
 		B174C41A2A49BA470082ADDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B17D35262A49D1DD00591517 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B17DC85C2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInWithGoogleButton.swift; sourceTree = "<group>"; };
+		B18911782A4EC9AE00913F83 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		B19C8E222A48B6F20085160E /* ECommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19C8E252A48B6F20085160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B19C8E272A48B6F20085160E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				B174C4072A497BCF0082ADDC /* SnappingLayout.swift */,
 				B1A6D61C2A4C6C60005D45F3 /* UIScreenBounds.swift */,
 				B1A6D6202A4C740F005D45F3 /* VerticalStackView.swift */,
+				B18911782A4EC9AE00913F83 /* PaddingLabel.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				B174C4152A49AB8C0082ADDC /* LoginRouter.swift in Sources */,
 				B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */,
 				B1A9D3242A4A167B0033C3D2 /* SignUpPresenter.swift in Sources */,
+				B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */,
 				B1A6D6282A4C9EC7005D45F3 /* HTTPMethods.swift in Sources */,
 				B1A6D61F2A4C7269005D45F3 /* ProductCell.swift in Sources */,
 				B1A9D3282A4A168B0033C3D2 /* SignUpInteractor.swift in Sources */,
