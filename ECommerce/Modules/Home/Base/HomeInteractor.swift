@@ -14,20 +14,24 @@ protocol HomeInteractorInputs {
     func getUserProfilePictureAndEmail()
     func searchTextDidChange(text: String)
     func getCategoryProducts(category: String)
+    func getFavorites()
+    func favAction(model: ProductModel?)
+    func isFav(model: ProductModel?) -> Bool 
 }
 
 protocol HomeInteractorOutputs: AnyObject {
     func startLoading()
     func endLoading()
     func dataRefreshed()
-    func onError(error: NetworkError)
+    func onError(errorMessage: String)
     func showProfileImageAndEmail(model: NavBarViewModel)
 }
 
 final class HomeInteractor {
     weak var presenter: HomeInteractorOutputs?
     private let service: ProductsServiceProtocol?
-    private let manager: UserInfoManagerProtocol?
+    private let userInfoManager: UserInfoManagerProtocol?
+    private let storageManager: RealmManagerProtocol?
     
     private var products: [ProductModel] = [] {
         didSet {
@@ -41,9 +45,16 @@ final class HomeInteractor {
         }
     }
     
-    init(service: ProductsServiceProtocol, manager: UserInfoManagerProtocol) {
+    private var favs: [FavoriteProductModel]? {
+        didSet {
+            presenter?.dataRefreshed()
+        }
+    }
+    
+    init(service: ProductsServiceProtocol, manager: UserInfoManagerProtocol, storageManager: RealmManagerProtocol) {
         self.service = service
-        self.manager = manager
+        self.userInfoManager = manager
+        self.storageManager = storageManager
     }
 }
 
@@ -66,7 +77,7 @@ extension HomeInteractor: HomeInteractorInputs {
                         self.categories.append(contentsOf: data.categories)
                     }
                 case .failure(let error):
-                    presenter?.onError(error: error)
+                    presenter?.onError(errorMessage: error.localizedDescription)
                 }
             }
         }
@@ -81,7 +92,7 @@ extension HomeInteractor: HomeInteractorInputs {
     }
     
     func getUserProfilePictureAndEmail() {
-        manager?.getUserProfilePictureAndEmail { [weak self] imageURLString, email in
+        userInfoManager?.getUserProfilePictureAndEmail { [weak self] imageURLString, email in
             guard let self else { return }
             self.presenter?.showProfileImageAndEmail(model: .init(profileImageURLString: imageURLString, userEmail: email))
         }
@@ -114,8 +125,37 @@ extension HomeInteractor: HomeInteractorInputs {
                             self.products = products
                         }
                     case .failure(let error):
-                        self.presenter?.onError(error: error)
+                        self.presenter?.onError(errorMessage: error.localizedDescription)
                     }
+                }
+            }
+        }
+    }
+    
+    func getFavorites() {
+        self.favs = storageManager?.getAll(FavoriteProductModel.self)
+    }
+    
+    func isFav(model: ProductModel?) -> Bool {
+        return self.favs?.filter { $0.productTitle == model?.title }.isEmpty == true ? false : true
+    }
+    
+    func favAction(model: ProductModel?) {
+        guard let model else { return }
+        let favModel = FavoriteProductModel(productId: model.id, productImage: model.image, productTitle: model.title)
+        
+        if !isFav(model: model) {
+            storageManager?.create(favModel) { [weak self] error in
+                guard let self else { return }
+                self.presenter?.onError(errorMessage: error.localizedDescription)
+            }
+        } else {
+            if let index = self.favs?.firstIndex(where: { $0.productId == favModel.productId }) {
+                if let item = self.favs?[index] {
+                    storageManager?.delete(item, onError: { [weak self] error in
+                        guard let self else { return }
+                        self.presenter?.onError(errorMessage: error.localizedDescription)
+                    })
                 }
             }
         }

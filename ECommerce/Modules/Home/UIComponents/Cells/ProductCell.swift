@@ -8,6 +8,10 @@
 import UIKit
 import SDWebImage
 
+protocol ProductCellButtonDelegate: AnyObject {
+    func favTapped(model: ProductModel?)
+}
+
 final class ProductCell: UICollectionViewCell {
     
     static let identifier = "ProductCell"
@@ -52,6 +56,9 @@ final class ProductCell: UICollectionViewCell {
                                                                               productPriceLabel,
                                                                               productTitleLabel])
     
+    private var model: ProductModel?
+    weak var delegate: ProductCellButtonDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpConstraints()
@@ -81,14 +88,17 @@ final class ProductCell: UICollectionViewCell {
         }
     }
     
-    internal func showModel(model: ProductModel?) {
+    internal func showModel(model: ProductModel?, isFav: Bool?) {
+        self.model = model
         productImageView.sd_setImage(with: URL(string: model?.image ?? ""), placeholderImage: .init(named: "placeholder.png"))
         productTitleLabel.text = model?.title ?? ""
         productPriceLabel.text = "$\(model?.price ?? 0)"
+        productFavButton.isSelected = isFav!
     }
     
     @objc
     private func favButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
+        delegate?.favTapped(model: self.model)
     }
 }

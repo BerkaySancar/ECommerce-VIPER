@@ -23,7 +23,7 @@ protocol HomeViewProtocol: AnyObject {
 
 final class HomeViewController: UIViewController {
     
-    private lazy var navBarView = CustomNavBarView()
+    private lazy var customNavBarView = CustomNavBarView()
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -72,7 +72,7 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func prepareNavBarView() {
-        self.navigationController?.navigationBar.addSubview(navBarView)
+        self.navigationController?.navigationBar.addSubview(customNavBarView)
     }
     
     func setNavBarAndTabBarVisibility() {
@@ -123,7 +123,7 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func setProfileImageAndUserEmail(model: NavBarViewModel) {
-        navBarView.showModel(model: model)
+        customNavBarView.showModel(model: model)
     }
 }
 
@@ -138,6 +138,13 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController: CategoryTitleCellButtonDelegete {
     func titleTapped(selectedTitle: String) {
         presenter.categorySelected(category: selectedTitle)
+    }
+}
+
+// MARK: - Product cell button delegate
+extension HomeViewController: ProductCellButtonDelegate {
+    func favTapped(model: ProductModel?) {
+        presenter.favTapped(model: model)
     }
 }
 
@@ -160,7 +167,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
-            cell.showModel(model: presenter.showProducts()?[indexPath.item])
+            cell.showModel(model: presenter.showProducts()?[indexPath.item], isFav: presenter.isFav(indexPath: indexPath))
+            cell.delegate = self
             return cell
         }
     }

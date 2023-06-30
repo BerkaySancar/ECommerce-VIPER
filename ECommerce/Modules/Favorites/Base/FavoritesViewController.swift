@@ -107,7 +107,7 @@ extension FavoritesViewController: FavoritesViewProtocol {
 // MARK: - Favorites Table View Delegates & DataSources
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        jumpToHomeButton.isHidden = tableView.visibleCells.isEmpty ? false : true
+        jumpToHomeButton.isHidden = (presenter.numberOfRowsInSection() == 0) ? false : true
         return presenter.numberOfRowsInSection()
     }
     

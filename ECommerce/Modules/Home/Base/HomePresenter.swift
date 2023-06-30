@@ -19,6 +19,8 @@ protocol HomePresenterInputs {
     func showCategories() -> Categories?
     func searchTextDidChange(text: String?)
     func categorySelected(category: String)
+    func favTapped(model: ProductModel?)
+    func isFav(indexPath: IndexPath) -> Bool?
 }
 
 final class HomePresenter {
@@ -47,6 +49,7 @@ extension HomePresenter: HomePresenterInputs {
     
     func viewWillAppear() {
         view?.setNavBarAndTabBarVisibility()
+        interactor?.getFavorites()
     }
     
     func numberOfSection() -> Int {
@@ -100,6 +103,14 @@ extension HomePresenter: HomePresenterInputs {
     func categorySelected(category: String) {
         interactor?.getCategoryProducts(category: category)
     }
+    
+    func isFav(indexPath: IndexPath) -> Bool? {
+        return interactor?.isFav(model: interactor?.showProducts()[indexPath.item])
+    }
+    
+    func favTapped(model: ProductModel?) {
+        interactor?.favAction(model: model)
+    }
 }
 
 // MARK: - Home Interactor to Presenter
@@ -121,8 +132,8 @@ extension HomePresenter: HomeInteractorOutputs {
         view?.dataRefreshed()
     }
     
-    func onError(error: NetworkError) {
-        view?.onError(message: error.localizedDescription)
+    func onError(errorMessage: String) {
+        view?.onError(message: errorMessage)
     }
     
     func showProfileImageAndEmail(model: NavBarViewModel) {

@@ -123,7 +123,7 @@ extension ProductDetailViewController: ProductDetailCellButtonsDelegate {
     }
     
     func favButtonTapped() {
-        print("fav")
+        presenter.favButtonTapped()
     }
 }
 
@@ -142,7 +142,7 @@ extension ProductDetailViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = detailCollectionView.dequeueReusableCell(withReuseIdentifier: ProductDetailCell.identifier, for: indexPath) as? ProductDetailCell else { return UICollectionViewCell()}
-        cell.showModel(model: presenter.showModel())
+        cell.showModel(model: presenter.showModel(), isFav: presenter.isFav())
         cell.delegate = self
         return cell
     }

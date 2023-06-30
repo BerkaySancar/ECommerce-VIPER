@@ -13,6 +13,8 @@ protocol ProductDetailPresenterInputs {
     func showModel() -> ProductModel?
     func numberOfItemsInSection() -> Int
     func sizeForItemAt() -> CGSize
+    func favButtonTapped()
+    func isFav() -> Bool?
 }
 
 final class ProductDetailPresenter {
@@ -59,6 +61,14 @@ extension ProductDetailPresenter: ProductDetailPresenterInputs {
     func sizeForItemAt() -> CGSize {
         return .init(width: UIScreenBounds.width - 32, height: UIScreenBounds.height)
     }
+    
+    func favButtonTapped() {
+        interactor?.favButtonTapped(model: self.productModel)
+    }
+    
+    func isFav() -> Bool? {
+        return interactor?.isFav(model: self.productModel)
+    }
 }
 
 extension ProductDetailPresenter: ProductDetailInteractorOutputs {
@@ -79,8 +89,8 @@ extension ProductDetailPresenter: ProductDetailInteractorOutputs {
         view?.dataRefreshed()
     }
     
-    func onError(error: NetworkError) {
-        view?.onError(message: error.localizedDescription)
+    func onError(errorMessage: String) {
+        view?.onError(message: errorMessage)
     }
     
     func showModel(model: ProductModel?) {

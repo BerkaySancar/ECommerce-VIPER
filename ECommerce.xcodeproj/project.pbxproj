@@ -463,10 +463,10 @@
 		B1A4B25B2A4DD3DC002F2E31 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B1A4B2592A4DD3D4002F2E31 /* ProductDetailViewController.swift */,
-				B1A4B2572A4DD266002F2E31 /* ProductDetailPresenter.swift */,
-				B1A4B2552A4DD25A002F2E31 /* ProductDetailInteractor.swift */,
 				B1A4B2532A4DD252002F2E31 /* ProductDetailRouter.swift */,
+				B1A4B2552A4DD25A002F2E31 /* ProductDetailInteractor.swift */,
+				B1A4B2572A4DD266002F2E31 /* ProductDetailPresenter.swift */,
+				B1A4B2592A4DD3D4002F2E31 /* ProductDetailViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -527,8 +527,8 @@
 		B1A6D6182A4C2E6D005D45F3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B1A6D61A2A4C3C8E005D45F3 /* CategoryTitleCell.swift */,
 				B1A6D61E2A4C7269005D45F3 /* ProductCell.swift */,
+				B1A6D61A2A4C3C8E005D45F3 /* CategoryTitleCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

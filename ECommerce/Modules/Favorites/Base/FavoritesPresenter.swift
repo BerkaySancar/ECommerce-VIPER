@@ -43,6 +43,8 @@ extension FavoritesPresenter: FavoritesPresenterInputs {
     
     func viewWillAppear() {
         view?.setNavBarAndTabBarVisibility()
+        interactor?.getFavorites()
+        view?.dataRefreshed()
     }
     
     func numberOfRowsInSection() -> Int {
