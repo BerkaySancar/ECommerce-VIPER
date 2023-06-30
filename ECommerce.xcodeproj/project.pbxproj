@@ -186,10 +186,10 @@
 		B10B5F6D2A4F04F600C9FD77 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */,
-				B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */,
 				B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */,
 				B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */,
+				B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */,
+				B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";

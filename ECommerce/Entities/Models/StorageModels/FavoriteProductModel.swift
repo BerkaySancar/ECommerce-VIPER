@@ -15,6 +15,7 @@ class FavoriteProductModel: Object {
     
     convenience init(productId: Int, productImage: String, productTitle: String) {
         self.init()
+        self.productId = productId
         self.productImage = productImage
         self.productTitle = productTitle
     }

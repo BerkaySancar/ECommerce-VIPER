@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class FavoriteCell: UITableViewCell {
     
@@ -58,8 +59,8 @@ final class FavoriteCell: UITableViewCell {
         }
     }
     
-    func showModel() {
-        productImageView.backgroundColor = .gray
-        productTitleLabel.text = "SAMSUNG 12231 asdlkajsdlas alsk dalsdasd asd asd asd asd asdasdasd asdassdas"
+    func showModel(model: FavoriteProductModel?) {
+        productImageView.sd_setImage(with: URL(string: model?.productImage ?? ""))
+        productTitleLabel.text = model?.productTitle ?? ""
     }
 }

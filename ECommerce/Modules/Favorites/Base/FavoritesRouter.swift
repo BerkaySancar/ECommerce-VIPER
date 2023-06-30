@@ -9,7 +9,8 @@ import Foundation
 import UIKit.UIViewController
 
 protocol FavoritesRouterProtocol {
-    
+    func toHome()
+    func toDetail(productId: Int)
 }
 
 final class FavoritesRouter {
@@ -22,7 +23,7 @@ final class FavoritesRouter {
     static func startFavoritesModule() -> UIViewController {
         let view = FavoritesViewController()
         let router = FavoritesRouter(view: view)
-        let interactor = FavoritesInteractor()
+        let interactor = FavoritesInteractor(storageManager: RealmManager.shared)
         let presenter = FavoritesPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter
@@ -33,5 +34,13 @@ final class FavoritesRouter {
 }
 
 extension FavoritesRouter: FavoritesRouterProtocol {
+    func toHome() {
+        self.view?.tabBarController?.selectedIndex = 0
+    }
     
+    func toDetail(productId: Int) {
+        print(productId)
+        let detailModule = ProductDetailRouter.startModule(productID: productId)
+        self.view?.navigationController?.pushViewController(detailModule, animated: true)
+    }
 }
