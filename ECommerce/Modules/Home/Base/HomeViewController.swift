@@ -10,7 +10,7 @@ import UIKit
 protocol HomeViewProtocol: AnyObject {
     func setViewBackgroundColor(color: UIColor)
     func prepareNavBarView()
-    func setNavBarUnhidden()
+    func setNavBarAndTabBarVisibility()
     func prepareSearchBar()
     func prepareHomeCollectionView()
     func prepareActivtyIndicatorView()
@@ -75,8 +75,9 @@ extension HomeViewController: HomeViewProtocol {
         self.navigationController?.navigationBar.addSubview(navBarView)
     }
     
-    func setNavBarUnhidden() {
+    func setNavBarAndTabBarVisibility() {
         self.navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func prepareSearchBar() {

@@ -46,7 +46,7 @@ extension HomePresenter: HomePresenterInputs {
     }
     
     func viewWillAppear() {
-        view?.setNavBarUnhidden()
+        view?.setNavBarAndTabBarVisibility()
     }
     
     func numberOfSection() -> Int {

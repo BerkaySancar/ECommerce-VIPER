@@ -36,7 +36,7 @@ final class ProductDetailPresenter {
 
 extension ProductDetailPresenter: ProductDetailPresenterInputs {
     func viewDidLoad() {
-        view?.setNavBar()
+        view?.setNavBarAndTabBarVisibility()
         view?.setBackgroundColor(color: .systemBackground)
         view?.prepareAddBasketView()
         view?.prepareCollectionView()
