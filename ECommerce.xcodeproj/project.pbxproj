@@ -35,6 +35,11 @@
 		B18911802A4ED6D200913F83 /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189117F2A4ED6D200913F83 /* MainTabBarRouter.swift */; };
 		B18911822A4ED6DC00913F83 /* MainTabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18911812A4ED6DC00913F83 /* MainTabBarInteractor.swift */; };
 		B18911842A4ED98F00913F83 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18911832A4ED98F00913F83 /* UITabBarController+Extension.swift */; };
+		B18E78802A501E840061E882 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E787F2A501E840061E882 /* ProfilePresenter.swift */; };
+		B18E78822A501E8B0061E882 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E78812A501E8B0061E882 /* ProfileInteractor.swift */; };
+		B18E78842A501E900061E882 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E78832A501E900061E882 /* ProfileRouter.swift */; };
+		B18E78862A5020F70061E882 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E78852A5020F70061E882 /* ProfileViewController.swift */; };
+		B18E788A2A503CB50061E882 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E78892A503CB50061E882 /* ProfileHeaderView.swift */; };
 		B19BD1172A4AFE02002FBA48 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B19BD1162A4AFE02002FBA48 /* GoogleSignIn */; };
 		B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E252A48B6F20085160E /* AppDelegate.swift */; };
 		B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C8E272A48B6F20085160E /* SceneDelegate.swift */; };
@@ -109,6 +114,11 @@
 		B189117F2A4ED6D200913F83 /* MainTabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
 		B18911812A4ED6DC00913F83 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
 		B18911832A4ED98F00913F83 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
+		B18E787F2A501E840061E882 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		B18E78812A501E8B0061E882 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		B18E78832A501E900061E882 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		B18E78852A5020F70061E882 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B18E78892A503CB50061E882 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B19C8E222A48B6F20085160E /* ECommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19C8E252A48B6F20085160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B19C8E272A48B6F20085160E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -344,6 +354,34 @@
 			path = MainTabBar;
 			sourceTree = "<group>";
 		};
+		B18E787E2A501E6B0061E882 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B18E78882A50284A0061E882 /* UIComponents */,
+				B18E78872A50283E0061E882 /* Base */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B18E78872A50283E0061E882 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B18E787F2A501E840061E882 /* ProfilePresenter.swift */,
+				B18E78812A501E8B0061E882 /* ProfileInteractor.swift */,
+				B18E78832A501E900061E882 /* ProfileRouter.swift */,
+				B18E78852A5020F70061E882 /* ProfileViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B18E78882A50284A0061E882 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B18E78892A503CB50061E882 /* ProfileHeaderView.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 		B19C8E192A48B6F20085160E = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +425,7 @@
 		B19C8E3A2A48B7C20085160E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B18E787E2A501E6B0061E882 /* Profile */,
 				B14B08192A4EF4F80062DCF6 /* Favorites */,
 				B189117A2A4ED6A500913F83 /* MainTabBar */,
 				B1A4B2522A4DD237002F2E31 /* ProductDetail */,
@@ -751,6 +790,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */,
+				B18E78822A501E8B0061E882 /* ProfileInteractor.swift in Sources */,
 				B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */,
 				B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */,
 				B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */,
@@ -773,12 +813,14 @@
 				B189117E2A4ED6CA00913F83 /* MainTabBarPresenter.swift in Sources */,
 				B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */,
 				B1A4B25A2A4DD3D4002F2E31 /* ProductDetailViewController.swift in Sources */,
+				B18E78842A501E900061E882 /* ProfileRouter.swift in Sources */,
 				B14B08242A4EFA930062DCF6 /* RealmManager.swift in Sources */,
 				B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */,
 				B1B2A6682A4CC3B500979E18 /* Categories.swift in Sources */,
 				B1A6D61D2A4C6C60005D45F3 /* UIScreenBounds.swift in Sources */,
 				B1E7144B2A4AD08600552A8E /* HomeViewController.swift in Sources */,
 				B1A6D62D2A4CA3B9005D45F3 /* ProductsEndpoint.swift in Sources */,
+				B18E78862A5020F70061E882 /* ProfileViewController.swift in Sources */,
 				B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */,
 				B1A9D3262A4A16810033C3D2 /* SignUpRouter.swift in Sources */,
 				B1E714472A4ABFD700552A8E /* UIViewController+Extension.swift in Sources */,
@@ -791,6 +833,7 @@
 				B1A4B24F2A4D82D0002F2E31 /* UserInfoManager.swift in Sources */,
 				B19C8E402A48B83D0085160E /* OnboardingViewController.swift in Sources */,
 				B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */,
+				B18E788A2A503CB50061E882 /* ProfileHeaderView.swift in Sources */,
 				B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */,
 				B1A6D6242A4C9E3E005D45F3 /* NetworkManager.swift in Sources */,
 				B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */,
@@ -808,6 +851,7 @@
 				B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */,
 				B1A6D6282A4C9EC7005D45F3 /* HTTPMethods.swift in Sources */,
 				B1A6D61F2A4C7269005D45F3 /* ProductCell.swift in Sources */,
+				B18E78802A501E840061E882 /* ProfilePresenter.swift in Sources */,
 				B1A9D3282A4A168B0033C3D2 /* SignUpInteractor.swift in Sources */,
 				B1A4B24C2A4D80A6002F2E31 /* NavBarViewModel.swift in Sources */,
 				B1D18BA82A48BD9F003F0E4C /* OnboardingInteractor.swift in Sources */,
