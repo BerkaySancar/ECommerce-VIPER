@@ -18,7 +18,7 @@ protocol HomeViewProtocol: AnyObject {
     func endLoading()
     func dataRefreshed()
     func onError(message: String)
-    func setProfileImageAndUserEmail(model: NavBarViewModel)
+    func setProfileImageAndUserEmail(model: CurrentUserModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -122,7 +122,7 @@ extension HomeViewController: HomeViewProtocol {
         showAlert(title: "", message: message)
     }
     
-    func setProfileImageAndUserEmail(model: NavBarViewModel) {
+    func setProfileImageAndUserEmail(model: CurrentUserModel) {
         customNavBarView.showModel(model: model)
     }
 }

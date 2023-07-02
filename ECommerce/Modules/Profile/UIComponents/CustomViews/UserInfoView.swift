@@ -1,5 +1,5 @@
 //
-//  ProfileHeaderView.swift
+//  UserInfoView.swift
 //  ECommerce
 //
 //  Created by Berkay Sancar on 1.07.2023.
@@ -7,15 +7,16 @@
 
 import Foundation
 import UIKit.UIView
+import SDWebImage
 
-final class ProfileHeaderView: UIView {
+final class UserInfoView: UIView {
     
     private lazy var profilePhotoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.lightGray.cgColor
-        imageView.layer.cornerRadius = 50
+        imageView.layer.borderWidth = 3
+        imageView.layer.borderColor = UIColor.label.cgColor
+        imageView.layer.cornerRadius = 70
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -23,14 +24,14 @@ final class ProfileHeaderView: UIView {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.text = "sberkalskdj"
         label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.textAlignment = .center
         return label
     }()
     
     private lazy var vStackView: VerticalStackView = {
-        let stackView = VerticalStackView(arrangedSubviews: [profilePhotoImageView, emailLabel], spacing: 36)
-        stackView.contentMode = .center
+        let stackView = VerticalStackView(arrangedSubviews: [profilePhotoImageView, emailLabel], spacing: 48)
+        stackView.alignment = .center
         return stackView
     }()
     
@@ -44,11 +45,11 @@ final class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpConstraints() {
+    private func setUpConstraints() {
         addSubview(vStackView)
         
         profilePhotoImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
+            make.width.height.equalTo(140)
         }
         
         emailLabel.snp.makeConstraints { make in
@@ -58,5 +59,10 @@ final class ProfileHeaderView: UIView {
         vStackView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
+    }
+    
+    func showModel(model: CurrentUserModel?) {
+        profilePhotoImageView.sd_setImage(with: URL(string: model?.profileImageURLString ?? "https://picsum.photos/seed/picsum/500/500"))
+        emailLabel.text = model?.userEmail ?? ""
     }
 }

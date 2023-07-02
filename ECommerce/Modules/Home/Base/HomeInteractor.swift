@@ -24,7 +24,7 @@ protocol HomeInteractorOutputs: AnyObject {
     func endLoading()
     func dataRefreshed()
     func onError(errorMessage: String)
-    func showProfileImageAndEmail(model: NavBarViewModel)
+    func showProfileImageAndEmail(model: CurrentUserModel)
 }
 
 final class HomeInteractor {

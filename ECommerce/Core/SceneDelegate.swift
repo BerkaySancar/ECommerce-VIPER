@@ -17,13 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+
         if Auth.auth().currentUser != nil {
             window?.rootViewController = MainTabBarRouter.startTabBarModule()
         } else {
             /// We can make the onboarding page visible only once, but it is not important for this project.
             window?.rootViewController = UINavigationController(rootViewController: OnboardingRouter.startOnboarding())
         }
+        
         window?.makeKeyAndVisible()
+        
+        RootWindowManager.shared.window = self.window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -31,14 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
-        AuthManager.shared.signOut { result in
-            switch result {
-            case .success(_):
-                window?.rootViewController = OnboardingRouter.startOnboarding()
-            case .failure(_):
-                print("err")
-            }
-        }
+        
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

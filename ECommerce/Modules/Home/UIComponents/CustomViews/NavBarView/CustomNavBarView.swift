@@ -66,7 +66,7 @@ final class CustomNavBarView: UIView {
         }
     }
     
-    func showModel(model: NavBarViewModel) {
+    func showModel(model: CurrentUserModel) {
         welcomeLabel.text = "Welcome,"
         profilePhotoImageView.sd_setImage(with: URL(string: model.profileImageURLString ?? "https://picsum.photos/seed/picsum/500/500"))
         userNameLabel.text = model.userEmail
