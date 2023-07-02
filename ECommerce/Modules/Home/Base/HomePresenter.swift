@@ -136,7 +136,7 @@ extension HomePresenter: HomeInteractorOutputs {
         view?.onError(message: errorMessage)
     }
     
-    func showProfileImageAndEmail(model: NavBarViewModel) {
+    func showProfileImageAndEmail(model: CurrentUserModel) {
         view?.setProfileImageAndUserEmail(model: model)
     }
 }

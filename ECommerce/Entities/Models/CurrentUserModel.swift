@@ -8,7 +8,7 @@
 import Foundation
 import UIKit.UIImage
 
-struct NavBarViewModel {
+struct CurrentUserModel {
     let profileImageURLString: String?
     let userEmail: String?
 }
