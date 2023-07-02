@@ -10,12 +10,24 @@
 		B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F682A4EFD8600C9FD77 /* RealmError.swift */; };
 		B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */; };
 		B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */; };
+		B127FC812A519ED600ACD3D1 /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC802A519ED600ACD3D1 /* AddressesViewController.swift */; };
+		B127FC832A519EE000ACD3D1 /* AddressesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC822A519EE000ACD3D1 /* AddressesPresenter.swift */; };
+		B127FC852A519EF000ACD3D1 /* AddressesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC842A519EF000ACD3D1 /* AddressesInteractor.swift */; };
+		B127FC872A519EFA00ACD3D1 /* AddressesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC862A519EFA00ACD3D1 /* AddressesRouter.swift */; };
+		B127FC8D2A51A1F600ACD3D1 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC8C2A51A1F600ACD3D1 /* AddressCell.swift */; };
+		B127FC8F2A51A54F00ACD3D1 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC8E2A51A54F00ACD3D1 /* AddressModel.swift */; };
 		B14B081B2A4EF5320062DCF6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */; };
 		B14B081D2A4EF53A0062DCF6 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */; };
 		B14B081F2A4EF5460062DCF6 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */; };
 		B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */; };
 		B14B08242A4EFA930062DCF6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B08232A4EFA930062DCF6 /* RealmManager.swift */; };
 		B14B08272A4EFC8F0062DCF6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B14B08262A4EFC8F0062DCF6 /* RealmSwift */; };
+		B14B2C572A51CA4400F11791 /* EmptyAddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B2C562A51CA4400F11791 /* EmptyAddressesView.swift */; };
+		B14B2C5B2A51D69600F11791 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B2C592A51D69600F11791 /* AddAddressViewController.swift */; };
+		B14B2C5C2A51D69600F11791 /* AddAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14B2C5A2A51D69600F11791 /* AddAddressView.xib */; };
+		B162AB792A51F1C3001208A4 /* CountriesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B162AB782A51F1C3001208A4 /* CountriesEndpoint.swift */; };
+		B162AB7D2A51F2DF001208A4 /* CountriesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B162AB7C2A51F2DF001208A4 /* CountriesServices.swift */; };
+		B162AB7F2A51F7B4001208A4 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B162AB7E2A51F7B4001208A4 /* CountryModel.swift */; };
 		B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */; };
 		B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C4072A497BCF0082ADDC /* SnappingLayout.swift */; };
 		B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */; };
@@ -97,11 +109,23 @@
 		B10B5F682A4EFD8600C9FD77 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductModel.swift; sourceTree = "<group>"; };
 		B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		B127FC802A519ED600ACD3D1 /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
+		B127FC822A519EE000ACD3D1 /* AddressesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesPresenter.swift; sourceTree = "<group>"; };
+		B127FC842A519EF000ACD3D1 /* AddressesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesInteractor.swift; sourceTree = "<group>"; };
+		B127FC862A519EFA00ACD3D1 /* AddressesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesRouter.swift; sourceTree = "<group>"; };
+		B127FC8C2A51A1F600ACD3D1 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		B127FC8E2A51A54F00ACD3D1 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		B14B081A2A4EF5320062DCF6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B14B081C2A4EF53A0062DCF6 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B14B081E2A4EF5460062DCF6 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		B14B08202A4EF54D0062DCF6 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		B14B08232A4EFA930062DCF6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		B14B2C562A51CA4400F11791 /* EmptyAddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAddressesView.swift; sourceTree = "<group>"; };
+		B14B2C592A51D69600F11791 /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
+		B14B2C5A2A51D69600F11791 /* AddAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressView.xib; sourceTree = "<group>"; };
+		B162AB782A51F1C3001208A4 /* CountriesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesEndpoint.swift; sourceTree = "<group>"; };
+		B162AB7C2A51F2DF001208A4 /* CountriesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesServices.swift; sourceTree = "<group>"; };
+		B162AB7E2A51F7B4001208A4 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		B174C4012A495F7A0082ADDC /* OnboardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCellViewModel.swift; sourceTree = "<group>"; };
 		B174C4072A497BCF0082ADDC /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
 		B174C40E2A49AB4B0082ADDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +220,7 @@
 		B10B5F6A2A4EFF5C00C9FD77 /* StorageModels */ = {
 			isa = PBXGroup;
 			children = (
+				B127FC8E2A51A54F00ACD3D1 /* AddressModel.swift */,
 				B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */,
 			);
 			path = StorageModels;
@@ -228,6 +253,52 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		B127FC7F2A519DA200ACD3D1 /* Addresses */ = {
+			isa = PBXGroup;
+			children = (
+				B14B2C582A51D5FA00F11791 /* AddAddress */,
+				B127FC892A51A1B800ACD3D1 /* UIComponents */,
+				B127FC882A51A1AE00ACD3D1 /* Base */,
+			);
+			path = Addresses;
+			sourceTree = "<group>";
+		};
+		B127FC882A51A1AE00ACD3D1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B127FC802A519ED600ACD3D1 /* AddressesViewController.swift */,
+				B127FC822A519EE000ACD3D1 /* AddressesPresenter.swift */,
+				B127FC842A519EF000ACD3D1 /* AddressesInteractor.swift */,
+				B127FC862A519EFA00ACD3D1 /* AddressesRouter.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B127FC892A51A1B800ACD3D1 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B127FC8B2A51A1E000ACD3D1 /* CustomViews */,
+				B127FC8A2A51A1DA00ACD3D1 /* Cells */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		B127FC8A2A51A1DA00ACD3D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B127FC8C2A51A1F600ACD3D1 /* AddressCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B127FC8B2A51A1E000ACD3D1 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				B14B2C562A51CA4400F11791 /* EmptyAddressesView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		B14B08192A4EF4F80062DCF6 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +314,24 @@
 				B14B08232A4EFA930062DCF6 /* RealmManager.swift */,
 			);
 			path = StorageManager;
+			sourceTree = "<group>";
+		};
+		B14B2C582A51D5FA00F11791 /* AddAddress */ = {
+			isa = PBXGroup;
+			children = (
+				B14B2C592A51D69600F11791 /* AddAddressViewController.swift */,
+				B14B2C5A2A51D69600F11791 /* AddAddressView.xib */,
+			);
+			path = AddAddress;
+			sourceTree = "<group>";
+		};
+		B162AB772A51F1A8001208A4 /* RestCountriesService */ = {
+			isa = PBXGroup;
+			children = (
+				B162AB782A51F1C3001208A4 /* CountriesEndpoint.swift */,
+				B162AB7C2A51F2DF001208A4 /* CountriesServices.swift */,
+			);
+			path = RestCountriesService;
 			sourceTree = "<group>";
 		};
 		B174C4032A495FF80082ADDC /* OnboardCell */ = {
@@ -459,6 +548,7 @@
 		B19C8E3A2A48B7C20085160E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B127FC7F2A519DA200ACD3D1 /* Addresses */,
 				B18E787E2A501E6B0061E882 /* Profile */,
 				B14B08192A4EF4F80062DCF6 /* Favorites */,
 				B189117A2A4ED6A500913F83 /* MainTabBar */,
@@ -633,24 +723,17 @@
 		B1A6D62E2A4CA684005D45F3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B162AB772A51F1A8001208A4 /* RestCountriesService */,
 				B1A6D6312A4CAA27005D45F3 /* FakeStoreAPIService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		B1A6D6302A4CA8BB005D45F3 /* Endpoint */ = {
-			isa = PBXGroup;
-			children = (
-				B1A6D62C2A4CA3B9005D45F3 /* ProductsEndpoint.swift */,
-			);
-			path = Endpoint;
-			sourceTree = "<group>";
-		};
 		B1A6D6312A4CAA27005D45F3 /* FakeStoreAPIService */ = {
 			isa = PBXGroup;
 			children = (
-				B1A6D6302A4CA8BB005D45F3 /* Endpoint */,
 				B1A6D6332A4CAAA2005D45F3 /* ProductsService.swift */,
+				B1A6D62C2A4CA3B9005D45F3 /* ProductsEndpoint.swift */,
 			);
 			path = FakeStoreAPIService;
 			sourceTree = "<group>";
@@ -660,6 +743,7 @@
 			children = (
 				B1A6D6362A4CAC6A005D45F3 /* ProductModel.swift */,
 				B1B2A6672A4CC3B500979E18 /* Categories.swift */,
+				B162AB7E2A51F7B4001208A4 /* CountryModel.swift */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -704,10 +788,10 @@
 		B1AD60612A4A2BB600BD5094 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B18E788F2A50800B0061E882 /* ProfileRowItemModel.swift */,
 				B1A4B24B2A4D80A6002F2E31 /* CurrentUserModel.swift */,
 				B10B5F6A2A4EFF5C00C9FD77 /* StorageModels */,
 				B1A6D6352A4CAC4B005D45F3 /* ResponseModels */,
-				B18E788F2A50800B0061E882 /* ProfileRowItemModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -815,6 +899,7 @@
 				B174C41B2A49BA470082ADDC /* GoogleService-Info.plist in Resources */,
 				B19C8E2F2A48B6F30085160E /* Assets.xcassets in Resources */,
 				B174C4112A49AB4B0082ADDC /* LoginView.xib in Resources */,
+				B14B2C5C2A51D69600F11791 /* AddAddressView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,9 +915,11 @@
 				B19C8E262A48B6F20085160E /* AppDelegate.swift in Sources */,
 				B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */,
 				B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */,
+				B14B2C5B2A51D69600F11791 /* AddAddressViewController.swift in Sources */,
 				B1A6D60E2A4C2111005D45F3 /* HomeInteractor.swift in Sources */,
 				B1CB66C92A48D035008FF752 /* OnboardCell.swift in Sources */,
 				B189117C2A4ED6C000913F83 /* MainTabBarViewController.swift in Sources */,
+				B127FC832A519EE000ACD3D1 /* AddressesPresenter.swift in Sources */,
 				B1A6D6162A4C26BA005D45F3 /* CustomNavBarView.swift in Sources */,
 				B1A4B2542A4DD252002F2E31 /* ProductDetailRouter.swift in Sources */,
 				B1A4B2562A4DD25A002F2E31 /* ProductDetailInteractor.swift in Sources */,
@@ -847,14 +934,19 @@
 				B1A6D6372A4CAC6A005D45F3 /* ProductModel.swift in Sources */,
 				B1A6D6262A4C9EA6005D45F3 /* NetworkError.swift in Sources */,
 				B1E714492A4AC70E00552A8E /* GeneralError.swift in Sources */,
+				B162AB7D2A51F2DF001208A4 /* CountriesServices.swift in Sources */,
 				B189117E2A4ED6CA00913F83 /* MainTabBarPresenter.swift in Sources */,
 				B14B08212A4EF54D0062DCF6 /* FavoritesPresenter.swift in Sources */,
+				B14B2C572A51CA4400F11791 /* EmptyAddressesView.swift in Sources */,
 				B1A4B25A2A4DD3D4002F2E31 /* ProductDetailViewController.swift in Sources */,
+				B127FC8D2A51A1F600ACD3D1 /* AddressCell.swift in Sources */,
 				B18E78842A501E900061E882 /* ProfileRouter.swift in Sources */,
 				B14B08242A4EFA930062DCF6 /* RealmManager.swift in Sources */,
 				B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */,
+				B127FC872A519EFA00ACD3D1 /* AddressesRouter.swift in Sources */,
 				B1B2A6682A4CC3B500979E18 /* Categories.swift in Sources */,
 				B1A6D61D2A4C6C60005D45F3 /* UIScreenBounds.swift in Sources */,
+				B127FC8F2A51A54F00ACD3D1 /* AddressModel.swift in Sources */,
 				B1E7144B2A4AD08600552A8E /* HomeViewController.swift in Sources */,
 				B1A6D62D2A4CA3B9005D45F3 /* ProductsEndpoint.swift in Sources */,
 				B18E78862A5020F70061E882 /* ProfileViewController.swift in Sources */,
@@ -875,6 +967,7 @@
 				B19C8E282A48B6F20085160E /* SceneDelegate.swift in Sources */,
 				B1A6D6242A4C9E3E005D45F3 /* NetworkManager.swift in Sources */,
 				B174C4022A495F7A0082ADDC /* OnboardCellViewModel.swift in Sources */,
+				B127FC852A519EF000ACD3D1 /* AddressesInteractor.swift in Sources */,
 				B1A9D31F2A4A16520033C3D2 /* SignUpViewController.swift in Sources */,
 				B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */,
 				B174C4192A49AB9A0082ADDC /* LoginPresenter.swift in Sources */,
@@ -886,8 +979,10 @@
 				B174C4152A49AB8C0082ADDC /* LoginRouter.swift in Sources */,
 				B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */,
 				B174C4102A49AB4B0082ADDC /* LoginViewController.swift in Sources */,
+				B127FC812A519ED600ACD3D1 /* AddressesViewController.swift in Sources */,
 				B1A9D3242A4A167B0033C3D2 /* SignUpPresenter.swift in Sources */,
 				B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */,
+				B162AB7F2A51F7B4001208A4 /* CountryModel.swift in Sources */,
 				B1A6D6282A4C9EC7005D45F3 /* HTTPMethods.swift in Sources */,
 				B1A6D61F2A4C7269005D45F3 /* ProductCell.swift in Sources */,
 				B18E78802A501E840061E882 /* ProfilePresenter.swift in Sources */,
@@ -896,6 +991,7 @@
 				B1D18BA82A48BD9F003F0E4C /* OnboardingInteractor.swift in Sources */,
 				B18E78952A50B3D10061E882 /* ProfileRowItem.swift in Sources */,
 				B18911842A4ED98F00913F83 /* UITabBarController+Extension.swift in Sources */,
+				B162AB792A51F1C3001208A4 /* CountriesEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

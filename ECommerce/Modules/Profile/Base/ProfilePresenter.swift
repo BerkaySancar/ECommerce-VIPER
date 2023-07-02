@@ -54,7 +54,7 @@ extension ProfilePresenter: ProfilePresenterInputs {
         
         switch selectedItem?.item {
         case .address:
-            break
+            router?.toAddresses()
         case .payment:
             break
         case .orderHistory:

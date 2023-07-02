@@ -10,6 +10,7 @@ import UIKit.UIViewController
 
 protocol ProfileRouterProtocol {
     func toLogin()
+    func toAddresses()
 }
 
 final class ProfileRouter {
@@ -39,5 +40,10 @@ extension ProfileRouter: ProfileRouterProtocol {
     func toLogin() {
         let loginModule = UINavigationController(rootViewController: LoginRouter.startLogin())
         windowManager.changeRootViewController(loginModule)
+    }
+    
+    func toAddresses() {
+        let addressesModule = AddressesRouter.startAddressesModule()
+        self.view?.navigationController?.pushViewController(addressesModule, animated: true)
     }
 }
