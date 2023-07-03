@@ -16,6 +16,7 @@ final class MainTabBarViewController: UITabBarController {
     
     private let homeModule = HomeRouter.startHomeModule()
     private let favoritesModule = FavoritesRouter.startFavoritesModule()
+    private let basketModule = BasketRouter.startBasketModule()
     private let profileModule = ProfileRouter.startProfileModule()
     
     internal var presenter: MainTabBarPresenterInputs!
@@ -49,7 +50,7 @@ extension MainTabBarViewController: MainTabBarViewProtocol {
                               imageName: "heart",
                               selectedImageName: "heart.fill"),
                 
-                setController(viewController: UIViewController(),
+                setController(viewController: basketModule,
                               title: "Basket",
                               imageName: "basket",
                               selectedImageName: "basket.fill"),
