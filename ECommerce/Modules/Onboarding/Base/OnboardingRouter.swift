@@ -15,14 +15,16 @@ protocol OnboardingRouterProtocol {
 final class OnboardingRouter {
     
     private weak var view: UIViewController?
+    private let windowManager: RootWindowManagerProtocol?
     
-    init(view: UIViewController) {
+    init(view: UIViewController, windowManager: RootWindowManagerProtocol) {
         self.view = view
+        self.windowManager = windowManager
     }
     
     static func startOnboarding() -> UIViewController {
         let view = OnboardingViewController()
-        let router = OnboardingRouter(view: view)
+        let router = OnboardingRouter(view: view, windowManager: RootWindowManager.shared)
         let interactor = OnboardingInteractor()
         let presenter = OnboardingPresenter(view: view, interactor: interactor, router: router)
         
@@ -37,6 +39,6 @@ extension OnboardingRouter: OnboardingRouterProtocol {
     
     func toLogin() {
         let loginModule = LoginRouter.startLogin()
-        view?.navigationController?.setViewControllers([loginModule], animated: true)
+        windowManager?.changeRootViewController(loginModule)
     }
 }

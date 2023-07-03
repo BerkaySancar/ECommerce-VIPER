@@ -16,9 +16,9 @@ protocol ProfileRouterProtocol {
 final class ProfileRouter {
     
     private weak var view: UIViewController?
-    private let windowManager: RootWindowManager
+    private let windowManager: RootWindowManagerProtocol?
     
-    init(view: UIViewController, windowManager: RootWindowManager) {
+    init(view: UIViewController, windowManager: RootWindowManagerProtocol) {
         self.view = view
         self.windowManager = windowManager
     }
@@ -39,7 +39,7 @@ final class ProfileRouter {
 extension ProfileRouter: ProfileRouterProtocol {
     func toLogin() {
         let loginModule = UINavigationController(rootViewController: LoginRouter.startLogin())
-        windowManager.changeRootViewController(loginModule)
+        windowManager?.changeRootViewController(loginModule)
     }
     
     func toAddresses() {

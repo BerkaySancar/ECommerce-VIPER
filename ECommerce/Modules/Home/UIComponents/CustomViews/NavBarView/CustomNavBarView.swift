@@ -14,7 +14,7 @@ final class CustomNavBarView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.layer.borderColor = UIColor.label.cgColor
         imageView.layer.cornerRadius = 27
         imageView.clipsToBounds = true
         return imageView

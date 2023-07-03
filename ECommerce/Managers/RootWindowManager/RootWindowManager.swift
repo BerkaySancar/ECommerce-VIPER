@@ -12,7 +12,7 @@ protocol RootWindowManagerProtocol {
     func changeRootViewController(_ viewController: UIViewController) 
 }
 
-final class RootWindowManager {
+final class RootWindowManager: RootWindowManagerProtocol {
     
     static let shared = RootWindowManager()
     

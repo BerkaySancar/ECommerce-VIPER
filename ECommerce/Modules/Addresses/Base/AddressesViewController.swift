@@ -42,11 +42,6 @@ final class AddressesViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter.viewWillAppear()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        presenter.viewDidDisappear()
-    }
 }
 
 // MARK: - View protocol

@@ -15,14 +15,16 @@ protocol LoginRouterProtocol {
 
 final class LoginRouter {
     private weak var view: UIViewController?
+    private let windowManager: RootWindowManagerProtocol?
     
-    init(view: UIViewController) {
+    init(view: UIViewController, windowManager: RootWindowManagerProtocol) {
         self.view = view
+        self.windowManager = windowManager
     }
     
     static func startLogin() -> UIViewController {
         let view = LoginViewController(nibName: "LoginView", bundle: nil)
-        let router = LoginRouter(view: view)
+        let router = LoginRouter(view: view, windowManager: RootWindowManager.shared)
         let interactor = LoginInteractor(authManager: AuthManager.shared)
         let presenter = LoginPresenter(view: view, interactor: interactor, router: router)
         
@@ -41,6 +43,6 @@ extension LoginRouter: LoginRouterProtocol {
     
     func toHome() {
         let homeModule = MainTabBarRouter.startTabBarModule()
-        view?.navigationController?.setViewControllers([homeModule], animated: true)
+        windowManager?.changeRootViewController(homeModule)
     }
 }

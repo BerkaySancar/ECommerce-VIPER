@@ -10,7 +10,6 @@ import Foundation
 protocol AddressesPresenterInputs {
     func viewDidLoad()
     func viewWillAppear()
-    func viewDidDisappear()
     func numberOfItemsInSection(section: Int)  -> Int
     func cellForItemAt(indexPath: IndexPath) -> AddressModel?
     func sizeForItemAt(indexPath: IndexPath) -> CGSize
@@ -28,7 +27,14 @@ final class AddressesPresenter {
         self.view = view
         self.router = router
         self.interactor = interactor
-        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .addUpdateButtonNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.notificationReceived(_:)),
+                                               name: .addUpdateButtonNotification,
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .addUpdateButtonNotification, object: nil)
     }
 }
 
@@ -43,10 +49,6 @@ extension AddressesPresenter: AddressesPresenterInputs {
     
     func viewWillAppear() {
         interactor?.getAddresses()
-    }
-    
-    func viewDidDisappear() {
-//        NotificationCenter.default.removeObserver(self, name: .addUpdateButtonNotification, object: nil)
     }
     
     func numberOfItemsInSection(section: Int) -> Int {
