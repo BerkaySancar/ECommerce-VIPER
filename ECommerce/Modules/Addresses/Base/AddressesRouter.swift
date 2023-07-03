@@ -9,7 +9,7 @@ import Foundation
 import UIKit.UIViewController
 
 protocol AddressesRouterProtocol {
-    func toAddAddress()
+    func toAddAddress(address: AddressModel?)
 }
 
 final class AddressesRouter {
@@ -33,8 +33,8 @@ final class AddressesRouter {
 }
 
 extension AddressesRouter: AddressesRouterProtocol {
-    func toAddAddress() {
-        let addController = AddAddressViewController(address: nil)
+    func toAddAddress(address: AddressModel?) {
+        let addController = AddAddressViewController(address: address)
         self.view?.navigationController?.pushViewController(addController, animated: true)
     }
 }

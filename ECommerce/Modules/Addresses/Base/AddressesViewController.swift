@@ -92,6 +92,12 @@ extension AddressesViewController: EmptyAddressesViewButtonDelegate {
     }
 }
 
+extension AddressesViewController: AddressCellTrashButtonDelegate {
+    func trashTapped(model: AddressModel?) {
+        presenter.trashTapped(model: model)
+    }
+}
+
 // MARK: CollectionView Delegate&DataSource
 extension AddressesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -103,6 +109,7 @@ extension AddressesViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let cell = addressesCollectionView.dequeueReusableCell(withReuseIdentifier: AddressCell.identifier, for: indexPath) as? AddressCell else { return UICollectionViewCell() }
         
         cell.showModel(model: presenter.cellForItemAt(indexPath: indexPath))
+        cell.delegate = self
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.label.cgColor
         cell.layer.cornerRadius = 8
@@ -116,5 +123,6 @@ extension AddressesViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         addressesCollectionView.deselectItem(at: indexPath, animated: true)
+        presenter.didSelectItemAt(indexPath: indexPath)
     }
 }

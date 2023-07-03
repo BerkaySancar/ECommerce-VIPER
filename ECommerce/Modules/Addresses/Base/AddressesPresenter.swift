@@ -16,6 +16,7 @@ protocol AddressesPresenterInputs {
     func sizeForItemAt(indexPath: IndexPath) -> CGSize
     func didSelectItemAt(indexPath: IndexPath)
     func toAddButtonTapped()
+    func trashTapped(model: AddressModel?)
 }
 
 final class AddressesPresenter {
@@ -38,7 +39,6 @@ extension AddressesPresenter: AddressesPresenterInputs {
         view?.setNavBarTitle(title: "My Addresses")
         view?.prepareCollectionView()
         view?.prepareEmptyView()
-        interactor?.getAddresses()
     }
     
     func viewWillAppear() {
@@ -46,7 +46,7 @@ extension AddressesPresenter: AddressesPresenterInputs {
     }
     
     func viewDidDisappear() {
-        NotificationCenter.default.removeObserver(self, name: .addUpdateButtonNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: .addUpdateButtonNotification, object: nil)
     }
     
     func numberOfItemsInSection(section: Int) -> Int {
@@ -62,22 +62,27 @@ extension AddressesPresenter: AddressesPresenterInputs {
     }
     
     func didSelectItemAt(indexPath: IndexPath) {
-        
+        let selectedAddress = interactor?.showAddresses()?[indexPath.item]
+        router?.toAddAddress(address: selectedAddress)
     }
     
     func toAddButtonTapped() {
-        router?.toAddAddress()
+        router?.toAddAddress(address: nil)
     }
     
     @objc func notificationReceived(_ notification: Notification) {
-        guard let address = notification.userInfo?["address"] else { return }
+        guard let newInfos = notification.userInfo?["address"] else { return }
         guard let action = notification.userInfo?["action"] else { return }
         
         if action as! String == "add" {
-            interactor?.addAction(model: address as! AddressModel)
+            interactor?.addAction(model: newInfos as! [String: Any])
         } else {
-            interactor?.updateAction(model: address as! AddressModel)
+            interactor?.updateAction(model: newInfos as! [String: Any])
         }
+    }
+    
+    func trashTapped(model: AddressModel?) {
+        interactor?.deleteAction(model: model)
     }
 }
 

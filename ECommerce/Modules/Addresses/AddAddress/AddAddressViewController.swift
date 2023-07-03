@@ -27,8 +27,6 @@ final class AddAddressViewController: UIViewController {
     private let userInfoManager: UserInfoManagerProtocol = UserInfoManager.shared
     
     private var address: AddressModel?
-    private var createdAddress: AddressModel?
-    private var action: String?
     private var countries: [Country] = []
     
     private let notificationCenter: NotificationCenter = NotificationCenter.default
@@ -61,18 +59,22 @@ final class AddAddressViewController: UIViewController {
     }
     
     private func setupWithModel() {
-        if let address {
-            nameTextField.text = address.name
-            countryTextField.text = address.country
-            cityTextField.text = address.city
-            streetTextField.text = address.street
-            buildingNoTextField.text = String(address.buildingNumber)
-            zipCodeTextField.text = String(address.zipCode)
+        if address != nil {
+            nameTextField.text = address?.name
+            countryTextField.text = address?.country
+            cityTextField.text = address?.city
+            streetTextField.text = address?.street
+            buildingNoTextField.text = String(address?.buildingNumber ?? 0)
+            zipCodeTextField.text = String(address?.zipCode ?? 0)
             addUpdateButton.setTitle("Update", for: .normal)
         }
     }
     
     @IBAction private func addUpdateButtonTapped(_ sender: Any) {
+        
+        defer {
+            self.navigationController?.popViewController(animated: true)
+        }
       
         if let name = nameTextField.text,
            let country = countryTextField.text,
@@ -87,20 +89,18 @@ final class AddAddressViewController: UIViewController {
            !buildingNo.isEmpty,
            !zipCode.isEmpty {
             
-            let address = AddressModel(userId: userInfoManager.getUserUid(),
-                                       name: name,
-                                       country: country,
-                                       city: city,
-                                       street: street,
-                                       buildingNumber: Int(buildingNo) ?? 0,
-                                       zipCode: Int(zipCode) ?? 0)
+            let newInfos: [String: AnyHashable] = ["userId": userInfoManager.getUserUid(),
+                                                   "uuid": self.address?.uuid ?? UUID(),
+                                                   "name": name,
+                                                   "country": country,
+                                                   "city": city,
+                                                   "street": street,
+                                                   "buildingNumber": Int(buildingNo),
+                                                   "zipCode": Int(zipCode)]
             
-            self.createdAddress = address
-            self.action = addUpdateButton.titleLabel?.text == "Add" ? "add" : "update"
-            let userInfoForNC: [String: AnyHashable] = ["address": address, "action": action]
-            
-            notificationCenter.post(name: .addUpdateButtonNotification, object: nil, userInfo: userInfoForNC) // magic :d
-            self.navigationController?.popViewController(animated: true)
+            let action = addUpdateButton.titleLabel?.text == "Add" ? "add" : "update"
+            let userInfoForNC: [String: Any] = ["address": newInfos, "action": action]
+            notificationCenter.post(name: .addUpdateButtonNotification, object: nil, userInfo: userInfoForNC) // magic :D
         } else {
             self.showAlert(title: "", message: GeneralError.addressInfoMissing.localizedDescription)
         }

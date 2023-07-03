@@ -10,8 +10,9 @@ import Foundation
 protocol AddressesInteractorInputs {
     func getAddresses()
     func showAddresses() -> [AddressModel]?
-    func addAction(model: AddressModel)
-    func updateAction(model: AddressModel)
+    func addAction(model: [String: Any])
+    func updateAction(model: [String: Any])
+    func deleteAction(model: AddressModel?)
 }
 
 protocol AddressesInteractorOutputs: AnyObject {
@@ -45,32 +46,41 @@ extension AddressesInteractor: AddressesInteractorInputs {
         return self.addresses
     }
     
-    func addAction(model: AddressModel) {
-        storageManager?.create(model, onError: { [weak self] error in
+    func addAction(model: [String: Any]) {
+        let address = AddressModel(userId: (model["userId"] as! String),
+                                   uuid: (model["uuid"] as! UUID),
+                                   name: model["name"] as! String,
+                                   country: model["country"] as! String,
+                                   city: model["city"] as! String,
+                                   street: model["street"] as! String,
+                                   buildingNumber: model["buildingNumber"] as! Int,
+                                   zipCode: model["zipCode"] as! Int)
+        storageManager?.create(address, onError: { [weak self] error in
             guard let self else { return }
             presenter?.onError(error: error)
         })
         presenter?.dataRefreshed()
-        print("in")
     }
     
-    func updateAction(model: AddressModel) {
-        guard let savedAddress = self.addresses?.filter({ $0.uuid == model.uuid }).first else { return }
-        let dict: [String:Any] = [
-            "userId:": "\(String(describing: model.userId))",
-            "uuid": "\(String(describing: model.uuid))",
-            "name": "\(String(describing: model.name))",
-            "country": "\(String(describing: model.country))",
-            "city": "\(String(describing: model.city))",
-            "street:": "\(String(describing: model.street))",
-            "buildingNumber": model.buildingNumber,
-            "zipCode": model.zipCode
-        ]
+    func updateAction(model: [String: Any]) {
+        guard let savedAddress = self.addresses?.filter({ $0.uuid == (model["uuid"] as! UUID) }).first else { return }
         
-        storageManager?.update(savedAddress, with: dict, onError: { [weak self] error in
+        storageManager?.update(savedAddress, with: model, onError: { [weak self] error in
             guard let self else { return }
             self.presenter?.onError(error: error)
         })
         self.presenter?.dataRefreshed()
+    }
+    
+    func deleteAction(model: AddressModel?) {
+        if let model {
+            if let index = self.addresses?.firstIndex(where: { $0.uuid == model.uuid }) {
+                storageManager?.delete(model, onError: { [weak self] error in
+                    guard let self else { return }
+                    self.presenter?.onError(error: error)
+                })
+                self.addresses?.remove(at: index)
+            }
+        }
     }
 }
