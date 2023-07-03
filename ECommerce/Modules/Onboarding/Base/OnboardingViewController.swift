@@ -22,6 +22,7 @@ final class OnboardingViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(OnboardCell.self, forCellWithReuseIdentifier: OnboardCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.decelerationRate = .fast
         return collectionView
     }()
    
