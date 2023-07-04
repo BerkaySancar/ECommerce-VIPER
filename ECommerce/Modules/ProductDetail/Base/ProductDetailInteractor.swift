@@ -11,6 +11,7 @@ protocol ProductDetailInteractorInputs {
     func getProduct()
     func favButtonTapped(model: ProductModel?)
     func isFav(model: ProductModel?) -> Bool
+    func addProductToBasket(product: ProductModel?)
 }
 
 protocol ProductDetailInteractorOutputs: AnyObject {
@@ -19,6 +20,7 @@ protocol ProductDetailInteractorOutputs: AnyObject {
     func dataRefreshed()
     func onError(errorMessage: String)
     func showModel(model: ProductModel?)
+    func addToBasketSucceed()
 }
 
 final class ProductDetailInteractor {
@@ -26,14 +28,21 @@ final class ProductDetailInteractor {
     private let service: ProductsServiceProtocol?
     private let storageManager: RealmManagerProtocol?
     private let userInfoManager: UserInfoManagerProtocol?
+    private let basketManager: BasketManagerProtocol?
     
     private var productID: Int
     
-    init(productID: Int, service: ProductsServiceProtocol, storageManager: RealmManagerProtocol, userInfoManager: UserInfoManagerProtocol) {
+    init(productID: Int,
+         service: ProductsServiceProtocol,
+         storageManager: RealmManagerProtocol,
+         userInfoManager: UserInfoManagerProtocol,
+         basketManager: BasketManagerProtocol)
+    {
         self.productID = productID
         self.service = service
         self.storageManager = storageManager
         self.userInfoManager = userInfoManager
+        self.basketManager = basketManager
     }
 }
 
@@ -86,6 +95,29 @@ extension ProductDetailInteractor: ProductDetailInteractorInputs {
                     })
                 }
             }
+        }
+    }
+    
+    func addProductToBasket(product: ProductModel?) {
+        self.presenter?.startLoading()
+        
+        if let product {
+            var data: [String: Any] = [:]
+            data["userId"] = userInfoManager?.getUserUid()
+            data["productTitle"] = product.title
+            data["productPrice"] = product.price
+            data["imageURL"] = product.image
+            basketManager?.addBasket(data: data, completion: { [weak self] results in
+                guard let self else { return }
+                self.presenter?.endLoading()
+                
+                switch results {
+                case .success(_):
+                    self.presenter?.addToBasketSucceed()
+                case .failure(let error):
+                    self.presenter?.onError(errorMessage: error.localizedDescription)
+                }
+            })
         }
     }
 }

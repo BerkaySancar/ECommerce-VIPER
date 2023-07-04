@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class BasketCell: UITableViewCell {
     
@@ -16,7 +17,6 @@ final class BasketCell: UITableViewCell {
         imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .gray
         return imageView
     }()
     
@@ -25,7 +25,6 @@ final class BasketCell: UITableViewCell {
         label.numberOfLines = 0
         label.textColor = .label
         label.font = .systemFont(ofSize: 18, weight: .light)
-        label.text = "BMW e36 m3 s52b32asdasdas"
         label.textAlignment = .center
         return label
     }()
@@ -34,7 +33,6 @@ final class BasketCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.font = .systemFont(ofSize: 20, weight: .thin)
-        label.text = "$300"
         label.textAlignment = .center
         return label
     }()
@@ -45,7 +43,7 @@ final class BasketCell: UITableViewCell {
         label.backgroundColor = .label
         label.layer.cornerRadius = 8
         label.font = .systemFont(ofSize: 20)
-        label.text = "1"
+        label.text = "\(Int(stepper.value))"
         label.textAlignment = .center
         label.clipsToBounds = true
         return label
@@ -53,8 +51,8 @@ final class BasketCell: UITableViewCell {
     
     private lazy var stepper: UIStepper = {
         let stepper = UIStepper()
-        stepper.stepValue = 1
         stepper.minimumValue = 0
+        stepper.value = 1
         stepper.maximumValue = 10
         stepper.addTarget(self, action: #selector(stepperValueChanged), for: .valueChanged)
         return stepper
@@ -87,12 +85,16 @@ final class BasketCell: UITableViewCell {
         productImageView.snp.makeConstraints { make in
             make.height.equalTo(120)
             make.width.equalTo(90)
-            productImageView.image = .init(named: "onboarding1")
         }
         
-        productCountLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
+        productTitleLabel.snp.makeConstraints { make in
+            make.width.equalTo(UIScreenBounds.width / 2.5)
         }
+        
+        productPriceLabel.snp.makeConstraints { make in
+            make.height.equalTo(30)
+        }
+        
         
         hStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(16)
@@ -102,5 +104,14 @@ final class BasketCell: UITableViewCell {
     @objc
     private func stepperValueChanged() {
         productCountLabel.text = "\(Int(stepper.value))"
+    }
+    
+    func showModel(model: BasketModel?) {
+        if let model {
+            productTitleLabel.text = model.productTitle
+            let formattedPrice = String(format: "%.2f", model.productPrice)
+            productPriceLabel.text = "$\(formattedPrice)"
+            productImageView.sd_setImage(with: URL(string: model.imageURL))
+        }
     }
 }
