@@ -15,6 +15,9 @@ enum FirebaseError: Error {
     case emailNotVerified
     case passwordResetError
     case googleSignInFailed
+    case addProductToBasket
+    case getBasketItemsFailed
+    case itemCouldNotBeRemoved
     
     var localizedDescription: String {
         switch self {
@@ -32,6 +35,12 @@ enum FirebaseError: Error {
             return NSLocalizedString("Email not found.", comment: "")
         case .googleSignInFailed:
             return NSLocalizedString("Sign in failed. Try again.", comment: "")
+        case .addProductToBasket:
+            return NSLocalizedString("Product could not be added. Try again.", comment: "")
+        case .getBasketItemsFailed:
+            return NSLocalizedString("Basket items could not be brought.", comment: "")
+        case .itemCouldNotBeRemoved:
+            return NSLocalizedString("Product could not be removed. Try again.", comment: "")
         }
     }
 }

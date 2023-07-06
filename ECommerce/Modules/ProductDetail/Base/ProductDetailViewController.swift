@@ -119,7 +119,7 @@ extension ProductDetailViewController: ProductDetailViewProtocol {
 
 extension ProductDetailViewController: ProductDetailCellButtonsDelegate {
     func backTapped() {
-        self.navigationController?.popViewController(animated: true)
+        presenter.backButtonTapped()
     }
     
     func favButtonTapped() {
@@ -129,7 +129,7 @@ extension ProductDetailViewController: ProductDetailCellButtonsDelegate {
 
 extension ProductDetailViewController: AddBasketButtonDelegate {
     func addBasketTapped() {
-        
+        presenter.addBasketTapped()
     }
 }
 

@@ -15,6 +15,8 @@ protocol ProductDetailPresenterInputs {
     func sizeForItemAt() -> CGSize
     func favButtonTapped()
     func isFav() -> Bool?
+    func backButtonTapped()
+    func addBasketTapped()
 }
 
 final class ProductDetailPresenter {
@@ -44,6 +46,7 @@ extension ProductDetailPresenter: ProductDetailPresenterInputs {
         view?.prepareCollectionView()
         view?.prepareActivtyIndicatorView()
         interactor?.getProduct()
+        interactor?.getBasketItems()
     }
     
     func viewWillApper() {
@@ -68,6 +71,14 @@ extension ProductDetailPresenter: ProductDetailPresenterInputs {
     
     func isFav() -> Bool? {
         return interactor?.isFav(model: self.productModel)
+    }
+    
+    func backButtonTapped() {
+        router?.toHome()
+    }
+    
+    func addBasketTapped() {
+        interactor?.addProductToBasket(product: self.productModel)
     }
 }
 
@@ -95,5 +106,9 @@ extension ProductDetailPresenter: ProductDetailInteractorOutputs {
     
     func showModel(model: ProductModel?) {
         self.productModel = model
+    }
+    
+    func addToBasketSucceed() {
+        router?.toBasket()
     }
 }

@@ -9,7 +9,8 @@ import Foundation
 import UIKit.UIViewController
 
 protocol ProductDetailRouterProtocol {
-    
+    func toHome()
+    func toBasket()
 }
 
 final class ProductDetailRouter {
@@ -26,7 +27,8 @@ final class ProductDetailRouter {
         let interactor = ProductDetailInteractor(productID: productID,
                                                  service: ProductsService.shared,
                                                  storageManager: RealmManager.shared,
-                                                 userInfoManager: UserInfoManager.shared)
+                                                 userInfoManager: UserInfoManager.shared,
+                                                 basketManager: BasketManager.shared)
         let presenter = ProductDetailPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter
@@ -37,5 +39,11 @@ final class ProductDetailRouter {
 }
 
 extension ProductDetailRouter: ProductDetailRouterProtocol {
+    func toHome() {
+        self.view?.navigationController?.popViewController(animated: true)
+    }
     
+    func toBasket() {
+        
+    }
 }
