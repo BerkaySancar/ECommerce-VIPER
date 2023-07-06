@@ -46,6 +46,7 @@ extension ProductDetailPresenter: ProductDetailPresenterInputs {
         view?.prepareCollectionView()
         view?.prepareActivtyIndicatorView()
         interactor?.getProduct()
+        interactor?.getBasketItems()
     }
     
     func viewWillApper() {

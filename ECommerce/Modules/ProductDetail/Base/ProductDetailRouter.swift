@@ -44,7 +44,6 @@ extension ProductDetailRouter: ProductDetailRouterProtocol {
     }
     
     func toBasket() {
-//        let basketModule = BasketRouter.startBasketModule()
-//        self.view?.navigationController?.setViewControllers([basketModule], animated: true)
+        
     }
 }

@@ -9,15 +9,18 @@ import UIKit
 
 protocol BasketViewProtocol: AnyObject {
     func setNavTitle(title: String)
+    func setBackgroundColor(color: UIColor)
     func prepareBasketTableView()
     func prepareActivtyIndicatorView()
+    func prepareCustomBottomView()
     func startLoading()
     func endLoading()
     func dataRefreshed()
     func onError(message: String)
+    func calculateTotalPrice(price: Double)
 }
 
-class BasketViewController: UIViewController {
+final class BasketViewController: UIViewController {
     
     private lazy var basketTableView: UITableView = {
         let tableView = UITableView()
@@ -27,10 +30,11 @@ class BasketViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var customBottomView = BasketBottomView()
+    
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .large)
         aiv.hidesWhenStopped = true
-        aiv.tintColor = .label
         return aiv
     }()
     
@@ -54,14 +58,31 @@ extension BasketViewController: BasketViewProtocol {
         self.title = title
     }
     
+    func setBackgroundColor(color: UIColor) {
+        self.view.backgroundColor = color
+    }
+ 
+    func prepareCustomBottomView() {
+        view.addSubview(customBottomView)
+        customBottomView.delegate = self
+        
+        customBottomView.snp.makeConstraints { make in
+            make.width.equalTo(view.frame.width)
+            make.height.equalTo(view.frame.height / 4.20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+    }
+    
     func prepareBasketTableView() {
         view.addSubview(basketTableView)
         
         basketTableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(customBottomView.snp.top)
         }
     }
-    
+
     func prepareActivtyIndicatorView() {
         view.addSubview(activityIndicatorView)
         
@@ -85,6 +106,22 @@ extension BasketViewController: BasketViewProtocol {
     func onError(message: String) {
         showAlert(title: "", message: message)
     }
+    
+    func calculateTotalPrice(price: Double) {
+        customBottomView.fixTotalPrice(price: price)
+    }
+}
+
+extension BasketViewController: BasketBottomViewButtonDelegate {
+    func continueShoppingTapped() {
+        presenter.continueShoppingTapped()
+    }
+}
+
+extension BasketViewController: BasketCellStepperCountDelegate {
+    func stepperValueChanged(value: Double, item: BasketModel?) {
+        presenter.stepperValueChanged(value: value, item: item)
+    }
 }
 
 extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
@@ -96,6 +133,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = basketTableView.dequeueReusableCell(withIdentifier: BasketCell.identifier, for: indexPath) as? BasketCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.showModel(model: presenter.cellForRowAt(indexPath: indexPath))
+        cell.delegate = self
         return cell
     }
     

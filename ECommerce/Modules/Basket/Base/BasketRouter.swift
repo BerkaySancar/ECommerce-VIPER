@@ -9,7 +9,7 @@ import Foundation
 import UIKit.UIViewController
 
 protocol BasketRouterProtocol {
-    
+    func toHome()
 }
 
 final class BasketRouter {
@@ -34,4 +34,7 @@ final class BasketRouter {
 
 extension BasketRouter: BasketRouterProtocol {
     
+    func toHome() {
+        self.view?.tabBarController?.selectedIndex = 0
+    }
 }

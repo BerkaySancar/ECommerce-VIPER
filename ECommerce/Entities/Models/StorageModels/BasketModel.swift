@@ -7,9 +7,23 @@
 
 import Foundation
 
-struct BasketModel {
+class BasketModel {
+
     let userId: String
+    let uuid: String
+    let productId: Int
     let productTitle: String
-    let productPrice: Double
+    var productPrice: Double
     let imageURL: String
+    var count: Int
+    
+    init(userId: String, uuid: String, productId: Int, productTitle: String, productPrice: Double, imageURL: String, count: Int) {
+        self.userId = userId
+        self.uuid = uuid
+        self.productId = productId
+        self.productTitle = productTitle
+        self.productPrice = productPrice
+        self.imageURL = imageURL
+        self.count = count
+    }
 }

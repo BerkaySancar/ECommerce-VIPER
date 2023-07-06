@@ -13,6 +13,8 @@ protocol BasketPresenterInputs {
     func numberOfRowsInSection(section: Int) -> Int
     func cellForRowAt(indexPath: IndexPath) -> BasketModel?
     func heightForRowAt(indexPath: IndexPath) -> CGFloat
+    func continueShoppingTapped()
+    func stepperValueChanged(value: Double, item: BasketModel?)
 }
 
 final class BasketPresenter {
@@ -31,13 +33,15 @@ extension BasketPresenter: BasketPresenterInputs {
   
     func viewDidLoad() {
         view?.setNavTitle(title: "My Basket")
+        view?.setBackgroundColor(color: .systemBackground)
+        view?.prepareCustomBottomView()
         view?.prepareBasketTableView()
         view?.prepareActivtyIndicatorView()
         interactor?.getItems()
     }
     
     func viewWillAppear() {
-//        interactor?.getItems()
+        
     }
     
     func numberOfRowsInSection(section: Int) -> Int {
@@ -50,6 +54,14 @@ extension BasketPresenter: BasketPresenterInputs {
     
     func heightForRowAt(indexPath: IndexPath) -> CGFloat {
         return 160
+    }
+    
+    func continueShoppingTapped() {
+        router?.toHome()
+    }
+    
+    func stepperValueChanged(value: Double, item: BasketModel?) {
+        interactor?.updateItem(value: value, item: item)
     }
 }
 
@@ -69,5 +81,9 @@ extension BasketPresenter: BasketInteractorOutputs {
     
     func dataRefreshed() {
         view?.dataRefreshed()
+    }
+    
+    func showTotal(price: Double) {
+        view?.calculateTotalPrice(price: price)
     }
 }

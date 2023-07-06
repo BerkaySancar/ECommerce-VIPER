@@ -13,7 +13,7 @@ extension UIViewController {
     
     func showAlert(title: String, message: String) {
         let alertView = SPAlertView(title: title, message: message, preset: title.isEmpty ? .error : .done)
-        alertView.duration = TimeInterval(3)
+        alertView.duration = TimeInterval(2)
         alertView.present()
     }
     

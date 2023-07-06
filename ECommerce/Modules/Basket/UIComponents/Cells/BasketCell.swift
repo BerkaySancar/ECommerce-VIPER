@@ -8,6 +8,10 @@
 import UIKit
 import SDWebImage
 
+protocol BasketCellStepperCountDelegate: AnyObject {
+    func stepperValueChanged(value: Double, item: BasketModel?)
+}
+
 final class BasketCell: UITableViewCell {
     
     static let identifier = "BasketCell"
@@ -43,7 +47,6 @@ final class BasketCell: UITableViewCell {
         label.backgroundColor = .label
         label.layer.cornerRadius = 8
         label.font = .systemFont(ofSize: 20)
-        label.text = "\(Int(stepper.value))"
         label.textAlignment = .center
         label.clipsToBounds = true
         return label
@@ -68,7 +71,10 @@ final class BasketCell: UITableViewCell {
         stackView.spacing = 8
         return stackView
     }()
-
+    
+    private var model: BasketModel?
+    weak var delegate: BasketCellStepperCountDelegate?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContstraints()
@@ -86,15 +92,18 @@ final class BasketCell: UITableViewCell {
             make.height.equalTo(120)
             make.width.equalTo(90)
         }
-        
-        productTitleLabel.snp.makeConstraints { make in
-            make.width.equalTo(UIScreenBounds.width / 2.5)
+
+        productCountLabel.snp.makeConstraints { make in
+            make.width.equalTo(94)
         }
         
         productPriceLabel.snp.makeConstraints { make in
-            make.height.equalTo(30)
+            make.height.equalTo(20)
         }
         
+        stepper.snp.makeConstraints { make in
+            make.centerX.equalTo(productCountLabel.snp.centerX)
+        }
         
         hStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(16)
@@ -103,15 +112,20 @@ final class BasketCell: UITableViewCell {
     
     @objc
     private func stepperValueChanged() {
-        productCountLabel.text = "\(Int(stepper.value))"
+        delegate?.stepperValueChanged(value: stepper.value, item: self.model)
     }
     
     func showModel(model: BasketModel?) {
+        self.model = model
+        
         if let model {
+            stepper.value = Double(model.count)
             productTitleLabel.text = model.productTitle
-            let formattedPrice = String(format: "%.2f", model.productPrice)
-            productPriceLabel.text = "$\(formattedPrice)"
+            let price =  model.productPrice * Double(model.count)
+            let formattedPrice = String(format: "%.2f", price)
+            productPriceLabel.text = "$ \(formattedPrice)"
             productImageView.sd_setImage(with: URL(string: model.imageURL))
+            productCountLabel.text = String(model.count)
         }
     }
 }

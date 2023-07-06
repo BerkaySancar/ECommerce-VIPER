@@ -12,6 +12,7 @@ protocol ProductDetailInteractorInputs {
     func favButtonTapped(model: ProductModel?)
     func isFav(model: ProductModel?) -> Bool
     func addProductToBasket(product: ProductModel?)
+    func getBasketItems()
 }
 
 protocol ProductDetailInteractorOutputs: AnyObject {
@@ -31,6 +32,8 @@ final class ProductDetailInteractor {
     private let basketManager: BasketManagerProtocol?
     
     private var productID: Int
+    
+    private var basketItems: [BasketModel] = []
     
     init(productID: Int,
          service: ProductsServiceProtocol,
@@ -98,26 +101,52 @@ extension ProductDetailInteractor: ProductDetailInteractorInputs {
         }
     }
     
+    func getBasketItems() {
+        basketManager?.getBasketItems { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let items):
+                self.basketItems = items
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     func addProductToBasket(product: ProductModel?) {
         self.presenter?.startLoading()
         
         if let product {
+            print("product")
             var data: [String: Any] = [:]
             data["userId"] = userInfoManager?.getUserUid()
+            data["uuid"] = UUID().uuidString
+            data["productId"] = product.id
             data["productTitle"] = product.title
             data["productPrice"] = product.price
             data["imageURL"] = product.image
-            basketManager?.addBasket(data: data, completion: { [weak self] results in
-                guard let self else { return }
-                self.presenter?.endLoading()
-                
-                switch results {
-                case .success(_):
-                    self.presenter?.addToBasketSucceed()
-                case .failure(let error):
-                    self.presenter?.onError(errorMessage: error.localizedDescription)
-                }
-            })
+            data["count"] = 1
+            
+            if basketItems.contains(where: { $0.productId == product.id }) == true {
+                presenter?.onError(errorMessage: "The product is already added.")
+                presenter?.endLoading()
+                print("contains")
+            } else {
+                print("else")
+                basketManager?.addBasket(data: data, completion: { [weak self] results in
+                    guard let self else { return }
+                    self.presenter?.endLoading()
+                    switch results {
+                    case .success(_):
+                        print("success")
+                        self.presenter?.addToBasketSucceed()
+                    case .failure(let error):
+                        self.presenter?.onError(errorMessage: error.localizedDescription)
+                        print("fail")
+                    }
+                })
+            }
         }
     }
 }
