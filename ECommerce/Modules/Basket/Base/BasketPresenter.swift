@@ -14,6 +14,7 @@ protocol BasketPresenterInputs {
     func cellForRowAt(indexPath: IndexPath) -> BasketModel?
     func heightForRowAt(indexPath: IndexPath) -> CGFloat
     func continueShoppingTapped()
+    func completePaymentTapped()
     func stepperValueChanged(value: Double, item: BasketModel?)
 }
 
@@ -58,6 +59,15 @@ extension BasketPresenter: BasketPresenterInputs {
     
     func continueShoppingTapped() {
         router?.toHome()
+    }
+    
+    func completePaymentTapped() {
+        let items = interactor?.showItems()
+        if items?.count == 0 {
+            view?.onError(message: GeneralError.emptyBasketError.localizedDescription)
+        } else {
+            router?.toCompleteOrder(items: items)
+        }
     }
     
     func stepperValueChanged(value: Double, item: BasketModel?) {

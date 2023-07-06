@@ -9,6 +9,7 @@ import UIKit
 
 protocol BasketBottomViewButtonDelegate: AnyObject {
     func continueShoppingTapped()
+    func completePaymentTapped()
 }
 
 final class BasketBottomView: UIView {
@@ -98,7 +99,7 @@ final class BasketBottomView: UIView {
     
     @objc
     private func completePaymentTapped() {
-        print("complete tapped")
+        delegate?.completePaymentTapped()
     }
     
     func fixTotalPrice(price: Double) {
