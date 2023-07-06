@@ -11,6 +11,7 @@ import UIKit.UIViewController
 protocol ProfileRouterProtocol {
     func toLogin()
     func toAddresses()
+    func toPaymentInfo()
 }
 
 final class ProfileRouter {
@@ -45,5 +46,10 @@ extension ProfileRouter: ProfileRouterProtocol {
     func toAddresses() {
         let addressesModule = AddressesRouter.startAddressesModule()
         self.view?.navigationController?.pushViewController(addressesModule, animated: true)
+    }
+    
+    func toPaymentInfo() {
+        let paymentInfoModule = PaymentInfoRouter.startPaymentInfoModule()
+        self.view?.navigationController?.pushViewController(paymentInfoModule, animated: true)
     }
 }

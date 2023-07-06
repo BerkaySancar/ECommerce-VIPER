@@ -56,7 +56,7 @@ extension ProfilePresenter: ProfilePresenterInputs {
         case .address:
             router?.toAddresses()
         case .payment:
-            break
+            router?.toPaymentInfo()
         case .orderHistory:
             break
         case .signOut:

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCardViewController" customModule="ECommerce" customModuleProvider="target">
+            <connections>
+                <outlet property="addButton" destination="fcB-ZK-bP3" id="OEV-UK-cfQ"/>
+                <outlet property="cardNameTextField" destination="e9D-KO-2fC" id="4Ja-Vx-r4k"/>
+                <outlet property="cardNumberTextField" destination="4c1-ua-Jhj" id="tkD-z7-ZnB"/>
+                <outlet property="cvvTextField" destination="nEa-N9-dpz" id="2f5-Zg-frh"/>
+                <outlet property="monthTextField" destination="dq0-gT-kh9" id="O8r-Rf-pBd"/>
+                <outlet property="nameSurnameTextField" destination="idk-fH-axi" id="gtl-v3-IzI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yearTextField" destination="ije-c1-jUq" id="uG6-Vx-gjS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyo-kz-fWk">
+                    <rect key="frame" x="16" y="201" width="109" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4c1-ua-Jhj">
+                    <rect key="frame" x="16" y="230" width="361" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idk-fH-axi">
+                    <rect key="frame" x="16" y="88" width="361" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lky-oc-6AU">
+                    <rect key="frame" x="16" y="130" width="91" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter card name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e9D-KO-2fC">
+                    <rect key="frame" x="16" y="159" width="361" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kn6-Ie-nbq">
+                    <rect key="frame" x="52" y="272" width="53" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dq0-gT-kh9">
+                    <rect key="frame" x="16" y="301" width="130" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="34Q-mk-EY3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-Pj-5Ou">
+                    <rect key="frame" x="285" y="272" width="37" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ije-c1-jUq">
+                    <rect key="frame" x="247" y="301" width="130" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="kB4-f6-vEr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko5-nH-bMU">
+                    <rect key="frame" x="178.66666666666666" y="341" width="36" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nEa-N9-dpz">
+                    <rect key="frame" x="149.33333333333334" y="370" width="94.333333333333343" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMf-34-9l8">
+                    <rect key="frame" x="16" y="59" width="125" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcB-ZK-bP3">
+                    <rect key="frame" x="146.66666666666666" y="436" width="100" height="35"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="W7h-0c-Yhb"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addUpdateButtonTapped:" destination="-1" eventType="touchUpInside" id="lVW-NW-6OX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e9D-KO-2fC" secondAttribute="trailing" constant="16" id="0qe-oX-W1a"/>
+                <constraint firstItem="idk-fH-axi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="5VO-Pe-fVR"/>
+                <constraint firstItem="4c1-ua-Jhj" firstAttribute="top" secondItem="cyo-kz-fWk" secondAttribute="bottom" constant="8" symbolic="YES" id="5lh-Wj-Zya"/>
+                <constraint firstItem="Kn6-Ie-nbq" firstAttribute="top" secondItem="4c1-ua-Jhj" secondAttribute="bottom" constant="8" symbolic="YES" id="DjI-zE-Zoe"/>
+                <constraint firstItem="Lky-oc-6AU" firstAttribute="top" secondItem="idk-fH-axi" secondAttribute="bottom" constant="8" symbolic="YES" id="F6g-tP-JSC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f3i-Pj-5Ou" secondAttribute="trailing" constant="71" id="HLy-tp-pc8"/>
+                <constraint firstItem="nEa-N9-dpz" firstAttribute="top" secondItem="ko5-nH-bMU" secondAttribute="bottom" constant="8" symbolic="YES" id="QBs-X9-edr"/>
+                <constraint firstItem="dq0-gT-kh9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="QGa-nD-TvJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ije-c1-jUq" secondAttribute="trailing" constant="16" id="Ssv-jM-YER"/>
+                <constraint firstItem="Lky-oc-6AU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="UDN-8m-FHr"/>
+                <constraint firstItem="idk-fH-axi" firstAttribute="top" secondItem="FMf-34-9l8" secondAttribute="bottom" constant="8" symbolic="YES" id="YqX-Ik-JmZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4c1-ua-Jhj" secondAttribute="trailing" constant="16" id="ZGW-8U-c2R"/>
+                <constraint firstItem="f3i-Pj-5Ou" firstAttribute="top" secondItem="4c1-ua-Jhj" secondAttribute="bottom" constant="8" symbolic="YES" id="aXh-sC-d6J"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="idk-fH-axi" secondAttribute="trailing" constant="16" id="aZI-Wl-GIA"/>
+                <constraint firstItem="FMf-34-9l8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="b3s-yg-S5p"/>
+                <constraint firstItem="ko5-nH-bMU" firstAttribute="top" secondItem="4c1-ua-Jhj" secondAttribute="bottom" constant="77" id="bDd-tO-Z44"/>
+                <constraint firstItem="FMf-34-9l8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gI0-h2-AeP"/>
+                <constraint firstItem="Kn6-Ie-nbq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="52" id="hHG-5n-Cqv"/>
+                <constraint firstItem="e9D-KO-2fC" firstAttribute="top" secondItem="Lky-oc-6AU" secondAttribute="bottom" constant="8" symbolic="YES" id="j2N-gz-D2K"/>
+                <constraint firstItem="ije-c1-jUq" firstAttribute="top" secondItem="f3i-Pj-5Ou" secondAttribute="bottom" constant="8" symbolic="YES" id="m77-Ek-px3"/>
+                <constraint firstItem="e9D-KO-2fC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="pGN-PD-0wD"/>
+                <constraint firstItem="fcB-ZK-bP3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pjd-Jb-8hu"/>
+                <constraint firstItem="cyo-kz-fWk" firstAttribute="top" secondItem="e9D-KO-2fC" secondAttribute="bottom" constant="8" symbolic="YES" id="qtq-qK-LqO"/>
+                <constraint firstItem="cyo-kz-fWk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="t2a-sS-uyz"/>
+                <constraint firstItem="nEa-N9-dpz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uv3-KG-cdi"/>
+                <constraint firstItem="fcB-ZK-bP3" firstAttribute="top" secondItem="nEa-N9-dpz" secondAttribute="bottom" constant="32" id="wRs-7w-q4w"/>
+                <constraint firstItem="dq0-gT-kh9" firstAttribute="top" secondItem="Kn6-Ie-nbq" secondAttribute="bottom" constant="8" symbolic="YES" id="xLV-d0-WMs"/>
+                <constraint firstItem="4c1-ua-Jhj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="xnx-0s-5Yb"/>
+                <constraint firstItem="ko5-nH-bMU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="y6Q-Lh-uGn"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-12.67605633802817"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
