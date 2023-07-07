@@ -1,14 +1,14 @@
 # ECommerce-VIPER
 
-Fake E-Commerce app with Swift UIKit. -> [App Preview](#app-preview) <-
+Fake E-Commerce app with Swift UIKit. --> [App Preview](#app-preview) <--
 
 ## Features
 
 - View and search products
-- Add and remove products from basket
-- Save and remove products as favorites
-- Create and complete orders
-- User account creation and authentication
+- Add and remove products from basket (Firebase)
+- Save and remove products as favorites (Realm)
+- Create and complete orders (Firebase)
+- User account creation and authentication (GoogleSignIn, Firebase(with verify emails))
 
 ## Architecture 
 - VIPER (View-Interactor-Presenter-Entity-Router)
@@ -28,7 +28,19 @@ These libraries were installed using Swift Package Manager.
 
 - [SPAlerts](https://github.com/sparrowcode/AlertKit): It is used to show informative and user-friendly alerts to the user.
 
+## Requirements 
+
+- iOS 14+
+
 ## App Preview
+
+https://github.com/BerkaySancar/ECommerce-VIPER/assets/97171726/58e7db0e-cfb0-4a17-9904-5abab2510e7d
+
+## Author
+
+- Berkay Sancar 
+
+
 
 
 
