@@ -43,6 +43,6 @@ extension LoginRouter: LoginRouterProtocol {
     
     func toHome() {
         let homeModule = MainTabBarRouter.startTabBarModule()
-        windowManager?.changeRootViewController(homeModule)
+        windowManager?.changeRootViewController(homeModule, animated: true)
     }
 }

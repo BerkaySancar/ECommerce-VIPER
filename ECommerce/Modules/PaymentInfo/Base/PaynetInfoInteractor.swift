@@ -34,7 +34,7 @@ final class PaymentInfoInteractor {
 extension PaymentInfoInteractor: PaymentInfoInteractorInputs {
     
     func getCards() {
-        self.cards = storageManager?.getAll(CardModel.self)
+        self.cards = storageManager?.getAll(CardModel.self).filter { $0.userId == UserInfoManager.shared.getUserUid() }
     }
     
     func showCards() -> [CardModel]? {

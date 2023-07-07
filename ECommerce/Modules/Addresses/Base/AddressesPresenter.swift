@@ -16,6 +16,7 @@ protocol AddressesPresenterInputs {
     func didSelectItemAt(indexPath: IndexPath)
     func toAddButtonTapped()
     func trashTapped(model: AddressModel?)
+    func plusButtonTapped()
 }
 
 final class AddressesPresenter {
@@ -45,6 +46,7 @@ extension AddressesPresenter: AddressesPresenterInputs {
         view?.setNavBarTitle(title: "My Addresses")
         view?.prepareCollectionView()
         view?.prepareEmptyView()
+        view?.preparePlusButton()
     }
     
     func viewWillAppear() {
@@ -69,6 +71,10 @@ extension AddressesPresenter: AddressesPresenterInputs {
     }
     
     func toAddButtonTapped() {
+        router?.toAddAddress(address: nil)
+    }
+    
+    func plusButtonTapped() {
         router?.toAddAddress(address: nil)
     }
     

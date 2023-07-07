@@ -28,12 +28,15 @@ extension MainTabBarPresenter: MainTabBarPresenterInputs {
     func viewWillAppear() {
         view?.configureTabBar()
         view?.setTabBarControllers()
-        
+        interactor?.getBasketItems()
     }
 }
 
 extension MainTabBarPresenter: MainTabBarInteractorOutputs {
-    
+  
+    func showBasketItemsCount(value: Int) {
+        view?.setBasketItemsBadgeValue(value: value)
+    }
 }
 
 

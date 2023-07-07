@@ -12,6 +12,7 @@ protocol AddressesViewProtocol: AnyObject {
     func setNavBarTitle(title: String)
     func prepareCollectionView()
     func prepareEmptyView()
+    func preparePlusButton()
     func dataRefreshed()
     func onError(message: String)
 }
@@ -42,6 +43,13 @@ final class AddressesViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter.viewWillAppear()
     }
+
+// MARK: - Actions
+    @objc
+    private func plusButtonTapped() {
+        presenter.plusButtonTapped()
+    }
+
 }
 
 // MARK: - View protocol
@@ -69,6 +77,10 @@ extension AddressesViewController: AddressesViewProtocol {
         emptyView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
+    }
+    
+    func preparePlusButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonTapped))
     }
     
     func dataRefreshed() {

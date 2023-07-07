@@ -12,6 +12,7 @@ protocol ProfileRouterProtocol {
     func toLogin()
     func toAddresses()
     func toPaymentInfo()
+    func toOrderHistory()
 }
 
 final class ProfileRouter {
@@ -40,7 +41,7 @@ final class ProfileRouter {
 extension ProfileRouter: ProfileRouterProtocol {
     func toLogin() {
         let loginModule = UINavigationController(rootViewController: LoginRouter.startLogin())
-        windowManager?.changeRootViewController(loginModule)
+        windowManager?.changeRootViewController(loginModule, animated: true)
     }
     
     func toAddresses() {
@@ -51,5 +52,10 @@ extension ProfileRouter: ProfileRouterProtocol {
     func toPaymentInfo() {
         let paymentInfoModule = PaymentInfoRouter.startPaymentInfoModule()
         self.view?.navigationController?.pushViewController(paymentInfoModule, animated: true)
+    }
+    
+    func toOrderHistory() {
+        let orderHistoryVC = OrderHistoryViewController()
+        self.view?.navigationController?.pushViewController(orderHistoryVC, animated: true)
     }
 }

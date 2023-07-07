@@ -121,7 +121,8 @@ extension HomeInteractor: HomeInteractorInputs {
                     
                     switch result {
                     case .success(let products):
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self else { return }
                             self.products = products
                         }
                     case .failure(let error):
@@ -137,30 +138,32 @@ extension HomeInteractor: HomeInteractorInputs {
     }
     
     func isFav(model: ProductModel?) -> Bool {
-        return self.favs?.filter { $0.productTitle == model?.title }.isEmpty == true ? false : true
+        return self.favs?.filter { $0.productId == model?.id }.isEmpty == true ? false : true
     }
     
     func favAction(model: ProductModel?) {
-        guard let model else { return }
-        let favModel = FavoriteProductModel(userId: userInfoManager?.getUserUid(),
-                                            productId: model.id,
-                                            productImage: model.image,
-                                            productTitle: model.title)
+        guard
+            let model,
+            let favs
+        else { return }
         
-        if !isFav(model: model) {
+        if let index = self.favs?.firstIndex(where: { $0.productId == model.id }) {
+            storageManager?.delete(favs[index]) { [weak self] error in
+                guard let self else { return }
+                presenter?.onError(errorMessage: error.localizedDescription)
+            }
+            self.favs?.remove(at: index)
+        } else {
+            let favModel = FavoriteProductModel(userId: userInfoManager?.getUserUid(),
+                                                productId: model.id,
+                                                productImage: model.image,
+                                                productTitle: model.title)
+            
             storageManager?.create(favModel) { [weak self] error in
                 guard let self else { return }
                 self.presenter?.onError(errorMessage: error.localizedDescription)
             }
-        } else {
-            if let index = self.favs?.firstIndex(where: { $0.productId == favModel.productId }) {
-                if let item = self.favs?[index] {
-                    storageManager?.delete(item, onError: { [weak self] error in
-                        guard let self else { return }
-                        self.presenter?.onError(errorMessage: error.localizedDescription)
-                    })
-                }
-            }
+            getFavorites()
         }
     }
 }
