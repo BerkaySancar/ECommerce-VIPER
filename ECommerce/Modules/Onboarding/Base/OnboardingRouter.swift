@@ -38,7 +38,7 @@ final class OnboardingRouter {
 extension OnboardingRouter: OnboardingRouterProtocol {
     
     func toLogin() {
-        let loginModule = LoginRouter.startLogin()
-        windowManager?.changeRootViewController(loginModule)
+        let loginModule = UINavigationController(rootViewController: LoginRouter.startLogin())
+        windowManager?.changeRootViewController(loginModule, animated: true)
     }
 }

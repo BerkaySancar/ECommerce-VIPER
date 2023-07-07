@@ -48,6 +48,6 @@ extension CompleteOrderRouter: CompleteOrderRouterProtocol {
     
     func toHome() {
         let tabBar = MainTabBarRouter.startTabBarModule()
-        RootWindowManager.shared.changeRootViewController(tabBar)
+        RootWindowManager.shared.changeRootViewController(tabBar, animated: true)
     }
 }
