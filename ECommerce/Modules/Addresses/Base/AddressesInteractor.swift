@@ -39,7 +39,7 @@ final class AddressesInteractor {
 extension AddressesInteractor: AddressesInteractorInputs {
     
     func getAddresses() {
-        self.addresses = storageManager?.getAll(AddressModel.self)
+        self.addresses = storageManager?.getAll(AddressModel.self).filter { $0.userId == UserInfoManager.shared.getUserUid() }
     }
     
     func showAddresses() -> [AddressModel]? {

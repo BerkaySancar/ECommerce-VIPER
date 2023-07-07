@@ -118,7 +118,6 @@ extension ProductDetailInteractor: ProductDetailInteractorInputs {
         self.presenter?.startLoading()
         
         if let product {
-            print("product")
             var data: [String: Any] = [:]
             data["userId"] = userInfoManager?.getUserUid()
             data["uuid"] = UUID().uuidString
@@ -131,19 +130,15 @@ extension ProductDetailInteractor: ProductDetailInteractorInputs {
             if basketItems.contains(where: { $0.productId == product.id }) == true {
                 presenter?.onError(errorMessage: "The product is already added.")
                 presenter?.endLoading()
-                print("contains")
             } else {
-                print("else")
                 basketManager?.addBasket(data: data, completion: { [weak self] results in
                     guard let self else { return }
                     self.presenter?.endLoading()
                     switch results {
                     case .success(_):
-                        print("success")
                         self.presenter?.addToBasketSucceed()
                     case .failure(let error):
                         self.presenter?.onError(errorMessage: error.localizedDescription)
-                        print("fail")
                     }
                 })
             }
