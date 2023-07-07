@@ -121,7 +121,8 @@ extension HomeInteractor: HomeInteractorInputs {
                     
                     switch result {
                     case .success(let products):
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self else { return }
                             self.products = products
                         }
                     case .failure(let error):

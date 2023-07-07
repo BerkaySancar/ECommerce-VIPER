@@ -107,11 +107,17 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func startLoading() {
-        activityIndicatorView.startAnimating()
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.activityIndicatorView.startAnimating()
+        }
     }
     
     func endLoading() {
-        activityIndicatorView.stopAnimating()
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            activityIndicatorView.stopAnimating()
+        }
     }
     
     func dataRefreshed() {

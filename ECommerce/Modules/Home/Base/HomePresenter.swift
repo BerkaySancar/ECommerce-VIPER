@@ -12,7 +12,6 @@ protocol HomePresenterInputs {
     func viewWillAppear()
     func numberOfSection() -> Int
     func numberOfItemsInSection(section: Int) -> Int
-    func cellForItemAt(indexPath: IndexPath) -> ProductModel?
     func sizeForItemAt(indexPath: IndexPath) -> CGSize
     func didSelectItemAt(indexPath: IndexPath)
     func showProducts() -> [ProductModel]?
@@ -63,11 +62,7 @@ extension HomePresenter: HomePresenterInputs {
             return interactor?.showProducts().count ?? 0
         }
     }
-    
-    func cellForItemAt(indexPath: IndexPath) -> ProductModel? {
-        return interactor?.showProducts()[indexPath.row]
-    }
-    
+
     func sizeForItemAt(indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
             let title = interactor?.showCategories()[indexPath.item].capitalized
@@ -117,15 +112,11 @@ extension HomePresenter: HomePresenterInputs {
 extension HomePresenter: HomeInteractorOutputs {
     
     func startLoading() {
-        DispatchQueue.main.async { [weak self] in
-            self?.view?.startLoading()
-        }
+        view?.startLoading()
     }
     
     func endLoading() {
-        DispatchQueue.main.async { [weak self] in
-            self?.view?.endLoading()
-        }
+        view?.endLoading()
     }
     
     func dataRefreshed() {
