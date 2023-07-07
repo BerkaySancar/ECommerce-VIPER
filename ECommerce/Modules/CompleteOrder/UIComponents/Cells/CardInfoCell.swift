@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol CardInfoCellButtonDelegate: AnyObject {
+protocol CardInfoCellDelegate: AnyObject {
     func addUpdateTapped()
+    func didSelectCard(cardName: String)
 }
 
 final class CardInfoCell: UICollectionViewCell {
@@ -34,12 +35,16 @@ final class CardInfoCell: UICollectionViewCell {
         let drop = UIDropDown(frame: CGRect(x: 0, y: 0, width: self.frame.width - 16, height: 30))
         drop.center = CGPoint(x: self.contentView.frame.midX, y: self.contentView.frame.midY - 20)
         drop.placeholder = "Select your card"
+        drop.didSelect { [weak self] cardName, _ in
+            guard let self else { return }
+            self.delegate?.didSelectCard(cardName: cardName)
+        }
         return drop
     }()
     
     private var cards: [CardModel]?
     
-    weak var delegate: CardInfoCellButtonDelegate?
+    weak var delegate: CardInfoCellDelegate?
    
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,9 +76,12 @@ final class CardInfoCell: UICollectionViewCell {
     private func addUpdateTapped() {
         delegate?.addUpdateTapped()
         dropDownButton.options = []
+        dropDownButton.placeholder = "Select your card"
+        delegate?.didSelectCard(cardName: "")
     }
     
     func showCards(cards: [CardModel]?) {
+        dropDownButton.options = []
         if let cards {
             for card in cards {
                 dropDownButton.options.append(card.cardName)

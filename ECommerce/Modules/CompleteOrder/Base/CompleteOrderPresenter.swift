@@ -18,12 +18,17 @@ protocol CompleteOrderPresenterInputs {
     func addUpdateTappedFromCards()
     func addUpdateTappedFromAddresses()
     func showTotalAndDeliveryPrice() -> (price: Double, delivery: Double)?
+    func didSelectCard(cardName: String)
+    func didSelectAddress(addressName: String)
 }
 
 final class CompleteOrderPresenter {
     private weak var view: CompleteOrderViewProtocol?
     private let interactor: CompleteOrderInteractorInputs?
     private let router: CompleteOrderRouterProtocol?
+    
+    private var selectedCard: CardModel?
+    private var selectedAddress: AddressModel?
     
     init(view: CompleteOrderViewProtocol, interactor: CompleteOrderInteractorInputs, router: CompleteOrderRouterProtocol) {
         self.view = view
@@ -33,7 +38,7 @@ final class CompleteOrderPresenter {
 }
 
 extension CompleteOrderPresenter: CompleteOrderPresenterInputs {
-
+   
     func viewDidLoad() {
         view?.setNavTitle(title: "Complete Order")
         view?.setBackgroundColor(color: .systemBackground)
@@ -86,8 +91,26 @@ extension CompleteOrderPresenter: CompleteOrderPresenterInputs {
         router?.toAddresses()
     }
     
+    func didSelectCard(cardName: String) {
+        let selectedCard = interactor?.showCards()?.filter { $0.cardName == cardName }.first
+        self.selectedCard = selectedCard
+    }
+    
+    func didSelectAddress(addressName: String) {
+        let selectedAddress = interactor?.showAddresses()?.filter { $0.name == addressName }.first
+        self.selectedAddress = selectedAddress
+    }
+    
     func completeButtonTapped() {
-        
+        if let selectedCard,
+           let selectedAddress,
+           selectedAddress.name != "",
+           selectedCard.cardName != ""
+        {
+            interactor?.saveOrder(address: self.selectedAddress, card: self.selectedCard)
+        } else {
+            view?.presentAlert(title: "", message: GeneralError.emptyAddressOrCard.localizedDescription)
+        }
     }
 }
 
@@ -95,5 +118,13 @@ extension CompleteOrderPresenter: CompleteOrderInteractorOutputs {
     
     func dataRefreshed() {
         view?.dataRefreshed()
+    }
+    
+    func alert(title: String, message: String) {
+        view?.presentAlert(title: title, message: message)
+    }
+    
+    func orderSuccess() {
+        router?.toHome()
     }
 }

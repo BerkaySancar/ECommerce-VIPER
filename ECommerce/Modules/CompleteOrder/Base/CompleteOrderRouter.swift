@@ -11,6 +11,7 @@ import UIKit.UIViewController
 protocol CompleteOrderRouterProtocol {
     func toPaymentInfo()
     func toAddresses()
+    func toHome()
 }
 
 final class CompleteOrderRouter {
@@ -23,7 +24,7 @@ final class CompleteOrderRouter {
     static func startCompleteOrderModule(items: [BasketModel]?) -> UIViewController {
         let view = CompleteOrderViewController()
         let router = CompleteOrderRouter(view: view)
-        let interactor = CompleteOrderInteractor(items: items, storageManager: RealmManager.shared)
+        let interactor = CompleteOrderInteractor(items: items, storageManager: RealmManager.shared, basketManager: BasketManager.shared)
         let presenter = CompleteOrderPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter
@@ -43,5 +44,10 @@ extension CompleteOrderRouter: CompleteOrderRouterProtocol {
     func toAddresses() {
         let addressesModule = AddressesRouter.startAddressesModule()
         self.view?.navigationController?.pushViewController(addressesModule, animated: true)
+    }
+    
+    func toHome() {
+        let tabBar = MainTabBarRouter.startTabBarModule()
+        RootWindowManager.shared.changeRootViewController(tabBar)
     }
 }

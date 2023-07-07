@@ -14,6 +14,7 @@ protocol CompleteOrderViewProtocol: AnyObject {
     func prepareCollectionView()
     func prepareCompleteButton()
     func dataRefreshed()
+    func presentAlert(title: String, message: String)
 }
 
 final class CompleteOrderViewController: UIViewController {
@@ -41,6 +42,7 @@ final class CompleteOrderViewController: UIViewController {
         return button
     }()
     
+//MARK: Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,11 +55,13 @@ final class CompleteOrderViewController: UIViewController {
         presenter.viewWillAppear()
     }
     
+// MARK: Actions
     @objc private func completeButtonTapped() {
         presenter.completeButtonTapped()
     }
 }
 
+// MARK: - View Protocol
 extension CompleteOrderViewController: CompleteOrderViewProtocol {
     
     func setNavTitle(title: String) {
@@ -96,20 +100,35 @@ extension CompleteOrderViewController: CompleteOrderViewProtocol {
     func dataRefreshed() {
         completeOrderCollectionView.reloadData()
     }
+    
+    func presentAlert(title: String, message: String) {
+        showAlert(title: title, message: message)
+    }
 }
 
-extension CompleteOrderViewController: CardInfoCellButtonDelegate {
+//MARK: - CardInfoCell Delegate
+extension CompleteOrderViewController: CardInfoCellDelegate {
     func addUpdateTapped() {
         presenter.addUpdateTappedFromCards()
     }
-}
-
-extension CompleteOrderViewController: AddressInfoCellButtonDelegate {
-    func addUpdateTappedFromAddress() {
-        presenter.addUpdateTappedFromAddresses()
+    
+    func didSelectCard(cardName: String) {
+        presenter.didSelectCard(cardName: cardName)
     }
 }
 
+// MARK: - AddressInfoCell Delegate
+extension CompleteOrderViewController: AddressInfoCellDelegate {
+    func addUpdateTappedFromAddress() {
+        presenter.addUpdateTappedFromAddresses()
+    }
+    
+    func didSelectAddress(addressName: String) {
+        presenter.didSelectAddress(addressName: addressName)
+    }
+}
+
+// MARK: - CollectionView Delegate & Data Source & flowlayout
 extension CompleteOrderViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

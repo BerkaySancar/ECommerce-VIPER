@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol AddressInfoCellButtonDelegate: AnyObject {
+protocol AddressInfoCellDelegate: AnyObject {
     func addUpdateTappedFromAddress()
+    func didSelectAddress(addressName: String)
 }
 
 final class AddressInfoCell: UICollectionViewCell {
@@ -43,10 +44,14 @@ final class AddressInfoCell: UICollectionViewCell {
         let drop = UIDropDown(frame: CGRect(x: 0, y: 0, width: self.frame.width - 16, height: 30))
         drop.center = CGPoint(x: self.frame.midX - 16, y: self.frame.midY - 20)
         drop.placeholder = "Select delivery address"
+        drop.didSelect { [weak self] addressName, _ in
+            guard let self else { return }
+            self.delegate?.didSelectAddress(addressName: addressName)
+        }
         return drop
     }()
     
-    weak var delegate: AddressInfoCellButtonDelegate?
+    weak var delegate: AddressInfoCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,9 +83,12 @@ final class AddressInfoCell: UICollectionViewCell {
     private func addUpdateTapped() {
         delegate?.addUpdateTappedFromAddress()
         dropDownButton.options = []
+        dropDownButton.placeholder = "Select delivery address"
+        delegate?.didSelectAddress(addressName: "")
     }
     
     func showAddres(addresses: [AddressModel]?) {
+        dropDownButton.options = []
         if let addresses {
             for address in addresses {
                 self.dropDownButton.options.append(address.name)
