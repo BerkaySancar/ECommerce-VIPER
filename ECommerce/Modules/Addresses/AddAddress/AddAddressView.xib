@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddAddressViewController" customModule="ECommerce" customModuleProvider="target">
+            <connections>
+                <outlet property="addUpdateButton" destination="WBt-ba-CbZ" id="UtR-EX-7ey"/>
+                <outlet property="buildingNoTextField" destination="aXv-6o-KKY" id="4Z3-By-7ft"/>
+                <outlet property="cityTextField" destination="9KA-34-zm4" id="ka3-ra-wpa"/>
+                <outlet property="countryTextField" destination="qjV-Rz-Tpa" id="QJd-CH-rST"/>
+                <outlet property="nameTextField" destination="5WA-4x-Vtl" id="sFj-tb-ipe"/>
+                <outlet property="streetTextField" destination="aD8-T1-4Im" id="Duy-j3-fxN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="zipCodeTextField" destination="kDx-ik-CZj" id="PTA-6t-5eN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5N-Rq-tkt">
+                    <rect key="frame" x="17" y="99" width="119" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter address name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5WA-4x-Vtl">
+                    <rect key="frame" x="16" y="128" width="362" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdN-Wl-Rii">
+                    <rect key="frame" x="17" y="182" width="67" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to select country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjV-Rz-Tpa">
+                    <rect key="frame" x="17" y="211" width="361" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9KA-34-zm4">
+                    <rect key="frame" x="17" y="291" width="361" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-Lc-Nea">
+                    <rect key="frame" x="17" y="342" width="51" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5V-QE-NP5">
+                    <rect key="frame" x="17" y="262" width="33" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter street name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aD8-T1-4Im">
+                    <rect key="frame" x="17" y="371" width="361" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building Number and ZIP Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uP2-tg-VdR">
+                    <rect key="frame" x="16" y="421" width="362" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Building Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aXv-6o-KKY">
+                    <rect key="frame" x="16" y="450" width="136" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="136" id="OiI-R3-czS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ZIP Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDx-ik-CZj">
+                    <rect key="frame" x="242" y="450" width="136" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="136" id="p1s-Qh-1Hu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBt-ba-CbZ">
+                    <rect key="frame" x="148" y="515" width="100" height="35"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="2cC-c8-uEq"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addUpdateButtonTapped:" destination="-1" eventType="touchUpInside" id="Z00-ni-ISq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="WBt-ba-CbZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.5" id="03f-tu-Wy8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5WA-4x-Vtl" secondAttribute="trailing" constant="15" id="29m-d9-vhe"/>
+                <constraint firstItem="9KA-34-zm4" firstAttribute="top" secondItem="u5V-QE-NP5" secondAttribute="bottom" constant="8" symbolic="YES" id="2tw-JU-Eib"/>
+                <constraint firstItem="aD8-T1-4Im" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="6ZO-EQ-Rbh"/>
+                <constraint firstItem="9KA-34-zm4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="9lJ-p6-pgp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9KA-34-zm4" secondAttribute="trailing" constant="15" id="Cfm-03-lAe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qjV-Rz-Tpa" secondAttribute="trailing" constant="15" id="EpP-wg-F0e"/>
+                <constraint firstItem="aXv-6o-KKY" firstAttribute="top" secondItem="uP2-tg-VdR" secondAttribute="bottom" constant="8" symbolic="YES" id="Fve-7c-Ipz"/>
+                <constraint firstItem="kDx-ik-CZj" firstAttribute="top" secondItem="uP2-tg-VdR" secondAttribute="bottom" constant="8" symbolic="YES" id="G6I-52-JnA"/>
+                <constraint firstItem="aD8-T1-4Im" firstAttribute="top" secondItem="ecb-Lc-Nea" secondAttribute="bottom" constant="8" symbolic="YES" id="Hef-CF-L1P"/>
+                <constraint firstItem="WBt-ba-CbZ" firstAttribute="top" secondItem="uP2-tg-VdR" secondAttribute="bottom" constant="73" id="JOg-Ll-pNF"/>
+                <constraint firstItem="uP2-tg-VdR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Roo-TT-bfa"/>
+                <constraint firstItem="G5N-Rq-tkt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="Y7c-hj-DqA"/>
+                <constraint firstItem="qjV-Rz-Tpa" firstAttribute="top" secondItem="pdN-Wl-Rii" secondAttribute="bottom" constant="8" symbolic="YES" id="aJZ-ug-cBx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uP2-tg-VdR" secondAttribute="trailing" constant="15" id="bCe-c3-mPE"/>
+                <constraint firstItem="pdN-Wl-Rii" firstAttribute="top" secondItem="5WA-4x-Vtl" secondAttribute="bottom" constant="20" id="dfi-HT-CvY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kDx-ik-CZj" secondAttribute="trailing" constant="15" id="gEN-rB-rEb"/>
+                <constraint firstItem="pdN-Wl-Rii" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="gwg-jU-86v"/>
+                <constraint firstItem="u5V-QE-NP5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="htS-Yu-cq6"/>
+                <constraint firstItem="aXv-6o-KKY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="iNm-fg-heL"/>
+                <constraint firstItem="qjV-Rz-Tpa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="j8p-RJ-F53"/>
+                <constraint firstItem="u5V-QE-NP5" firstAttribute="top" secondItem="qjV-Rz-Tpa" secondAttribute="bottom" constant="17" id="jQV-ej-pGv"/>
+                <constraint firstItem="5WA-4x-Vtl" firstAttribute="top" secondItem="G5N-Rq-tkt" secondAttribute="bottom" constant="8" symbolic="YES" id="muA-bt-MeJ"/>
+                <constraint firstItem="ecb-Lc-Nea" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="nx7-mm-tEX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aD8-T1-4Im" secondAttribute="trailing" constant="15" id="omi-Qv-pqK"/>
+                <constraint firstItem="5WA-4x-Vtl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ttB-xi-Apd"/>
+                <constraint firstItem="uP2-tg-VdR" firstAttribute="top" secondItem="aD8-T1-4Im" secondAttribute="bottom" constant="16" id="vBR-PA-Cdc"/>
+                <constraint firstItem="ecb-Lc-Nea" firstAttribute="top" secondItem="9KA-34-zm4" secondAttribute="bottom" constant="17" id="x0E-QD-b4z"/>
+                <constraint firstItem="G5N-Rq-tkt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="xEX-ee-6Cm"/>
+            </constraints>
+            <point key="canvasLocation" x="139.69465648854961" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
