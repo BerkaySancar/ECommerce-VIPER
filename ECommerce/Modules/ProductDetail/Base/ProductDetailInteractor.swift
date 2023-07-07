@@ -78,19 +78,20 @@ extension ProductDetailInteractor: ProductDetailInteractorInputs {
     
     func favButtonTapped(model: ProductModel?) {
         guard let model else { return }
-        let favModel = FavoriteProductModel(userId: userInfoManager?.getUserUid(),
-                                            productId: model.id,
-                                            productImage: model.image,
-                                            productTitle: model.title)
         
         if !isFav(model: model) {
+            
+            let favModel = FavoriteProductModel(userId: userInfoManager?.getUserUid(),
+                                                productId: model.id,
+                                                productImage: model.image,
+                                                productTitle: model.title)
             storageManager?.create(favModel) { [weak self] error in
                 guard let self else { return }
                 self.presenter?.onError(errorMessage: error.localizedDescription)
             }
         } else {
             let favs = storageManager?.getAll(FavoriteProductModel.self).filter { $0.userId == userInfoManager?.getUserUid() }
-            if let index = favs?.firstIndex(where: { $0.productId == favModel.productId }) {
+            if let index = favs?.firstIndex(where: { $0.productId == model.id }) {
                 if let item = favs?[index] {
                     storageManager?.delete(item, onError: { [weak self] error in
                         guard let self else { return }
