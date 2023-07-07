@@ -44,6 +44,7 @@ extension ProductDetailRouter: ProductDetailRouterProtocol {
     }
     
     func toBasket() {
+        toHome()
         self.view?.tabBarController?.selectedIndex = 2
     }
 }

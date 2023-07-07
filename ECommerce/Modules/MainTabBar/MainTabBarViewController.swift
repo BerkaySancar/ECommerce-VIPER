@@ -10,6 +10,7 @@ import UIKit
 protocol MainTabBarViewProtocol: AnyObject {
     func configureTabBar()
     func setTabBarControllers()
+    func setBasketItemsBadgeValue(value: Int)
 }
 
 final class MainTabBarViewController: UITabBarController {
@@ -61,5 +62,9 @@ extension MainTabBarViewController: MainTabBarViewProtocol {
                               selectedImageName: "person.fill"),
             ],
                            animated: true)
+    }
+  
+    func setBasketItemsBadgeValue(value: Int) {
+        self.basketModule.tabBarItem.badgeValue = String(value)
     }
 }
