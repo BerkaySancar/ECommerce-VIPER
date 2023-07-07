@@ -116,6 +116,10 @@ extension BasketViewController: BasketBottomViewButtonDelegate {
     func continueShoppingTapped() {
         presenter.continueShoppingTapped()
     }
+    
+    func completePaymentTapped() {
+        presenter.completePaymentTapped()
+    }
 }
 
 extension BasketViewController: BasketCellStepperCountDelegate {

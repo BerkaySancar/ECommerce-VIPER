@@ -10,6 +10,7 @@ import UIKit.UIViewController
 
 protocol BasketRouterProtocol {
     func toHome()
+    func toCompleteOrder(items: [BasketModel]?)
 }
 
 final class BasketRouter {
@@ -36,5 +37,10 @@ extension BasketRouter: BasketRouterProtocol {
     
     func toHome() {
         self.view?.tabBarController?.selectedIndex = 0
+    }
+    
+    func toCompleteOrder(items: [BasketModel]?) {
+        let completeModule = CompleteOrderRouter.startCompleteOrderModule(items: items)
+        self.view?.navigationController?.pushViewController(completeModule, animated: true)
     }
 }

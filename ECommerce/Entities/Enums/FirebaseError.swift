@@ -18,6 +18,7 @@ enum FirebaseError: Error {
     case addProductToBasket
     case getBasketItemsFailed
     case itemCouldNotBeRemoved
+    case addOrderFailed
     
     var localizedDescription: String {
         switch self {
@@ -41,6 +42,8 @@ enum FirebaseError: Error {
             return NSLocalizedString("Basket items could not be brought.", comment: "")
         case .itemCouldNotBeRemoved:
             return NSLocalizedString("Product could not be removed. Try again.", comment: "")
+        case .addOrderFailed:
+            return NSLocalizedString("The order could not be created. Try again.", comment: "")
         }
     }
 }
