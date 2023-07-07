@@ -10,6 +10,8 @@
 		B10B5F692A4EFD8600C9FD77 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F682A4EFD8600C9FD77 /* RealmError.swift */; };
 		B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */; };
 		B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */; };
+		B11AEA6D2A5843BE00D94858 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11AEA6C2A5843BE00D94858 /* OrderHistoryViewController.swift */; };
+		B11AEA6F2A5843F700D94858 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11AEA6E2A5843F700D94858 /* OrderCell.swift */; };
 		B127FC812A519ED600ACD3D1 /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC802A519ED600ACD3D1 /* AddressesViewController.swift */; };
 		B127FC832A519EE000ACD3D1 /* AddressesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC822A519EE000ACD3D1 /* AddressesPresenter.swift */; };
 		B127FC852A519EF000ACD3D1 /* AddressesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC842A519EF000ACD3D1 /* AddressesInteractor.swift */; };
@@ -135,6 +137,8 @@
 		B10B5F682A4EFD8600C9FD77 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductModel.swift; sourceTree = "<group>"; };
 		B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		B11AEA6C2A5843BE00D94858 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
+		B11AEA6E2A5843F700D94858 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		B127FC802A519ED600ACD3D1 /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
 		B127FC822A519EE000ACD3D1 /* AddressesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesPresenter.swift; sourceTree = "<group>"; };
 		B127FC842A519EF000ACD3D1 /* AddressesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesInteractor.swift; sourceTree = "<group>"; };
@@ -305,6 +309,15 @@
 				B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B11AEA6B2A5843A700D94858 /* OrderHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B11AEA6C2A5843BE00D94858 /* OrderHistoryViewController.swift */,
+				B11AEA6E2A5843F700D94858 /* OrderCell.swift */,
+			);
+			path = OrderHistory;
 			sourceTree = "<group>";
 		};
 		B127FC7F2A519DA200ACD3D1 /* Addresses */ = {
@@ -658,6 +671,7 @@
 		B19C8E3A2A48B7C20085160E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B11AEA6B2A5843A700D94858 /* OrderHistory */,
 				B131F78E2A56D1E30090E32C /* CompleteOrder */,
 				B1B39E722A56A98E0024FE6A /* PaymentInfo */,
 				B1A3C22E2A534C0C00FE21DB /* Basket */,
@@ -1176,6 +1190,7 @@
 				B127FC8F2A51A54F00ACD3D1 /* AddressModel.swift in Sources */,
 				B1E7144B2A4AD08600552A8E /* HomeViewController.swift in Sources */,
 				B1A6D62D2A4CA3B9005D45F3 /* ProductsEndpoint.swift in Sources */,
+				B11AEA6D2A5843BE00D94858 /* OrderHistoryViewController.swift in Sources */,
 				B18E78862A5020F70061E882 /* ProfileViewController.swift in Sources */,
 				B174C4082A497BCF0082ADDC /* SnappingLayout.swift in Sources */,
 				B131F7902A56D1F40090E32C /* CompleteOrderViewController.swift in Sources */,
@@ -1218,6 +1233,7 @@
 				B1B39E7A2A56A9CC0024FE6A /* PaynetInfoInteractor.swift in Sources */,
 				B127FC812A519ED600ACD3D1 /* AddressesViewController.swift in Sources */,
 				B1A9D3242A4A167B0033C3D2 /* SignUpPresenter.swift in Sources */,
+				B11AEA6F2A5843F700D94858 /* OrderCell.swift in Sources */,
 				B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */,
 				B131F7942A56D2040090E32C /* CompleteOrderInteractor.swift in Sources */,
 				B162AB7F2A51F7B4001208A4 /* CountryModel.swift in Sources */,

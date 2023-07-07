@@ -58,7 +58,7 @@ extension ProfilePresenter: ProfilePresenterInputs {
         case .payment:
             router?.toPaymentInfo()
         case .orderHistory:
-            break
+            router?.toOrderHistory()
         case .signOut:
             interactor?.signOutAction()
         default:
