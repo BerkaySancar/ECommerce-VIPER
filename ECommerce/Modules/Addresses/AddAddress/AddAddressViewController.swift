@@ -114,7 +114,7 @@ final class AddAddressViewController: UIViewController {
                 switch result {
                 case .success(let countries):
                     DispatchQueue.main.async { [weak self] in
-                        self?.countries = countries
+                        self?.countries = countries.sorted()
                         self?.pickerView.reloadAllComponents()
                     }
                 case .failure(let error):
