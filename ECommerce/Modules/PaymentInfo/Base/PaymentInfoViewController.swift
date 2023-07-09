@@ -78,6 +78,7 @@ extension PaymentInfoViewController: PaymentInfoViewProtocol {
     
     func prepareCollectionView() {
         view.addSubview(paymentCollectionView)
+        paymentCollectionView.backgroundColor = .systemGray6
         
         paymentCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -119,6 +120,7 @@ extension PaymentInfoViewController: UICollectionViewDelegate, UICollectionViewD
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.label.cgColor
         cell.layer.cornerRadius = 8
+        cell.backgroundColor = .systemBackground
         cell.delegate = self
         cell.showModel(model: presenter.cellForItemAt(indexPath: indexPath))
         return cell

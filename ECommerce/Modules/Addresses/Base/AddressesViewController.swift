@@ -64,6 +64,7 @@ extension AddressesViewController: AddressesViewProtocol {
     
     func prepareCollectionView() {
         view.addSubview(addressesCollectionView)
+        addressesCollectionView.backgroundColor = .systemGray6
         
         addressesCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -120,6 +121,7 @@ extension AddressesViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.label.cgColor
         cell.layer.cornerRadius = 8
+        cell.backgroundColor = .systemBackground
         
         return cell
     }

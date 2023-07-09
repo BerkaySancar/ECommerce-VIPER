@@ -37,6 +37,7 @@ extension BasketPresenter: BasketPresenterInputs {
         view?.setBackgroundColor(color: .systemBackground)
         view?.prepareCustomBottomView()
         view?.prepareBasketTableView()
+        view?.prepareEmptyBasketView()
         view?.prepareActivtyIndicatorView()
         interactor?.getItems()
     }
