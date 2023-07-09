@@ -34,7 +34,7 @@ These libraries were installed using Swift Package Manager.
 
 ## App Preview
 
-https://github.com/BerkaySancar/ECommerce-VIPER/assets/97171726/58e7db0e-cfb0-4a17-9904-5abab2510e7d
+https://github.com/BerkaySancar/ECommerce-VIPER/assets/97171726/9abf9d31-409d-476d-9e3e-6dbe1984c41c
 
 ## Author
 
