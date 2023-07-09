@@ -314,8 +314,8 @@
 		B11AEA6B2A5843A700D94858 /* OrderHistory */ = {
 			isa = PBXGroup;
 			children = (
-				B11AEA6C2A5843BE00D94858 /* OrderHistoryViewController.swift */,
-				B11AEA6E2A5843F700D94858 /* OrderCell.swift */,
+				B1F5DE822A5AD21F00EB5689 /* Cells */,
+				B1F5DE812A5AD21700EB5689 /* Controller */,
 			);
 			path = OrderHistory;
 			sourceTree = "<group>";
@@ -1042,6 +1042,22 @@
 				B174C4032A495FF80082ADDC /* OnboardCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B1F5DE812A5AD21700EB5689 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B11AEA6C2A5843BE00D94858 /* OrderHistoryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B1F5DE822A5AD21F00EB5689 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B11AEA6E2A5843F700D94858 /* OrderCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

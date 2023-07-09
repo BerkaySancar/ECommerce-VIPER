@@ -16,6 +16,7 @@ final class OrderHistoryViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(OrderCell.self, forCellReuseIdentifier: OrderCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .systemGray6
         return tableView
     }()
     
@@ -73,6 +74,7 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = ordersTableView.dequeueReusableCell(withIdentifier: OrderCell.identifier, for: indexPath) as? OrderCell else { return UITableViewCell() }
         cell.showModel(order: self.orders[indexPath.row])
         cell.selectionStyle = .none
+        cell.backgroundColor = .systemBackground
         return cell
     }
 }
