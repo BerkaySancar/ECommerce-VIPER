@@ -12,6 +12,7 @@ protocol BasketViewProtocol: AnyObject {
     func setBackgroundColor(color: UIColor)
     func prepareBasketTableView()
     func prepareActivtyIndicatorView()
+    func prepareEmptyBasketView()
     func prepareCustomBottomView()
     func startLoading()
     func endLoading()
@@ -31,6 +32,7 @@ final class BasketViewController: UIViewController {
     }()
     
     private lazy var customBottomView = BasketBottomView()
+    private lazy var customEmptyView = EmptyBasketView()
     
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .large)
@@ -82,6 +84,15 @@ extension BasketViewController: BasketViewProtocol {
             make.bottom.equalTo(customBottomView.snp.top)
         }
     }
+    
+    func prepareEmptyBasketView() {
+        view.addSubview(customEmptyView)
+        
+        customEmptyView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-50)
+        }
+    }
 
     func prepareActivtyIndicatorView() {
         view.addSubview(activityIndicatorView)
@@ -130,6 +141,7 @@ extension BasketViewController: BasketCellStepperCountDelegate {
 
 extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        customEmptyView.isHidden = (presenter.numberOfRowsInSection(section: section) == 0) ? false : true
         return presenter.numberOfRowsInSection(section: section)
     }
     
