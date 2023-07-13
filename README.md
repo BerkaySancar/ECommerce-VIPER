@@ -1,6 +1,6 @@
 # ECommerce-VIPER
 
-Fake E-Commerce app with Swift UIKit. --> [App Preview](#app-preview) <--
+E-Commerce app with Swift UIKit. --> [App Preview](#app-preview) <--
 
 ## Features
 
