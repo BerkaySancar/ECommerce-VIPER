@@ -128,11 +128,31 @@
 		B1D18BA62A48BD92003F0E4C /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D18BA52A48BD92003F0E4C /* OnboardingPresenter.swift */; };
 		B1D18BA82A48BD9F003F0E4C /* OnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D18BA72A48BD9F003F0E4C /* OnboardingInteractor.swift */; };
 		B1D18BAB2A48CDA1003F0E4C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1D18BAA2A48CDA1003F0E4C /* SnapKit */; };
+		B1D4BDCB2A5D4ED4007EB8CC /* MockLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D4BDCA2A5D4ED4007EB8CC /* MockLoginViewController.swift */; };
+		B1D4BDCD2A5D4F50007EB8CC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1D4BDCC2A5D4F50007EB8CC /* RealmSwift */; };
+		B1D4BDCF2A5D4F77007EB8CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B1D4BDCE2A5D4F77007EB8CC /* FirebaseAuth */; };
+		B1D4BDD12A5D4F7F007EB8CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B1D4BDD02A5D4F7F007EB8CC /* FirebaseFirestore */; };
+		B1D4BDD32A5D4F88007EB8CC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B1D4BDD22A5D4F88007EB8CC /* GoogleSignIn */; };
+		B1D4BDD52A5D4F94007EB8CC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B1D4BDD42A5D4F94007EB8CC /* SDWebImage */; settings = {ATTRIBUTES = (Required, ); }; };
+		B1D4BDD72A5D511B007EB8CC /* MockLoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D4BDD62A5D511B007EB8CC /* MockLoginInteractor.swift */; };
+		B1D4BDDB2A5D523F007EB8CC /* MockLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D4BDDA2A5D523F007EB8CC /* MockLoginRouter.swift */; };
+		B1D4BDDE2A5D53EE007EB8CC /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D4BDDD2A5D53EE007EB8CC /* LoginPresenterTests.swift */; };
 		B1E714452A4ABFB800552A8E /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = B1E714442A4ABFB800552A8E /* SPAlert */; };
 		B1E714472A4ABFD700552A8E /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E714462A4ABFD700552A8E /* AlertExtensions.swift */; };
 		B1E714492A4AC70E00552A8E /* GeneralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E714482A4AC70E00552A8E /* GeneralError.swift */; };
 		B1E7144B2A4AD08600552A8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7144A2A4AD08600552A8E /* HomeViewController.swift */; };
+		B1ECD7B82A605C5E00F192B7 /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ECD7B72A605C5E00F192B7 /* MockAuthManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1D4BDC42A5D4EA3007EB8CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B19C8E1A2A48B6F20085160E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B19C8E212A48B6F20085160E;
+			remoteInfo = ECommerce;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B10B5F682A4EFD8600C9FD77 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
@@ -250,9 +270,15 @@
 		B1D18BA32A48BD85003F0E4C /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		B1D18BA52A48BD92003F0E4C /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		B1D18BA72A48BD9F003F0E4C /* OnboardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInteractor.swift; sourceTree = "<group>"; };
+		B1D4BDC02A5D4EA3007EB8CC /* ECommerceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ECommerceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D4BDCA2A5D4ED4007EB8CC /* MockLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginViewController.swift; sourceTree = "<group>"; };
+		B1D4BDD62A5D511B007EB8CC /* MockLoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginInteractor.swift; sourceTree = "<group>"; };
+		B1D4BDDA2A5D523F007EB8CC /* MockLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginRouter.swift; sourceTree = "<group>"; };
+		B1D4BDDD2A5D53EE007EB8CC /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
 		B1E714462A4ABFD700552A8E /* AlertExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtensions.swift; sourceTree = "<group>"; };
 		B1E714482A4AC70E00552A8E /* GeneralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralError.swift; sourceTree = "<group>"; };
 		B1E7144A2A4AD08600552A8E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B1ECD7B72A605C5E00F192B7 /* MockAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +295,18 @@
 				B1D18BAB2A48CDA1003F0E4C /* SnapKit in Frameworks */,
 				B174C41E2A49BF190082ADDC /* FirebaseAuth in Frameworks */,
 				B19BD1172A4AFE02002FBA48 /* GoogleSignIn in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1D4BDBD2A5D4EA3007EB8CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1D4BDCD2A5D4F50007EB8CC /* RealmSwift in Frameworks */,
+				B1D4BDD32A5D4F88007EB8CC /* GoogleSignIn in Frameworks */,
+				B1D4BDCF2A5D4F77007EB8CC /* FirebaseAuth in Frameworks */,
+				B1D4BDD12A5D4F7F007EB8CC /* FirebaseFirestore in Frameworks */,
+				B1D4BDD52A5D4F94007EB8CC /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +671,7 @@
 			isa = PBXGroup;
 			children = (
 				B19C8E242A48B6F20085160E /* ECommerce */,
+				B1D4BDC12A5D4EA3007EB8CC /* ECommerceTests */,
 				B19C8E232A48B6F20085160E /* Products */,
 				B19579662A5442C70093A606 /* Frameworks */,
 			);
@@ -642,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				B19C8E222A48B6F20085160E /* ECommerce.app */,
+				B1D4BDC02A5D4EA3007EB8CC /* ECommerceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1047,6 +1087,34 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		B1D4BDC12A5D4EA3007EB8CC /* ECommerceTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1ECD7B62A605C4C00F192B7 /* MockManagers */,
+				B1D4BDC92A5D4EC0007EB8CC /* LoginTests */,
+			);
+			path = ECommerceTests;
+			sourceTree = "<group>";
+		};
+		B1D4BDC92A5D4EC0007EB8CC /* LoginTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1D4BDCA2A5D4ED4007EB8CC /* MockLoginViewController.swift */,
+				B1D4BDD62A5D511B007EB8CC /* MockLoginInteractor.swift */,
+				B1D4BDDA2A5D523F007EB8CC /* MockLoginRouter.swift */,
+				B1D4BDDD2A5D53EE007EB8CC /* LoginPresenterTests.swift */,
+			);
+			path = LoginTests;
+			sourceTree = "<group>";
+		};
+		B1ECD7B62A605C4C00F192B7 /* MockManagers */ = {
+			isa = PBXGroup;
+			children = (
+				B1ECD7B72A605C5E00F192B7 /* MockAuthManager.swift */,
+			);
+			path = MockManagers;
+			sourceTree = "<group>";
+		};
 		B1F5DE812A5AD21700EB5689 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1094,6 +1162,31 @@
 			productReference = B19C8E222A48B6F20085160E /* ECommerce.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B1D4BDBF2A5D4EA3007EB8CC /* ECommerceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1D4BDC82A5D4EA3007EB8CC /* Build configuration list for PBXNativeTarget "ECommerceTests" */;
+			buildPhases = (
+				B1D4BDBC2A5D4EA3007EB8CC /* Sources */,
+				B1D4BDBD2A5D4EA3007EB8CC /* Frameworks */,
+				B1D4BDBE2A5D4EA3007EB8CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1D4BDC52A5D4EA3007EB8CC /* PBXTargetDependency */,
+			);
+			name = ECommerceTests;
+			packageProductDependencies = (
+				B1D4BDCC2A5D4F50007EB8CC /* RealmSwift */,
+				B1D4BDCE2A5D4F77007EB8CC /* FirebaseAuth */,
+				B1D4BDD02A5D4F7F007EB8CC /* FirebaseFirestore */,
+				B1D4BDD22A5D4F88007EB8CC /* GoogleSignIn */,
+				B1D4BDD42A5D4F94007EB8CC /* SDWebImage */,
+			);
+			productName = ECommerceTests;
+			productReference = B1D4BDC02A5D4EA3007EB8CC /* ECommerceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1106,6 +1199,10 @@
 				TargetAttributes = {
 					B19C8E212A48B6F20085160E = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					B1D4BDBF2A5D4EA3007EB8CC = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = B19C8E212A48B6F20085160E;
 					};
 				};
 			};
@@ -1132,6 +1229,7 @@
 			projectRoot = "";
 			targets = (
 				B19C8E212A48B6F20085160E /* ECommerce */,
+				B1D4BDBF2A5D4EA3007EB8CC /* ECommerceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1148,6 +1246,13 @@
 				B19C8E2F2A48B6F30085160E /* Assets.xcassets in Resources */,
 				B174C4112A49AB4B0082ADDC /* LoginView.xib in Resources */,
 				B14B2C5C2A51D69600F11791 /* AddAddressView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1D4BDBE2A5D4EA3007EB8CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1270,7 +1375,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1D4BDBC2A5D4EA3007EB8CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1D4BDDB2A5D523F007EB8CC /* MockLoginRouter.swift in Sources */,
+				B1ECD7B82A605C5E00F192B7 /* MockAuthManager.swift in Sources */,
+				B1D4BDCB2A5D4ED4007EB8CC /* MockLoginViewController.swift in Sources */,
+				B1D4BDD72A5D511B007EB8CC /* MockLoginInteractor.swift in Sources */,
+				B1D4BDDE2A5D53EE007EB8CC /* LoginPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1D4BDC52A5D4EA3007EB8CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B19C8E212A48B6F20085160E /* ECommerce */;
+			targetProxy = B1D4BDC42A5D4EA3007EB8CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B19C8E302A48B6F30085160E /* LaunchScreen.storyboard */ = {
@@ -1458,6 +1583,42 @@
 			};
 			name = Release;
 		};
+		B1D4BDC62A5D4EA3007EB8CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQ4V82589Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.berkaysancar.ECommerceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ECommerce.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ECommerce";
+			};
+			name = Debug;
+		};
+		B1D4BDC72A5D4EA3007EB8CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQ4V82589Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.berkaysancar.ECommerceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ECommerce.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ECommerce";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1475,6 +1636,15 @@
 			buildConfigurations = (
 				B19C8E372A48B6F30085160E /* Debug */,
 				B19C8E382A48B6F30085160E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1D4BDC82A5D4EA3007EB8CC /* Build configuration list for PBXNativeTarget "ECommerceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1D4BDC62A5D4EA3007EB8CC /* Debug */,
+				B1D4BDC72A5D4EA3007EB8CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1580,6 +1750,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1D18BA92A48CDA1003F0E4C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		B1D4BDCC2A5D4F50007EB8CC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B08252A4EFC8F0062DCF6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		B1D4BDCE2A5D4F77007EB8CC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B174C41C2A49BF190082ADDC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B1D4BDD02A5D4F7F007EB8CC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B174C41C2A49BF190082ADDC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B1D4BDD22A5D4F88007EB8CC /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19BD1152A4AFE02002FBA48 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		B1D4BDD42A5D4F94007EB8CC /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1A6D6382A4CBAA8005D45F3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 		B1E714442A4ABFB800552A8E /* SPAlert */ = {
 			isa = XCSwiftPackageProductDependency;
