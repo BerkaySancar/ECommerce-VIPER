@@ -19,12 +19,7 @@ protocol AuthManagerProtocol {
 }
 
 final class AuthManager {
-    
-    static let shared = AuthManager()
-    
     private let auth = Auth.auth()
-    
-    private init() {}
 }
 
 extension AuthManager: AuthManagerProtocol {

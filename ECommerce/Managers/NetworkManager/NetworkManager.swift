@@ -8,11 +8,7 @@
 import Foundation
 
 final class NetworkManager {
-    
-    static let shared = NetworkManager()
-    
-    private init() {}
-            
+   
     func request<T: Codable>(endpoint: EndpointProtocol? = nil, urlRequest: URLRequest? = nil) async throws -> T {
         let finalURLRequest: URLRequest
         

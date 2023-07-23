@@ -18,12 +18,7 @@ protocol ProductsServiceProtocol {
 }
 
 final class ProductsService {
-    
-    static let shared = ProductsService()
-    
-    private init() {}
-    
-    private let networkManager = NetworkManager.shared
+    private let networkManager = NetworkManager()
 }
 
 extension ProductsService: ProductsServiceProtocol {

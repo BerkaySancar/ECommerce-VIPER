@@ -14,7 +14,6 @@ extension UITabBarController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = UIImage(systemName: imageName)
         viewController.tabBarItem.selectedImage = UIImage(systemName: selectedImageName)
-        let navVC = UINavigationController(rootViewController: viewController)
-        return navVC
+        return UINavigationController(rootViewController: viewController)
     }
 }

@@ -23,7 +23,7 @@ final class HomeRouter {
     static func startHomeModule() -> UIViewController {
         let view = HomeViewController()
         let router = HomeRouter(view: view)
-        let interactor = HomeInteractor(service: ProductsService.shared, manager: UserInfoManager.shared, storageManager: RealmManager.shared)
+        let interactor = HomeInteractor(service: ProductsService(), manager: UserInfoManager(), storageManager: RealmManager())
         let presenter = HomePresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter
@@ -36,6 +36,7 @@ final class HomeRouter {
 extension HomeRouter: HomeRouterProtocol {
     
     func toDetail(id: Int) {
-        self.view?.navigationController?.pushViewController(ProductDetailRouter.startModule(productID: id), animated: true)
+        let detailModule = ProductDetailRouter.startModule(productID: id)
+        self.view?.navigationController?.pushViewController(detailModule, animated: true)
     }
 }

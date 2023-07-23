@@ -23,7 +23,7 @@ final class BasketRouter {
     static func startBasketModule() -> UIViewController {
         let view = BasketViewController()
         let router = BasketRouter(view: view)
-        let interactor = BasketInteractor(basketManager: BasketManager.shared)
+        let interactor = BasketInteractor(basketManager: BasketManager())
         let presenter = BasketPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

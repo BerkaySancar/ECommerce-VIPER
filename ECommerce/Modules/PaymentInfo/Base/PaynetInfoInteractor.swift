@@ -23,18 +23,20 @@ protocol PaymentInfoInteractorOutputs: AnyObject {
 final class PaymentInfoInteractor {
     weak var presenter: PaymentInfoInteractorOutputs!
     private let storageManager: RealmManagerProtocol?
+    private let userInfoManager: UserInfoManagerProtocol?
     
     private var cards: [CardModel]?
     
-    init(storageManager: RealmManagerProtocol) {
+    init(storageManager: RealmManagerProtocol, userInfoManager: UserInfoManagerProtocol) {
         self.storageManager = storageManager
+        self.userInfoManager = userInfoManager
     }
 }
 
 extension PaymentInfoInteractor: PaymentInfoInteractorInputs {
     
     func getCards() {
-        self.cards = storageManager?.getAll(CardModel.self).filter { $0.userId == UserInfoManager.shared.getUserUid() }
+        self.cards = storageManager?.getAll(CardModel.self).filter { $0.userId == userInfoManager?.getUserUid() }
     }
     
     func showCards() -> [CardModel]? {

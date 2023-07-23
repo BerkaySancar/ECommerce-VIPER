@@ -22,6 +22,8 @@ final class OrderHistoryViewController: UIViewController {
     
     private var orders: [OrderModel] = []
     
+    private let userInfoManager: UserInfoManagerProtocol = UserInfoManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +41,7 @@ final class OrderHistoryViewController: UIViewController {
     }
     
     private func getOrders() {
-        if let userId = UserInfoManager.shared.getUserUid() {
+        if let userId = userInfoManager.getUserUid() {
             Firestore.firestore().collection("Orders").whereField("userId", isEqualTo: userId).addSnapshotListener { [weak self] snapshot, error in
                 guard let self else { return }
                 

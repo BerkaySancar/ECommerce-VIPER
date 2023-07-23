@@ -13,7 +13,7 @@ protocol CountriesServiceProtocol: AnyObject {
 
 final class CountriesService: CountriesServiceProtocol {
     
-    private let networkManager = NetworkManager.shared
+    private let networkManager = NetworkManager()
     
     func getAllCountries(completion: @escaping (Result<Countries, NetworkError>) -> Void) async throws {
         do {

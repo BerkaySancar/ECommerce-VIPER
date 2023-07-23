@@ -24,7 +24,7 @@ final class AddAddressViewController: UIViewController {
     private lazy var pickerView = UIPickerView()
     
     private let service: CountriesServiceProtocol = CountriesService()
-    private let userInfoManager: UserInfoManagerProtocol = UserInfoManager.shared
+    private let userInfoManager: UserInfoManagerProtocol = UserInfoManager()
     
     private var address: AddressModel?
     private var countries: [Country] = []

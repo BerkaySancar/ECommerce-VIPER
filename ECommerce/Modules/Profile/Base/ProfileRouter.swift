@@ -28,7 +28,7 @@ final class ProfileRouter {
     static func startProfileModule() -> UIViewController {
         let view = ProfileViewController()
         let router = ProfileRouter(view: view, windowManager: RootWindowManager.shared)
-        let interactor = ProfileInteractor(userInfoManager: UserInfoManager.shared, authManager: AuthManager.shared)
+        let interactor = ProfileInteractor(userInfoManager: UserInfoManager(), authManager: AuthManager())
         let presenter = ProfilePresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

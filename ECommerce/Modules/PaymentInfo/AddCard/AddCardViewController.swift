@@ -21,7 +21,7 @@ final class AddCardViewController: UIViewController {
     @IBOutlet private weak var cvvTextField: UITextField!
     @IBOutlet private weak var addButton: UIButton!
     
-    private let userInfoManager = UserInfoManager.shared
+    private let userInfoManager = UserInfoManager()
     private let notificationCenter = NotificationCenter.default
     
     private var card: CardModel?

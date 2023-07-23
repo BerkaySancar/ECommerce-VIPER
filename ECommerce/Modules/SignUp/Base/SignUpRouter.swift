@@ -22,7 +22,7 @@ final class SignUpRouter {
     static func startSignUp() -> UIViewController {
         let view = SignUpViewController(nibName: "SignUpView", bundle: nil)
         let router = SignUpRouter(view: view)
-        let interactor = SignUpInteractor(authManager: AuthManager.shared)
+        let interactor = SignUpInteractor(authManager: AuthManager())
         let presenter = SignUpPresenter(view: view, router: router, interactor: interactor)
         
         view.presenter = presenter
