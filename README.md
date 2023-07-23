@@ -1,6 +1,6 @@
 # ECommerce-VIPER
 
-E-Commerce app with Swift UIKit. --> [App Preview](#app-preview) <--
+E-Commerce app with Swift UIKit. --> [App Preview](#app-preview) & [Instruments Leaks Record](#instruments-leaks-record) <--
 
 ## Features
 
@@ -35,6 +35,10 @@ These libraries were installed using Swift Package Manager.
 ## App Preview
 
 https://github.com/BerkaySancar/ECommerce-VIPER/assets/97171726/9abf9d31-409d-476d-9e3e-6dbe1984c41c
+
+## Instruments Leaks Record
+
+https://github.com/BerkaySancar/ECommerce-VIPER/assets/97171726/4b3f9ebb-67f9-48f3-91df-d0455f603a08
 
 ## Author
 
