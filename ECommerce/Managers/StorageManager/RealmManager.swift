@@ -17,9 +17,7 @@ protocol RealmManagerProtocol {
 
 final class RealmManager: RealmManagerProtocol {
     
-    static let shared = RealmManager()
     private let realm = try! Realm()
-    private init() {}
 
     func create<T: Object>(_ object: T, onError: (RealmError) -> ()) {
         do {

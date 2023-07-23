@@ -23,6 +23,7 @@ protocol AddressesInteractorOutputs: AnyObject {
 final class AddressesInteractor {
     weak var presenter: AddressesInteractorOutputs?
     private let storageManager: RealmManagerProtocol?
+    private let userInfoManager: UserInfoManagerProtocol?
     
     private var addresses: [AddressModel]? {
         didSet {
@@ -30,8 +31,9 @@ final class AddressesInteractor {
         }
     }
     
-    init(storageManager: RealmManagerProtocol?) {
+    init(storageManager: RealmManagerProtocol?, userInfoManager: UserInfoManagerProtocol) {
         self.storageManager = storageManager
+        self.userInfoManager = userInfoManager
     }
 }
 
@@ -39,7 +41,7 @@ final class AddressesInteractor {
 extension AddressesInteractor: AddressesInteractorInputs {
     
     func getAddresses() {
-        self.addresses = storageManager?.getAll(AddressModel.self).filter { $0.userId == UserInfoManager.shared.getUserUid() }
+        self.addresses = storageManager?.getAll(AddressModel.self).filter { $0.userId == userInfoManager?.getUserUid() }
     }
     
     func showAddresses() -> [AddressModel]? {

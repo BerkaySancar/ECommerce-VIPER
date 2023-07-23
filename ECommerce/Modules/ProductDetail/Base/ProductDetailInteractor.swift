@@ -90,6 +90,7 @@ extension ProductDetailInteractor: ProductDetailInteractorInputs {
                 self.presenter?.onError(errorMessage: error.localizedDescription)
             }
         } else {
+            print("else")
             let favs = storageManager?.getAll(FavoriteProductModel.self).filter { $0.userId == userInfoManager?.getUserUid() }
             if let index = favs?.firstIndex(where: { $0.productId == model.id }) {
                 if let item = favs?[index] {

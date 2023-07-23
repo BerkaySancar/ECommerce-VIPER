@@ -17,13 +17,9 @@ protocol BasketManagerProtocol {
 
 final class BasketManager {
     
-    static let shared = BasketManager()
-    
     private let firestore = Firestore.firestore()
-    
+    private let userInfoManager = UserInfoManager()
     private var basketItems: [BasketModel] = []
-    
-    private init() {}
 }
 
 extension BasketManager: BasketManagerProtocol {
@@ -40,7 +36,7 @@ extension BasketManager: BasketManagerProtocol {
     }
     
     func getBasketItems(completion: @escaping (Result<[BasketModel], FirebaseError>) -> Void) {
-        if let userId = UserInfoManager.shared.getUserUid() {
+        if let userId = userInfoManager.getUserUid() {
             firestore.collection("Basket").whereField("userId", isEqualTo: userId).addSnapshotListener { [weak self] snapshot, error in
                 guard let self else { return }
                 
@@ -71,7 +67,7 @@ extension BasketManager: BasketManagerProtocol {
     }
     
     func update(item: BasketModel?) {
-        if let userId = UserInfoManager.shared.getUserUid() {
+        if let userId = userInfoManager.getUserUid() {
             
             firestore.collection("Basket").whereField("userId", isEqualTo: userId).getDocuments { [weak self] snapshot, error in
                 guard let self else { return }
@@ -93,7 +89,7 @@ extension BasketManager: BasketManagerProtocol {
     }
     
     func deleteBasketItem(item: BasketModel?, completion: @escaping (FirebaseError) -> Void) {
-        if let userId = UserInfoManager.shared.getUserUid() {
+        if let userId = userInfoManager.getUserUid() {
             firestore.collection("Basket").whereField("userId", isEqualTo: userId).addSnapshotListener { [weak self] snapshot, error in
                 guard let self else { return }
                 if let error {

@@ -25,10 +25,10 @@ final class ProductDetailRouter {
         let view = ProductDetailViewController()
         let router = ProductDetailRouter(view: view)
         let interactor = ProductDetailInteractor(productID: productID,
-                                                 service: ProductsService.shared,
-                                                 storageManager: RealmManager.shared,
-                                                 userInfoManager: UserInfoManager.shared,
-                                                 basketManager: BasketManager.shared)
+                                                 service: ProductsService(),
+                                                 storageManager: RealmManager(),
+                                                 userInfoManager: UserInfoManager(),
+                                                 basketManager: BasketManager())
         let presenter = ProductDetailPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

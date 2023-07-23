@@ -19,10 +19,10 @@ final class MainTabBarRouter {
         self.view = view
     }
     
-    static func startTabBarModule() -> UITabBarController {
+    static func startTabBarModule() -> UIViewController {
         let view = MainTabBarViewController()
         let router = MainTabBarRouter(view: view)
-        let interactor = MainTabBarInteractor()
+        let interactor = MainTabBarInteractor(basketManager: BasketManager())
         let presenter = MainTabBarPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

@@ -22,7 +22,7 @@ final class PaymentInfoRouter {
     static func startPaymentInfoModule() -> UIViewController {
         let view = PaymentInfoViewController()
         let router = PaymentInfoRouter(view: view)
-        let interactor = PaymentInfoInteractor(storageManager: RealmManager.shared)
+        let interactor = PaymentInfoInteractor(storageManager: RealmManager(), userInfoManager: UserInfoManager())
         let presenter = PaymentInfoPresenter(view: view, router: router, interactor: interactor)
         
         view.presenter = presenter

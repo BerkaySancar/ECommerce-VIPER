@@ -24,7 +24,7 @@ final class CompleteOrderRouter {
     static func startCompleteOrderModule(items: [BasketModel]?) -> UIViewController {
         let view = CompleteOrderViewController()
         let router = CompleteOrderRouter(view: view)
-        let interactor = CompleteOrderInteractor(items: items, storageManager: RealmManager.shared, basketManager: BasketManager.shared)
+        let interactor = CompleteOrderInteractor(items: items, storageManager: RealmManager(), basketManager: BasketManager())
         let presenter = CompleteOrderPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter
@@ -47,7 +47,7 @@ extension CompleteOrderRouter: CompleteOrderRouterProtocol {
     }
     
     func toHome() {
-        let tabBar = MainTabBarRouter.startTabBarModule()
-        RootWindowManager.shared.changeRootViewController(tabBar, animated: true)
+        self.view?.navigationController?.popToRootViewController(animated: true)
+        self.view?.tabBarController?.selectedIndex = 0
     }
 }

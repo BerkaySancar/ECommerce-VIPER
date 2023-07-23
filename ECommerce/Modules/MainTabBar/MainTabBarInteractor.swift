@@ -17,18 +17,23 @@ protocol MainTabBarInteractorOutputs: AnyObject {
 
 final class MainTabBarInteractor {
     weak var presenter: MainTabBarInteractorOutputs?
+    private let basketManager: BasketManagerProtocol?
     
     private var basketItems: [BasketModel] = [] {
         didSet {
             presenter?.showBasketItemsCount(value: basketItems.count)
         }
     }
+    
+    init(basketManager: BasketManagerProtocol) {
+        self.basketManager = basketManager
+    }
 }
 
 extension MainTabBarInteractor: MainTabBarInteractorInputs {
   
     func getBasketItems() {
-        BasketManager.shared.getBasketItems { result in
+        basketManager?.getBasketItems { result in
             switch result {
             case .success(let success):
                 self.basketItems = success
