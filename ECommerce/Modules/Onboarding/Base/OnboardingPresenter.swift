@@ -10,7 +10,7 @@ import Foundation
 protocol OnboardingPresenterInputs {
     func viewDidLoad()
     func numberOfItemsInSection() -> Int
-    func cellForItemAtIndexPath(indexPath: IndexPath) -> OnboardCellViewModel
+    func cellForItemAtIndexPath(indexPath: IndexPath) -> OnboardCellViewModel?
     func cellNextStartButtonTapped(title: String)
 }
 
@@ -19,8 +19,6 @@ final class OnboardingPresenter {
     private weak var view: OnboardingViewProtocol?
     private let interactor: OnboardingInteractorInputs?
     private let router: OnboardingRouterProtocol?
-    
-    private var onboardings: [OnboardCellViewModel] = [] 
     
     init(view: OnboardingViewProtocol, interactor: OnboardingInteractorInputs, router: OnboardingRouterProtocol) {
         self.view = view
@@ -37,11 +35,11 @@ extension OnboardingPresenter: OnboardingPresenterInputs {
     }
     
     func numberOfItemsInSection() -> Int {
-        self.onboardings.count
+        self.interactor?.showOnboardingItems()?.count ?? 0
     }
     
-    func cellForItemAtIndexPath(indexPath: IndexPath) -> OnboardCellViewModel {
-        return self.onboardings[indexPath.item]
+    func cellForItemAtIndexPath(indexPath: IndexPath) -> OnboardCellViewModel? {
+        return self.interactor?.showOnboardingItems()?[indexPath.item]
     }
     
     func cellNextStartButtonTapped(title: String) {
@@ -55,7 +53,5 @@ extension OnboardingPresenter: OnboardingPresenterInputs {
 
 // MARK: - Onboarding Interactor To Presenter
 extension OnboardingPresenter: OnboardingInteractorOutputs {
-    func showOnboardingItems(items: [OnboardCellViewModel]) {
-        self.onboardings = items
-    }
+    
 }

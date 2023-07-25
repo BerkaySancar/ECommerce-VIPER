@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductModel: Codable {
+struct ProductModel: Codable, Equatable {
     let id: Int
     let title: String
     let price: Float
@@ -15,6 +15,10 @@ struct ProductModel: Codable {
     let category: String
     let image: String
     let rating: Rate
+    
+    static func == (lhs: ProductModel, rhs: ProductModel) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct Rate: Codable {

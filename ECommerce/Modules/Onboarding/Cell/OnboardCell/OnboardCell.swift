@@ -93,10 +93,10 @@ final class OnboardCell: UICollectionViewCell {
         }
     }
     
-    internal func showModel(model: OnboardCellViewModel) {
-        backgroundImage.image = model.image
-        titleLabel.text = model.title
-        descriptionLabel.text = model.description
-        nextStartButton.setTitle(model.buttonTitle, for: .normal)
+    internal func showModel(model: OnboardCellViewModel?) {
+        backgroundImage.image = model?.image
+        titleLabel.text = model?.title
+        descriptionLabel.text = model?.description
+        nextStartButton.setTitle(model?.buttonTitle, for: .normal)
     }
 }

@@ -9,19 +9,23 @@ import Foundation
 
 protocol OnboardingInteractorInputs {
     func createOnboardingItems()
+    func showOnboardingItems() -> [OnboardCellViewModel]?
 }
 
 protocol OnboardingInteractorOutputs: AnyObject {
-    func showOnboardingItems(items: [OnboardCellViewModel])
+    
 }
 
 final class OnboardingInteractor {
     weak var presenter: OnboardingInteractorOutputs?
+    
+    private var onboardingItems: [OnboardCellViewModel] = []
 }
 
 extension OnboardingInteractor: OnboardingInteractorInputs {
+    
     func createOnboardingItems() {
-        let onboardingItems: [OnboardCellViewModel] =
+        onboardingItems =
         [
             .init(image: .init(named: "onboarding1")!,
                   title: "Welcome to our Online Store!",
@@ -38,7 +42,9 @@ extension OnboardingInteractor: OnboardingInteractorInputs {
                   description: "Experience the freedom of shopping on your terms. Our online store is accessible 24/7.",
                   buttonTitle: "Get Started")
         ]
-        
-        presenter?.showOnboardingItems(items: onboardingItems)
+    }
+    
+    func showOnboardingItems() -> [OnboardCellViewModel]? {
+        return self.onboardingItems
     }
 }
