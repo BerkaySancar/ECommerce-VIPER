@@ -8,7 +8,7 @@
 import Foundation
 import UIKit.UIImage
 
-struct CurrentUserModel {
+struct CurrentUserModel: Equatable {
     let profileImageURLString: String?
     let userEmail: String?
 }

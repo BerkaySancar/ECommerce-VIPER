@@ -11,6 +11,10 @@
 		B10B5F6C2A4EFF6F00C9FD77 /* FavoriteProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */; };
 		B10B5F712A4F059900C9FD77 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */; };
 		B10FA97A2A5AD5EF00C4C2A4 /* EmptyBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10FA9792A5AD5EF00C4C2A4 /* EmptyBasketView.swift */; };
+		B11639E82A6FE74A007B70A4 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11639E72A6FE74A007B70A4 /* HomePresenterTests.swift */; };
+		B11639EA2A6FE757007B70A4 /* MockHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11639E92A6FE757007B70A4 /* MockHomeViewController.swift */; };
+		B11639EC2A6FE75F007B70A4 /* MockHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11639EB2A6FE75F007B70A4 /* MockHomeInteractor.swift */; };
+		B11639EE2A6FE764007B70A4 /* MockHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11639ED2A6FE764007B70A4 /* MockHomeRouter.swift */; };
 		B11AEA6D2A5843BE00D94858 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11AEA6C2A5843BE00D94858 /* OrderHistoryViewController.swift */; };
 		B11AEA6F2A5843F700D94858 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11AEA6E2A5843F700D94858 /* OrderCell.swift */; };
 		B127FC812A519ED600ACD3D1 /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC802A519ED600ACD3D1 /* AddressesViewController.swift */; };
@@ -19,6 +23,10 @@
 		B127FC872A519EFA00ACD3D1 /* AddressesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC862A519EFA00ACD3D1 /* AddressesRouter.swift */; };
 		B127FC8D2A51A1F600ACD3D1 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC8C2A51A1F600ACD3D1 /* AddressCell.swift */; };
 		B127FC8F2A51A54F00ACD3D1 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127FC8E2A51A54F00ACD3D1 /* AddressModel.swift */; };
+		B131AE752A6E9F4A00EDAB15 /* SignUpPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131AE742A6E9F4A00EDAB15 /* SignUpPresenterTests.swift */; };
+		B131AE772A6E9F8E00EDAB15 /* MockSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131AE762A6E9F8E00EDAB15 /* MockSignUpViewController.swift */; };
+		B131AE792A6E9F9700EDAB15 /* MockSignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131AE782A6E9F9700EDAB15 /* MockSignUpRouter.swift */; };
+		B131AE7B2A6E9FA000EDAB15 /* MockSignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131AE7A2A6E9FA000EDAB15 /* MockSignUpInteractor.swift */; };
 		B131F7902A56D1F40090E32C /* CompleteOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131F78F2A56D1F40090E32C /* CompleteOrderViewController.swift */; };
 		B131F7922A56D1FC0090E32C /* CompleteOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131F7912A56D1FC0090E32C /* CompleteOrderPresenter.swift */; };
 		B131F7942A56D2040090E32C /* CompleteOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B131F7932A56D2040090E32C /* CompleteOrderInteractor.swift */; };
@@ -48,6 +56,10 @@
 		B174C4202A49BF190082ADDC /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B174C41F2A49BF190082ADDC /* FirebaseDatabase */; };
 		B17D35232A49D07B00591517 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B17D35222A49D07B00591517 /* IQKeyboardManagerSwift */; };
 		B17D35272A49D1DD00591517 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D35262A49D1DD00591517 /* AuthManager.swift */; };
+		B17D5D262A6D97ED00C74528 /* OnboardingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D5D252A6D97ED00C74528 /* OnboardingPresenterTests.swift */; };
+		B17D5D282A6D985B00C74528 /* MockOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D5D272A6D985B00C74528 /* MockOnboardingViewController.swift */; };
+		B17D5D2A2A6D98EA00C74528 /* MockOnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D5D292A6D98EA00C74528 /* MockOnboardingInteractor.swift */; };
+		B17D5D2C2A6D996400C74528 /* MockOnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D5D2B2A6D996400C74528 /* MockOnboardingRouter.swift */; };
 		B17DC85D2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17DC85C2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift */; };
 		B18911792A4EC9AE00913F83 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18911782A4EC9AE00913F83 /* PaddingLabel.swift */; };
 		B189117C2A4ED6C000913F83 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189117B2A4ED6C000913F83 /* MainTabBarViewController.swift */; };
@@ -159,6 +171,10 @@
 		B10B5F6B2A4EFF6F00C9FD77 /* FavoriteProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductModel.swift; sourceTree = "<group>"; };
 		B10B5F702A4F059900C9FD77 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		B10FA9792A5AD5EF00C4C2A4 /* EmptyBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBasketView.swift; sourceTree = "<group>"; };
+		B11639E72A6FE74A007B70A4 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		B11639E92A6FE757007B70A4 /* MockHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewController.swift; sourceTree = "<group>"; };
+		B11639EB2A6FE75F007B70A4 /* MockHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeInteractor.swift; sourceTree = "<group>"; };
+		B11639ED2A6FE764007B70A4 /* MockHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeRouter.swift; sourceTree = "<group>"; };
 		B11AEA6C2A5843BE00D94858 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
 		B11AEA6E2A5843F700D94858 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		B127FC802A519ED600ACD3D1 /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +183,10 @@
 		B127FC862A519EFA00ACD3D1 /* AddressesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesRouter.swift; sourceTree = "<group>"; };
 		B127FC8C2A51A1F600ACD3D1 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		B127FC8E2A51A54F00ACD3D1 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		B131AE742A6E9F4A00EDAB15 /* SignUpPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenterTests.swift; sourceTree = "<group>"; };
+		B131AE762A6E9F8E00EDAB15 /* MockSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignUpViewController.swift; sourceTree = "<group>"; };
+		B131AE782A6E9F9700EDAB15 /* MockSignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignUpRouter.swift; sourceTree = "<group>"; };
+		B131AE7A2A6E9FA000EDAB15 /* MockSignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignUpInteractor.swift; sourceTree = "<group>"; };
 		B131F78F2A56D1F40090E32C /* CompleteOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrderViewController.swift; sourceTree = "<group>"; };
 		B131F7912A56D1FC0090E32C /* CompleteOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrderPresenter.swift; sourceTree = "<group>"; };
 		B131F7932A56D2040090E32C /* CompleteOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrderInteractor.swift; sourceTree = "<group>"; };
@@ -192,6 +212,10 @@
 		B174C4182A49AB9A0082ADDC /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		B174C41A2A49BA470082ADDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B17D35262A49D1DD00591517 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B17D5D252A6D97ED00C74528 /* OnboardingPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterTests.swift; sourceTree = "<group>"; };
+		B17D5D272A6D985B00C74528 /* MockOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingViewController.swift; sourceTree = "<group>"; };
+		B17D5D292A6D98EA00C74528 /* MockOnboardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingInteractor.swift; sourceTree = "<group>"; };
+		B17D5D2B2A6D996400C74528 /* MockOnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboardingRouter.swift; sourceTree = "<group>"; };
 		B17DC85C2A4B15DC00572CF1 /* CustomSignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInWithGoogleButton.swift; sourceTree = "<group>"; };
 		B18911782A4EC9AE00913F83 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		B189117B2A4ED6C000913F83 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +375,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		B11639E62A6FE73E007B70A4 /* HomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				B11639E72A6FE74A007B70A4 /* HomePresenterTests.swift */,
+				B11639E92A6FE757007B70A4 /* MockHomeViewController.swift */,
+				B11639EB2A6FE75F007B70A4 /* MockHomeInteractor.swift */,
+				B11639ED2A6FE764007B70A4 /* MockHomeRouter.swift */,
+			);
+			path = HomeTests;
+			sourceTree = "<group>";
+		};
 		B11AEA6B2A5843A700D94858 /* OrderHistory */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +439,17 @@
 				B14B2C562A51CA4400F11791 /* EmptyAddressesView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		B131AE732A6E9F3600EDAB15 /* SignUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				B131AE742A6E9F4A00EDAB15 /* SignUpPresenterTests.swift */,
+				B131AE762A6E9F8E00EDAB15 /* MockSignUpViewController.swift */,
+				B131AE782A6E9F9700EDAB15 /* MockSignUpRouter.swift */,
+				B131AE7A2A6E9FA000EDAB15 /* MockSignUpInteractor.swift */,
+			);
+			path = SignUpTests;
 			sourceTree = "<group>";
 		};
 		B131F78E2A56D1E30090E32C /* CompleteOrder */ = {
@@ -560,6 +606,17 @@
 				B17D35262A49D1DD00591517 /* AuthManager.swift */,
 			);
 			path = AuthManager;
+			sourceTree = "<group>";
+		};
+		B17D5D242A6D97D100C74528 /* OnboardingTests */ = {
+			isa = PBXGroup;
+			children = (
+				B17D5D252A6D97ED00C74528 /* OnboardingPresenterTests.swift */,
+				B17D5D272A6D985B00C74528 /* MockOnboardingViewController.swift */,
+				B17D5D292A6D98EA00C74528 /* MockOnboardingInteractor.swift */,
+				B17D5D2B2A6D996400C74528 /* MockOnboardingRouter.swift */,
+			);
+			path = OnboardingTests;
 			sourceTree = "<group>";
 		};
 		B17DC85B2A4B158A00572CF1 /* CustomViews */ = {
@@ -1090,8 +1147,11 @@
 		B1D4BDC12A5D4EA3007EB8CC /* ECommerceTests */ = {
 			isa = PBXGroup;
 			children = (
-				B1ECD7B62A605C4C00F192B7 /* MockManagers */,
+				B11639E62A6FE73E007B70A4 /* HomeTests */,
+				B131AE732A6E9F3600EDAB15 /* SignUpTests */,
+				B17D5D242A6D97D100C74528 /* OnboardingTests */,
 				B1D4BDC92A5D4EC0007EB8CC /* LoginTests */,
+				B1ECD7B62A605C4C00F192B7 /* MockManagers */,
 			);
 			path = ECommerceTests;
 			sourceTree = "<group>";
@@ -1379,11 +1439,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B131AE752A6E9F4A00EDAB15 /* SignUpPresenterTests.swift in Sources */,
+				B11639EC2A6FE75F007B70A4 /* MockHomeInteractor.swift in Sources */,
+				B11639EE2A6FE764007B70A4 /* MockHomeRouter.swift in Sources */,
+				B131AE7B2A6E9FA000EDAB15 /* MockSignUpInteractor.swift in Sources */,
+				B131AE772A6E9F8E00EDAB15 /* MockSignUpViewController.swift in Sources */,
+				B11639E82A6FE74A007B70A4 /* HomePresenterTests.swift in Sources */,
+				B131AE792A6E9F9700EDAB15 /* MockSignUpRouter.swift in Sources */,
+				B17D5D2C2A6D996400C74528 /* MockOnboardingRouter.swift in Sources */,
 				B1D4BDDB2A5D523F007EB8CC /* MockLoginRouter.swift in Sources */,
+				B17D5D2A2A6D98EA00C74528 /* MockOnboardingInteractor.swift in Sources */,
 				B1ECD7B82A605C5E00F192B7 /* MockAuthManager.swift in Sources */,
+				B11639EA2A6FE757007B70A4 /* MockHomeViewController.swift in Sources */,
 				B1D4BDCB2A5D4ED4007EB8CC /* MockLoginViewController.swift in Sources */,
 				B1D4BDD72A5D511B007EB8CC /* MockLoginInteractor.swift in Sources */,
+				B17D5D282A6D985B00C74528 /* MockOnboardingViewController.swift in Sources */,
 				B1D4BDDE2A5D53EE007EB8CC /* LoginPresenterTests.swift in Sources */,
+				B17D5D262A6D97ED00C74528 /* OnboardingPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
