@@ -13,13 +13,13 @@ protocol CountriesServiceProtocol: AnyObject {
 
 final class CountriesService: CountriesServiceProtocol {
     
-    private let networkManager = NetworkManager()
+    private let networkManager = NetworkManager.shared
     
     func getAllCountries(completion: @escaping (Result<Countries, NetworkError>) -> Void) async throws {
         do {
             let endpoint = CountriesEndpoint.getAllCountries
-            let countries: Countries = try await networkManager.request(endpoint: endpoint)
-            completion(.success(countries))
+            let countries = try await networkManager.request(endpoint, type: Countries.self)
+            completion(.success(countries ?? []))
         } catch let error as NetworkError {
             completion(.failure(error))
         }

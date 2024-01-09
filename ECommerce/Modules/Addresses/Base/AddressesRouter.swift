@@ -22,7 +22,7 @@ final class AddressesRouter {
     static func startAddressesModule() -> UIViewController {
         let view = AddressesViewController()
         let router = AddressesRouter(view: view)
-        let interactor = AddressesInteractor(storageManager: RealmManager(), userInfoManager: UserInfoManager())
+        let interactor = AddressesInteractor(storageManager: RealmManager.shared, userInfoManager: UserInfoManager())
         let presenter = AddressesPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

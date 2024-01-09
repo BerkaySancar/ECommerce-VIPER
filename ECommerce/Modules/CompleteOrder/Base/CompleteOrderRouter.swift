@@ -24,7 +24,7 @@ final class CompleteOrderRouter {
     static func startCompleteOrderModule(items: [BasketModel]?) -> UIViewController {
         let view = CompleteOrderViewController()
         let router = CompleteOrderRouter(view: view)
-        let interactor = CompleteOrderInteractor(items: items, storageManager: RealmManager(), basketManager: BasketManager())
+        let interactor = CompleteOrderInteractor(items: items, storageManager: RealmManager.shared, basketManager: BasketManager())
         let presenter = CompleteOrderPresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter

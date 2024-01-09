@@ -77,7 +77,9 @@ extension HomeInteractor: HomeInteractorInputs {
                         self.categories.append(contentsOf: data.categories)
                     }
                 case .failure(let error):
-                    presenter?.onError(errorMessage: error.localizedDescription)
+                    DispatchQueue.main.async {
+                        self.presenter?.onError(errorMessage: error.localizedDescription)
+                    }
                 }
             }
         }

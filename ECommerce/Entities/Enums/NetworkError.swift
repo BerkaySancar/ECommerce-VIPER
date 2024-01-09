@@ -12,6 +12,8 @@ enum NetworkError: Error {
     case invalidResponse
     case invalidURLRequest
     case requestFailed
+    case noConnection
+    case unauthorized
     
     var localizedDescription: String {
         switch self {
@@ -23,6 +25,10 @@ enum NetworkError: Error {
             return NSLocalizedString("Request failed.", comment: "")
         case .invalidURLRequest:
             return NSLocalizedString("Invalid URL Request.", comment: "")
+        case .noConnection:
+            return NSLocalizedString("No internet connection.", comment: "")
+        case .unauthorized:
+            return NSLocalizedString("Unauthorized request.", comment: "")
         }
     }
 }

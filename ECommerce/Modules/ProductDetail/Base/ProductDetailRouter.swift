@@ -26,7 +26,7 @@ final class ProductDetailRouter {
         let router = ProductDetailRouter(view: view)
         let interactor = ProductDetailInteractor(productID: productID,
                                                  service: ProductsService(),
-                                                 storageManager: RealmManager(),
+                                                 storageManager: RealmManager.shared,
                                                  userInfoManager: UserInfoManager(),
                                                  basketManager: BasketManager())
         let presenter = ProductDetailPresenter(view: view, interactor: interactor, router: router)
