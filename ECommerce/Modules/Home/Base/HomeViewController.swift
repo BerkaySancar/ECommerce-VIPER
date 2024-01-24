@@ -166,13 +166,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            guard let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: CategoryTitleCell.identifier, for: indexPath) as? CategoryTitleCell else { return UICollectionViewCell() }
+        switch HomeViewCellType.getSection(section: indexPath.section) {
+        case .categories:
+            let cell = homeCollectionView.dequeueReusableCell(
+                withReuseIdentifier: CategoryTitleCell.identifier,
+                for: indexPath
+            ) as! CategoryTitleCell
             cell.setTitle(title: presenter.showCategories()?[indexPath.item])
             cell.delegate = self
             return cell
-        } else {
-            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
+        case .products:
+            let cell = homeCollectionView.dequeueReusableCell(
+                withReuseIdentifier: ProductCell.identifier,
+                for: indexPath
+            ) as! ProductCell
             cell.showModel(model: presenter.showProducts()?[indexPath.item], isFav: presenter.isFav(indexPath: indexPath))
             cell.delegate = self
             return cell

@@ -22,6 +22,19 @@ protocol HomePresenterInputs {
     func isFav(indexPath: IndexPath) -> Bool?
 }
 
+enum HomeViewCellType: CaseIterable {
+    case categories
+    case products
+    
+    static func numberOfSection() -> Int {
+        return self.allCases.count
+    }
+    
+    static func getSection(section: Int) -> HomeViewCellType {
+        return self.allCases[section]
+    }
+}
+
 final class HomePresenter {
     private weak var view: HomeViewProtocol?
     private let interactor: HomeInteractorInputs?
@@ -52,29 +65,34 @@ extension HomePresenter: HomePresenterInputs {
     }
     
     func numberOfSection() -> Int {
-        return 2
+        return HomeViewCellType.numberOfSection()
     }
     
     func numberOfItemsInSection(section: Int) -> Int {
-        if section == 0 {
+        switch HomeViewCellType.getSection(section: section) {
+        case .categories:
             return interactor?.showCategories().count ?? 0
-        } else {
+        case .products:
             return interactor?.showProducts().count ?? 0
         }
     }
 
     func sizeForItemAt(indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
+        switch HomeViewCellType.getSection(section: indexPath.section) {
+        case .categories:
             let title = interactor?.showCategories()[indexPath.item].capitalized
             let width = title?.width(withConstrainedHeight: 50, font: .systemFont(ofSize: 22))
             return CGSize(width: width!, height: 40)
-        } else {
+        case .products:
             return .init(width: UIScreenBounds.width / 2.3, height: 300)
         }
     }
     
     func didSelectItemAt(indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        switch HomeViewCellType.getSection(section: indexPath.section) {
+        case .categories:
+            break
+        case .products:
             if let id = interactor?.showProducts()[indexPath.item].id {
                 router?.toDetail(id: id)
             }

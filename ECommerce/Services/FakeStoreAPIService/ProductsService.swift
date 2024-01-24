@@ -20,14 +20,14 @@ protocol ProductsServiceProtocol {
 final class ProductsService {
     private let networkManager = NetworkManager.shared
     private let group = DispatchGroup()
+    
+    private var products: [ProductModel] = []
+    private var categories: Categories = []
 }
 
 extension ProductsService: ProductsServiceProtocol {
 
     func fetchProductsAndCategories(completion: @escaping ProductsAndCategoriesHandler) async throws {
-        var products: [ProductModel] = []
-        var categories: Categories = []
-        
         group.enter()
         do {
             let endpoint = ProductsEndpoint.allProducts
@@ -55,7 +55,7 @@ extension ProductsService: ProductsServiceProtocol {
         }
         
         group.notify(queue: .main) { 
-            completion(.success((products, categories)))
+            completion(.success((self.products, self.categories)))
         }
     }
     
